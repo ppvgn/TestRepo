@@ -1,0 +1,920 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V17" />
+  <DocumentInfo>
+    <Created>2021-12-03T08:13:12.6801302Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Advanced</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.FB ID="0">
+    <AttributeList>
+      <AutoNumber>false</AutoNumber>
+      <HeaderAuthor />
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Input">
+    <Member Name="I_ReqAckCls" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Запрос на закрытие периметра</MultiLanguageText></Comment></Member>
+    <Member Name="I_PrDrCls" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Сигнал от замка о закрытии</MultiLanguageText></Comment></Member>
+    <Member Name="I_ReqCnfrm" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Подтверждение закрытия и запрос на открытие</MultiLanguageText></Comment></Member>
+    <Member Name="I_SpRdyOpn" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Готовность к открытию периметра</MultiLanguageText></Comment></Member>
+    <Member Name="I_AckFltRst" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Сброс ошибки</MultiLanguageText></Comment></Member>
+    <Member Name="I_EmrStp" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Аварийный останов</MultiLanguageText></Comment></Member>
+    <Member Name="I_KeyConv" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Ключ конвейера</MultiLanguageText></Comment></Member>
+    <Member Name="I_SPBreak" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Разрыв периметра нелегально</MultiLanguageText></Comment></Member>
+  </Section>
+  <Section Name="Output">
+    <Member Name="O_SPClose" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Периметр безопасности закрыт</MultiLanguageText></Comment></Member>
+    <Member Name="O_RdySPCls_P3" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Готовность к закрытию периметра</MultiLanguageText></Comment></Member>
+    <Member Name="O_AckSPCls" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Запрос на закрытие периметра</MultiLanguageText></Comment></Member>
+    <Member Name="O_OpnP" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Происходит открытие</MultiLanguageText></Comment></Member>
+    <Member Name="O_SPBreak" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList></Member>
+  </Section>
+  <Section Name="InOut" />
+  <Section Name="Static">
+    <Member Name="S_AckSPClsP3_SR" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Запрос на закрытие периметра P3</MultiLanguageText></Comment></Member>
+    <Member Name="S_AckSPClsP3_HIS" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Для отслеживания переднего фронта пульт P3</MultiLanguageText></Comment></Member>
+    <Member Name="S_AckSPRst_TON" Datatype="TON" Version="1.4"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Таймер на закрытие периметра</MultiLanguageText></Comment><Sections><Section Name="Input"><Member Name="IN" Datatype="Bool" /><Member Name="PT" Datatype="Time" /></Section><Section Name="Output"><Member Name="Q" Datatype="Bool" /><Member Name="ET" Datatype="Time" /></Section><Section Name="InOut" /><Section Name="Static" /></Sections></Member>
+    <Member Name="S_SP_Close_SR" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Периметр закрыт</MultiLanguageText></Comment></Member>
+    <Member Name="S_AckSPClsP_HIS" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Для отслеживания переднего фронта пульт P при закрытии</MultiLanguageText></Comment></Member>
+    <Member Name="S_SPBreak_SR" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Разрыв периметра нелегально</MultiLanguageText></Comment></Member>
+    <Member Name="S_AckSPOpn_TON" Datatype="TON" Version="1.4"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="Input"><Member Name="IN" Datatype="Bool" /><Member Name="PT" Datatype="Time" /></Section><Section Name="Output"><Member Name="Q" Datatype="Bool" /><Member Name="ET" Datatype="Time" /></Section><Section Name="InOut" /><Section Name="Static" /></Sections></Member>
+    <Member Name="S_AckSPOpn_SR" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Запрос на открытие периметра</MultiLanguageText></Comment></Member>
+    <Member Name="S_AckSPOpnP_HIS" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Для отслеживания переднего фронта пульт P при открытии</MultiLanguageText></Comment></Member>
+  </Section>
+  <Section Name="Temp" />
+  <Section Name="Constant" />
+</Sections></Interface>
+      <IsIECCheckEnabled>false</IsIECCheckEnabled>
+      <Name>FFB_Safety_Perimeter</Name>
+      <Number>300</Number>
+      <ProgrammingLanguage>F_FBD</ProgrammingLanguage>
+      <UDABlockProperties />
+      <UDAEnableTagReadback>false</UDAEnableTagReadback>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="3" CompositionName="Items">
+            <AttributeList>
+              <Culture>ru-RU</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="4" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="I_EmrStp" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="I_KeyConv" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="O_RdySPCls_P3" />
+      </Symbol>
+    </Access>
+    <Part Name="A" UId="24">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+      <Negated Name="in2" />
+    </Part>
+    <Part Name="Coil" UId="25" />
+  </Parts>
+  <Wires>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="24" Name="in1" />
+    </Wire>
+    <Wire UId="27">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="in2" />
+    </Wire>
+    <Wire UId="28">
+      <NameCon UId="24" Name="out" />
+      <NameCon UId="25" Name="in" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="23" />
+      <NameCon UId="25" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>F_FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="5" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="6" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="8" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="9" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Готовность к закрытию периметра</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="B" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="I_ReqAckCls" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="I_EmrStp" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="I_KeyConv" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="S_AckSPClsP3_HIS" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="S_AckSPRst_TON" />
+        <Component Name="Q" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="26">
+      <Symbol>
+        <Component Name="S_SP_Close_SR" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="27">
+      <Symbol>
+        <Component Name="S_AckSPClsP3_SR" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="28">
+      <Symbol>
+        <Component Name="O_AckSPCls" />
+      </Symbol>
+    </Access>
+    <Part Name="A" UId="29">
+      <TemplateValue Name="Card" Type="Cardinality">3</TemplateValue>
+      <Negated Name="in3" />
+    </Part>
+    <Part Name="PBox" UId="30" />
+    <Part Name="O" UId="31">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="Sr" UId="32" />
+    <Part Name="Coil" UId="33" />
+  </Parts>
+  <Wires>
+    <Wire UId="34">
+      <IdentCon UId="21" />
+      <NameCon UId="29" Name="in1" />
+    </Wire>
+    <Wire UId="35">
+      <IdentCon UId="22" />
+      <NameCon UId="29" Name="in2" />
+    </Wire>
+    <Wire UId="36">
+      <IdentCon UId="23" />
+      <NameCon UId="29" Name="in3" />
+    </Wire>
+    <Wire UId="37">
+      <NameCon UId="29" Name="out" />
+      <NameCon UId="30" Name="in" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="24" />
+      <NameCon UId="30" Name="bit" />
+    </Wire>
+    <Wire UId="39">
+      <NameCon UId="30" Name="out" />
+      <NameCon UId="32" Name="s" />
+    </Wire>
+    <Wire UId="40">
+      <IdentCon UId="25" />
+      <NameCon UId="31" Name="in1" />
+    </Wire>
+    <Wire UId="41">
+      <IdentCon UId="26" />
+      <NameCon UId="31" Name="in2" />
+    </Wire>
+    <Wire UId="42">
+      <NameCon UId="31" Name="out" />
+      <NameCon UId="32" Name="r1" />
+    </Wire>
+    <Wire UId="43">
+      <IdentCon UId="27" />
+      <NameCon UId="32" Name="operand" />
+    </Wire>
+    <Wire UId="44">
+      <NameCon UId="32" Name="q" />
+      <NameCon UId="33" Name="in" />
+    </Wire>
+    <Wire UId="45">
+      <IdentCon UId="28" />
+      <NameCon UId="33" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>F_FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="C" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="F" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="10" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="11" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Запрос на закрытие периметра</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="12" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="S_AckSPClsP3_SR" />
+      </Symbol>
+    </Access>
+    <Access Scope="TypedConstant" UId="22">
+      <Constant>
+        <ConstantValue>T#2m</ConstantValue>
+      </Constant>
+    </Access>
+    <Part Name="TON" Version="1.4" UId="23">
+      <Instance Scope="LocalVariable" UId="24">
+        <Component Name="S_AckSPRst_TON" />
+      </Instance>
+      <TemplateValue Name="f_user_card" Type="Cardinality">1</TemplateValue>
+      <TemplateValue Name="f_image_card" Type="Cardinality">0</TemplateValue>
+      <TemplateValue Name="f_imageclassic_card" Type="Cardinality">0</TemplateValue>
+      <TemplateValue Name="f_imageplus_card" Type="Cardinality">0</TemplateValue>
+      <TemplateValue Name="time_type" Type="Type">Time</TemplateValue>
+      <TemplateValue Name="codedbool_type" Type="Type">Int</TemplateValue>
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="23" Name="IN" />
+    </Wire>
+    <Wire UId="27">
+      <IdentCon UId="22" />
+      <NameCon UId="23" Name="PT" />
+    </Wire>
+    <Wire UId="28">
+      <NameCon UId="23" Name="ET" />
+      <OpenCon UId="25" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>F_FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="13" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="14" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="15" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="16" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="17" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="18" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="19" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="I_ReqCnfrm" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="S_AckSPOpnP_HIS" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="S_SP_Close_SR" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="I_SpRdyOpn" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="S_AckSPOpn_TON" />
+        <Component Name="Q" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="26">
+      <Symbol>
+        <Component Name="S_AckSPOpn_SR" />
+      </Symbol>
+    </Access>
+    <Access Scope="TypedConstant" UId="27">
+      <Constant>
+        <ConstantValue>T#5s</ConstantValue>
+      </Constant>
+    </Access>
+    <Part Name="PBox" UId="28" />
+    <Part Name="A" UId="29">
+      <TemplateValue Name="Card" Type="Cardinality">3</TemplateValue>
+    </Part>
+    <Part Name="Sr" UId="30" />
+    <Part Name="TON" Version="1.4" UId="31">
+      <Instance Scope="LocalVariable" UId="32">
+        <Component Name="S_AckSPOpn_TON" />
+      </Instance>
+      <TemplateValue Name="f_user_card" Type="Cardinality">1</TemplateValue>
+      <TemplateValue Name="f_image_card" Type="Cardinality">0</TemplateValue>
+      <TemplateValue Name="f_imageclassic_card" Type="Cardinality">0</TemplateValue>
+      <TemplateValue Name="f_imageplus_card" Type="Cardinality">0</TemplateValue>
+      <TemplateValue Name="time_type" Type="Type">Time</TemplateValue>
+      <TemplateValue Name="codedbool_type" Type="Type">Int</TemplateValue>
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="34">
+      <IdentCon UId="21" />
+      <NameCon UId="28" Name="in" />
+    </Wire>
+    <Wire UId="35">
+      <IdentCon UId="22" />
+      <NameCon UId="28" Name="bit" />
+    </Wire>
+    <Wire UId="36">
+      <NameCon UId="28" Name="out" />
+      <NameCon UId="29" Name="in1" />
+    </Wire>
+    <Wire UId="37">
+      <IdentCon UId="23" />
+      <NameCon UId="29" Name="in2" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="24" />
+      <NameCon UId="29" Name="in3" />
+    </Wire>
+    <Wire UId="39">
+      <NameCon UId="29" Name="out" />
+      <NameCon UId="30" Name="s" />
+    </Wire>
+    <Wire UId="40">
+      <IdentCon UId="25" />
+      <NameCon UId="30" Name="r1" />
+    </Wire>
+    <Wire UId="41">
+      <IdentCon UId="26" />
+      <NameCon UId="30" Name="operand" />
+    </Wire>
+    <Wire UId="42">
+      <NameCon UId="30" Name="q" />
+      <NameCon UId="31" Name="IN" />
+    </Wire>
+    <Wire UId="43">
+      <IdentCon UId="27" />
+      <NameCon UId="31" Name="PT" />
+    </Wire>
+    <Wire UId="44">
+      <NameCon UId="31" Name="ET" />
+      <OpenCon UId="33" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>F_FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1A" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="1B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="1C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="1D" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="1E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="1F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Запрос на открытие периметра</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="20" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="I_ReqCnfrm" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="S_AckSPClsP_HIS" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="S_AckSPClsP3_SR" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="I_PrDrCls" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="I_PrDrCls" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="26">
+      <Symbol>
+        <Component Name="S_SPBreak_SR" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="27">
+      <Symbol>
+        <Component Name="S_AckSPOpn_TON" />
+        <Component Name="Q" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="28">
+      <Symbol>
+        <Component Name="S_SP_Close_SR" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="29">
+      <Symbol>
+        <Component Name="O_SPClose" />
+      </Symbol>
+    </Access>
+    <Part Name="PBox" UId="30" />
+    <Part Name="A" UId="31">
+      <TemplateValue Name="Card" Type="Cardinality">3</TemplateValue>
+    </Part>
+    <Part Name="O" UId="32">
+      <TemplateValue Name="Card" Type="Cardinality">3</TemplateValue>
+      <Negated Name="in1" />
+    </Part>
+    <Part Name="Sr" UId="33" />
+    <Part Name="Coil" UId="34" />
+  </Parts>
+  <Wires>
+    <Wire UId="35">
+      <IdentCon UId="21" />
+      <NameCon UId="30" Name="in" />
+    </Wire>
+    <Wire UId="36">
+      <IdentCon UId="22" />
+      <NameCon UId="30" Name="bit" />
+    </Wire>
+    <Wire UId="37">
+      <NameCon UId="30" Name="out" />
+      <NameCon UId="31" Name="in1" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="23" />
+      <NameCon UId="31" Name="in2" />
+    </Wire>
+    <Wire UId="39">
+      <IdentCon UId="24" />
+      <NameCon UId="31" Name="in3" />
+    </Wire>
+    <Wire UId="40">
+      <NameCon UId="31" Name="out" />
+      <NameCon UId="33" Name="s" />
+    </Wire>
+    <Wire UId="41">
+      <IdentCon UId="25" />
+      <NameCon UId="32" Name="in1" />
+    </Wire>
+    <Wire UId="42">
+      <IdentCon UId="26" />
+      <NameCon UId="32" Name="in2" />
+    </Wire>
+    <Wire UId="43">
+      <IdentCon UId="27" />
+      <NameCon UId="32" Name="in3" />
+    </Wire>
+    <Wire UId="44">
+      <NameCon UId="32" Name="out" />
+      <NameCon UId="33" Name="r1" />
+    </Wire>
+    <Wire UId="45">
+      <IdentCon UId="28" />
+      <NameCon UId="33" Name="operand" />
+    </Wire>
+    <Wire UId="46">
+      <NameCon UId="33" Name="q" />
+      <NameCon UId="34" Name="in" />
+    </Wire>
+    <Wire UId="47">
+      <IdentCon UId="29" />
+      <NameCon UId="34" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>F_FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="21" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="22" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="23" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="24" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="25" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="26" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Закрытие периметра</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="27" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="S_AckSPOpn_SR" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="O_OpnP" />
+      </Symbol>
+    </Access>
+    <Part Name="Coil" UId="23" />
+  </Parts>
+  <Wires>
+    <Wire UId="24">
+      <IdentCon UId="21" />
+      <NameCon UId="23" Name="in" />
+    </Wire>
+    <Wire UId="25">
+      <IdentCon UId="22" />
+      <NameCon UId="23" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>F_FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="28" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="29" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="2A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="2B" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="2C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="2D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Происходит открытие</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="2E" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="I_SPBreak" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="S_SP_Close_SR" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="I_AckFltRst" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="S_SPBreak_SR" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="O_SPBreak" />
+      </Symbol>
+    </Access>
+    <Part Name="A" UId="26">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="Sr" UId="27" />
+    <Part Name="Coil" UId="28" />
+  </Parts>
+  <Wires>
+    <Wire UId="29">
+      <IdentCon UId="21" />
+      <NameCon UId="26" Name="in1" />
+    </Wire>
+    <Wire UId="30">
+      <IdentCon UId="22" />
+      <NameCon UId="26" Name="in2" />
+    </Wire>
+    <Wire UId="31">
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="27" Name="s" />
+    </Wire>
+    <Wire UId="32">
+      <IdentCon UId="23" />
+      <NameCon UId="27" Name="r1" />
+    </Wire>
+    <Wire UId="33">
+      <IdentCon UId="24" />
+      <NameCon UId="27" Name="operand" />
+    </Wire>
+    <Wire UId="34">
+      <NameCon UId="27" Name="q" />
+      <NameCon UId="28" Name="in" />
+    </Wire>
+    <Wire UId="35">
+      <IdentCon UId="25" />
+      <NameCon UId="28" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>F_FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="2F" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="30" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="31" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="32" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="33" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="34" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Нелегальное открытие периметра</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="35" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource />
+          <ProgrammingLanguage>F_FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="36" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="37" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="38" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="39" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="3A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="3B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="3C" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="3D" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="3E" CompositionName="Items">
+            <AttributeList>
+              <Culture>ru-RU</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.FB>
+</Document>

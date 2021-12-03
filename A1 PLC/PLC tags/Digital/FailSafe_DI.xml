@@ -1,0 +1,1385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V17" />
+  <DocumentInfo>
+    <Created>2021-12-03T08:08:03.102286Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Advanced</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Tags.PlcTagTable ID="0">
+    <AttributeList>
+      <Name>FailSafe_DI</Name>
+    </AttributeList>
+    <ObjectList>
+      <SW.Tags.PlcTag ID="1" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I40.0</LogicalAddress>
+          <Name>I_/EmStpAccCon_Ch1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="2" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="3" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Emergency Stop Accelerator Console (True=No EmStp)</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="4" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Консоль ускорителя канал 1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="5" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I40.1</LogicalAddress>
+          <Name>I_/EmStpP1_Ch1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="6" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Emergency Stop Panel 1 (True=No EmStp)</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="8" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Пульт Р1 канал 1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="9" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I40.2</LogicalAddress>
+          <Name>I_/EmStpP2_Ch1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="A" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Emergency Stop Panel 2 (True=No EmStp)</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Пульт Р2 канал 1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="D" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I40.3</LogicalAddress>
+          <Name>I_PrDoor1Cls_Ch1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="E" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Protecting Door 1 close</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="10" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Замок блокирующий дверь 1 канал 1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="11" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I40.4</LogicalAddress>
+          <Name>I_PrDoor2Cls_Ch1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="12" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="13" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Protecting Door 2 close</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="14" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Замок блокирующий дверь 2 канал 1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="15" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I40.6</LogicalAddress>
+          <Name>I_/EmStpDosimeter_Ch1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="16" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="17" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Emergency Stop Dosimeter (True=No EmStp)</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="18" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Дозиметр канал 1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="19" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I40.7</LogicalAddress>
+          <Name>I_PrDoor1Req</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1A" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="1B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Request Open Protecting Door 1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="1C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Запрос на открытие двери 1 </Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="1D" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I41.0</LogicalAddress>
+          <Name>I_P3AckInSArea_Ch1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1E" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="1F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Panel 3: Acknowledgement in the Safety Area</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="20" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Сброс внутри периметра безопасности</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="21" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I41.1</LogicalAddress>
+          <Name>I_FBPowerModulator</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="22" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="23" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Feedback Contactor Modulator NA2-1Q3</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="24" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Обратная связь модулятора</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="25" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I41.2</LogicalAddress>
+          <Name>I_FBPowerConveyor</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="26" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="27" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Feedback Contactor Freq. Converter Conveyor NA2-1Q7</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="28" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Обратная связь частотного преобразователя</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="29" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I41.3</LogicalAddress>
+          <Name>I_FBPowerXRayUnit</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="2A" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Feedback Contactor X-Ray Unit NA2-2Q7</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="2C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Обратная связь ускоритель</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="2D" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I42.3</LogicalAddress>
+          <Name>I_PrDoor2Req</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="2E" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Request Open Protecting Door 2</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="30" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Запрос на открытие двери 2</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="31" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I42.4</LogicalAddress>
+          <Name>I_P1AckEmStpOutSArea</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="32" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="33" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Panel 1: Acknowledgement Emergency Stop outsite the Safety Area</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="34" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Сброс снаружи периметра безопасности</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="35" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I42.5</LogicalAddress>
+          <Name>I_FBPowerChiller</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="36" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="37" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Feedback Contactor Chiller NA2-1Q5</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="38" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Обратная связь чиллер</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="39" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I42.6</LogicalAddress>
+          <Name>I_FBPower_AccConsol</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="3A" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="3B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Feedback Contactor Accelerator Console NA2-2Q3</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="3C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Обратная связь консоль ускорителя</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="3D" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I42.7</LogicalAddress>
+          <Name>I_FBPowerModulator1P</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="3E" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="3F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Feedback Contactor Modulator 230VAC</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="40" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Обратная связь модулятора 1 фаза</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="41" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I60.0</LogicalAddress>
+          <Name>I_/EmStpP3_Ch1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="42" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="43" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Emergency Stop Panel 3 (True=No EmStp)</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="44" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Пульт P3 канал 1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="45" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I60.1</LogicalAddress>
+          <Name>I_P2AgreeBut_Ch1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="46" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="47" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Panel 2: Agree Button (True=Agree)</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="48" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Кнопка разрешения канал 1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="49" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I61.0</LogicalAddress>
+          <Name>I_P1KeyGenRel_Ch1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4A" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="4B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Panel 1: Keyswitch General Release (True=Release)</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="4C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Главный ключ разрешения канал 1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="4D" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I61.1</LogicalAddress>
+          <Name>I_P1KeyAccRel_Ch1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4E" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="4F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Panel 1: Keyswitch Accelerator Release (Power Release Mod., X-Ray Unit, Acc.)</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="50" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Ключ разрешения включения ускорителя канал 1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="51" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I40.5</LogicalAddress>
+          <Name>I_Spare40_5</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="52" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="53" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="54" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Spare</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="55" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I41.4</LogicalAddress>
+          <Name>I_/EmStpAccCon_Ch2</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="56" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="57" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="58" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Консоль ускорителя канал 2</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="59" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I41.5</LogicalAddress>
+          <Name>I_/EmStpP1_Ch2</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="5A" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="5B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="5C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Пульт Р1 канал 2</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="5D" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I41.6</LogicalAddress>
+          <Name>I_/EmStpP2_Ch2</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="5E" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="5F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="60" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Пульт Р2 канал 2</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="61" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I41.7</LogicalAddress>
+          <Name>I_PrDoor1Cls_Ch2</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="62" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="63" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="64" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Замок блокирующий дверь 1 канал 2</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="65" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I42.0</LogicalAddress>
+          <Name>I_PrDoor2Cls_Ch2</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="66" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="67" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="68" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Замок блокирующий дверь 2 канал 2</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="69" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I42.1</LogicalAddress>
+          <Name>I_Spare42_1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="6A" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="6B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="6C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Spare</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="6D" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I60.2</LogicalAddress>
+          <Name>I_Spare60_2</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="6E" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="6F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="70" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Spare</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="71" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I60.3</LogicalAddress>
+          <Name>I_Spare60_3</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="72" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="73" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="74" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Spare</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="75" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I60.4</LogicalAddress>
+          <Name>I_Spare60_4</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="76" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="77" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="78" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Spare</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="79" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I60.5</LogicalAddress>
+          <Name>I_Spare60_5</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="7A" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="7B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="7C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Spare</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="7D" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I60.6</LogicalAddress>
+          <Name>I_Spare60_6</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="7E" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="7F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="80" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Spare</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="81" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I60.7</LogicalAddress>
+          <Name>I_Spare60_7</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="82" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="83" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="84" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Spare</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="85" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I61.2</LogicalAddress>
+          <Name>I_Spare61_2</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="86" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="87" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="88" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Spare</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="89" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I61.3</LogicalAddress>
+          <Name>I_Spare61_3</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="8A" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="8B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="8C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Spare</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="8D" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I61.4</LogicalAddress>
+          <Name>I_/EmStpP3_Ch2</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="8E" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="8F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="90" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Пульт P3 канал 2</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="91" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I61.5</LogicalAddress>
+          <Name>I_P2AgreeBut_Ch2</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="92" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="93" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="94" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Кнопка разрешения канал 2</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="95" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I61.6</LogicalAddress>
+          <Name>I_Spare61_6</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="96" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="97" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="98" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Spare</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="99" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I61.7</LogicalAddress>
+          <Name>I_Spare61_7</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="9A" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="9B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="9C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Spare</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="9D" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I42.2</LogicalAddress>
+          <Name>I_/EmStpDosimeter_Ch2</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="9E" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="9F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="A0" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Дозиметр канал 2</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="A1" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I62.0</LogicalAddress>
+          <Name>I_Spare62_0</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="A2" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="A3" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="A4" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Spare</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="A5" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I62.1</LogicalAddress>
+          <Name>I_Spare62_1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="A6" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="A7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="A8" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Spare</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="A9" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I62.2</LogicalAddress>
+          <Name>I_Spare62_2</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="AA" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="AB" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="AC" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Spare</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="AD" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I62.3</LogicalAddress>
+          <Name>I_Spare62_3</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="AE" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="AF" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="B0" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Spare</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="B1" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I62.4</LogicalAddress>
+          <Name>I_P1KeyGenRel_Ch2</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="B2" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="B3" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="B4" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Главный ключ разрешения канал 2</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="B5" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I62.5</LogicalAddress>
+          <Name>I_P1KeyAccRel_Ch2</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="B6" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="B7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="B8" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Ключ разрешения включения ускорителя канал 2</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="B9" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I62.6</LogicalAddress>
+          <Name>I_Spare62_6</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="BA" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="BB" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="BC" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Spare</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="BD" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%I62.7</LogicalAddress>
+          <Name>I_Spare62_7</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="BE" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="BF" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="C0" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Spare</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+    </ObjectList>
+  </SW.Tags.PlcTagTable>
+</Document>

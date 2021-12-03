@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V17" />
+  <DocumentInfo>
+    <Created>2021-12-03T08:12:56.2721734Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Advanced</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.GlobalDB ID="0">
+    <AttributeList>
+      <AutoNumber>false</AutoNumber>
+      <HeaderAuthor />
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Static">
+    <Member Name="Request" Datatype="Struct" Remanence="NonRetain"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="de-DE">External Input Structure</MultiLanguageText><MultiLanguageText Lang="en-US">External Input Structure</MultiLanguageText><MultiLanguageText Lang="ru-RU">External Input Structure</MultiLanguageText></Comment><Member Name="DetLineStrtRq" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="de-DE">Detector Line: Start Request</MultiLanguageText><MultiLanguageText Lang="en-US">Detector Line: Start Request</MultiLanguageText><MultiLanguageText Lang="ru-RU">Detector Line: Start Request</MultiLanguageText></Comment></Member><Member Name="DetLineStpRq" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="de-DE">Detector Line: Stop Request</MultiLanguageText><MultiLanguageText Lang="en-US">Detector Line: Stop Request</MultiLanguageText><MultiLanguageText Lang="ru-RU">Detector Line: Stop Request</MultiLanguageText></Comment></Member><Member Name="DetLineSetRq" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="de-DE">Detector Line: Setup Request</MultiLanguageText><MultiLanguageText Lang="en-US">Detector Line: Setup Request</MultiLanguageText><MultiLanguageText Lang="ru-RU">Detector Line: Setup Request</MultiLanguageText></Comment></Member><Member Name="HiDoseMd" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="de-DE">High Dose Mode: 0=Off, 1=On</MultiLanguageText><MultiLanguageText Lang="en-US">High Dose Mode: 0=Off, 1=On</MultiLanguageText><MultiLanguageText Lang="ru-RU">High Dose Mode: 0=Off, 1=On</MultiLanguageText></Comment></Member><Member Name="VehMovDrct" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="de-DE">Vehicle Moving Direction: 0=Backward 1=Forward</MultiLanguageText><MultiLanguageText Lang="en-US">Vehicle Moving Direction: 0=Backward 1=Forward</MultiLanguageText><MultiLanguageText Lang="ru-RU">Vehicle Moving Direction: 0=Backward 1=Forward</MultiLanguageText></Comment></Member><Member Name="VehSpd" Datatype="Int"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="de-DE">Vehicle Speed [m/min]</MultiLanguageText><MultiLanguageText Lang="en-US">Vehicle Speed [m/min]</MultiLanguageText><MultiLanguageText Lang="ru-RU">Vehicle Speed [m/min]</MultiLanguageText></Comment></Member><Member Name="ErgMd" Datatype="Int"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="de-DE">Energie Mode</MultiLanguageText><MultiLanguageText Lang="en-US">Energie Mode</MultiLanguageText><MultiLanguageText Lang="ru-RU">Energie Mode</MultiLanguageText></Comment></Member></Member>
+    <Member Name="Status" Datatype="Struct" Remanence="NonRetain"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Детекторная линейка</MultiLanguageText></Comment><Member Name="Con_Nok" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="de-DE">Connection Not Ok</MultiLanguageText><MultiLanguageText Lang="en-US">Connection Not Ok</MultiLanguageText><MultiLanguageText Lang="ru-RU">1=Нет соединения</MultiLanguageText></Comment></Member><Member Name="ConOk" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="de-DE">1=Detector Line Connected</MultiLanguageText><MultiLanguageText Lang="en-US">1=Detector Line Connected</MultiLanguageText><MultiLanguageText Lang="ru-RU">1=Соединение Ок</MultiLanguageText></Comment></Member><Member Name="SyncStrt" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="de-DE">1=Synchronizator Started</MultiLanguageText><MultiLanguageText Lang="en-US">1=Synchronizator Started</MultiLanguageText><MultiLanguageText Lang="ru-RU">1=Синхронизация запущена</MultiLanguageText></Comment></Member><Member Name="ScanAct" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="de-DE">1=Scanning active</MultiLanguageText><MultiLanguageText Lang="en-US">1=Scanning active</MultiLanguageText><MultiLanguageText Lang="ru-RU">1=Сканирование запущено</MultiLanguageText></Comment></Member><Member Name="RdyForScan" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="de-DE">1=Ready for scanning</MultiLanguageText><MultiLanguageText Lang="en-US">1=Ready for scanning</MultiLanguageText><MultiLanguageText Lang="ru-RU">1=Готов к сканированию</MultiLanguageText></Comment></Member><Member Name="State" Datatype="Int"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="de-DE">State: 0=Error, 1=Service mode, 2=OK</MultiLanguageText><MultiLanguageText Lang="en-US">State: 0=Error, 1=Service mode, 2=OK</MultiLanguageText><MultiLanguageText Lang="ru-RU">Статус: 0=Ошибка, 1=Сервисный режим, 2=OK</MultiLanguageText></Comment></Member><Member Name="ErgMd" Datatype="Int"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="de-DE">Energy Mode: 0=Reserved, 1=Low, 2=High, 3=Dual energy)</MultiLanguageText><MultiLanguageText Lang="en-US">Energy Mode: 0=Reserved, 1=Low, 2=High, 3=Dual energy)</MultiLanguageText><MultiLanguageText Lang="ru-RU">Energy Mode: 0=Reserved, 1=Low, 2=High, 3=Dual energy)</MultiLanguageText></Comment></Member><Member Name="TrigRate" Datatype="Int"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="de-DE">Trigger Rate (Range 50-1000, Step 1)</MultiLanguageText><MultiLanguageText Lang="en-US">Trigger Rate (Range 50-1000, Step 1)</MultiLanguageText><MultiLanguageText Lang="ru-RU">Trigger Rate (Range 50-1000, Step 1)</MultiLanguageText></Comment></Member><Member Name="Error" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">1=Ошибка</MultiLanguageText></Comment></Member><Member Name="SrvsMd" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">1=Сервисный режим</MultiLanguageText></Comment></Member><Member Name="AutoMd" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">1=Ок</MultiLanguageText></Comment></Member><Member Name="EnrgMdLow" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member><Member Name="EnrgMdHigh" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member><Member Name="EnrgMdDual" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member></Member>
+  </Section>
+</Sections></Interface>
+      <IsOnlyStoredInLoadMemory>false</IsOnlyStoredInLoadMemory>
+      <IsWriteProtectedInAS>false</IsWriteProtectedInAS>
+      <Name>GDB_DetLine</Name>
+      <Number>24</Number>
+      <ProgrammingLanguage>DB</ProgrammingLanguage>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="3" CompositionName="Items">
+            <AttributeList>
+              <Culture>ru-RU</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <MultilingualText ID="4" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="5" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="6" CompositionName="Items">
+            <AttributeList>
+              <Culture>ru-RU</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.GlobalDB>
+</Document>

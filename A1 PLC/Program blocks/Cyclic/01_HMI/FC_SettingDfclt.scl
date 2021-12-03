@@ -1,0 +1,20 @@
+﻿FUNCTION "FC_SettingDfclt" : Void
+{ S7_Optimized_Access := 'FALSE' }
+VERSION : 0.1
+
+BEGIN
+	// Настройки для чиллера
+	"GDB_HMI_IO_Retain".AccChiller.ChilPwrOffTm_PT := "GDB_Default_Set".AccChiller.ChilPwrOffTm_PT;
+	"GDB_HMI_IO_Retain".AccChiller.ChilPwrOnTm_PT := "GDB_Default_Set".AccChiller.ChilPwrOnTm_PT;
+	
+	// Настройки для преобразователя частоты
+	"GDB_HMI_IO_Retain".FrqConv.FastSpeed := "GDB_Default_Set".FrqConv.FstSpd;
+	"GDB_HMI_IO_Retain".FrqConv.LowSpeed := "GDB_Default_Set".FrqConv.LwSpd;
+	"GDB_HMI_IO_Retain".FrqConv.Ramp := "GDB_Default_Set".FrqConv.Ramp;
+	
+	// Настройки для последовательности сканирования
+	"GDB_HMI_IO_Retain".ScanSeqSet.RfOn := "GDB_Default_Set".ScanSeqSet.RfOn;
+	"GDB_HMI_IO_Retain".ScanSeqSet.XrayOn := "GDB_Default_Set".ScanSeqSet.XrayOn;
+	"GDB_HMI_IO_Retain".ScanSeqSet.CycleTime := "GDB_Default_Set".ScanSeqSet.CycleTime;
+END_FUNCTION
+

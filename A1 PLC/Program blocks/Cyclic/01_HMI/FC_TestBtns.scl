@@ -1,0 +1,42 @@
+﻿FUNCTION "FC_TestBtns" : Void
+{ S7_Optimized_Access := 'FALSE' }
+VERSION : 0.1
+
+BEGIN
+	"Service_Button1" := ROR(IN := "GDB_HmiToPlc".Service_Button1, N := 8);
+	"GDB_HmiTestBtns".TB1_00_Mod400V := "Service_Button1_0";
+	"GDB_HmiTestBtns".TB1_01_Chill := "Service_Button1_1";
+	"GDB_HmiTestBtns".TB1_02_Conveyor := "Service_Button1_2";
+	"GDB_HmiTestBtns".TB1_03_AccCons := "Service_Button1_3";
+	"GDB_HmiTestBtns".TB1_04_Acc := "Service_Button1_4";
+	"GDB_HmiTestBtns".TB1_05_Mod230V := "Service_Button1_5";
+	"GDB_HmiTestBtns".TB1_06_IntrlcAcc := "Service_Button1_6";
+	"GDB_HmiTestBtns".TB1_07_TstLmp := "Service_Button1_7";
+	"GDB_HmiTestBtns".TB1_08_ConvFwrd := "Service_Button1_8";
+	"GDB_HmiTestBtns".TB1_09_ConvBwrd := "Service_Button1_9";
+	"GDB_HmiTestBtns".TB1_10_DetLineStrt := "Service_Button1_10";
+	"GDB_HmiTestBtns".TB1_11_DetLineStp :="Service_Button1_11";
+	"GDB_HmiTestBtns".TB1_12_DetLineSetup := "Service_Button1_12";
+	"GDB_HmiTestBtns".TB1_13_StnDfltRst := "Service_Button1_13";
+	"GDB_HmiTestBtns".TB1_14_ChilVlv := "Service_Button1_14";
+	"GDB_HmiTestBtns".TB1_15_ModSwit := "Service_Button1_15";
+	
+	"Service_Button2" := ROR(IN := "GDB_HmiToPlc".Service_Button2, N := 8);
+	"GDB_HmiTestBtns".TB2_00_AccRst := "Service_Button2_0";
+	"GDB_HmiTestBtns".TB2_01_AccWarm := "Service_Button2_1";
+	"GDB_HmiTestBtns".TB2_02_AccWarnFull := "Service_Button2_2";
+	"GDB_HmiTestBtns".TB2_03_AccXRay := "Service_Button2_3";
+	"GDB_HmiTestBtns".TB2_04_AccChgDose := "Service_Button2_4";
+	"GDB_HmiTestBtns".TB2_05_AccRfOn := "Service_Button2_5";
+	"GDB_HmiTestBtns".TB2_06_HornTst := "Service_Button2_6";
+	"GDB_HmiTestBtns".TB2_07_ConvSpdCount := "Service_Button2_7";
+	"GDB_HmiTestBtns".TB2_08_StrtSpdCount := "Service_Button2_8";
+	"GDB_HmiTestBtns"."TB2_09_" := "Service_Button2_9";
+	"GDB_HmiTestBtns"."TB2_10_" :="Service_Button2_10";
+	"GDB_HmiTestBtns"."TB2_11_" := "Service_Button2_11";
+	"GDB_HmiTestBtns"."TB2_12_" := "Service_Button2_12";
+	"GDB_HmiTestBtns"."TB2_13_" := "Service_Button2_13";
+	"GDB_HmiTestBtns"."TB2_14_" := "Service_Button2_14";
+	"GDB_HmiTestBtns"."TB2_15_" := "Service_Button2_15";
+END_FUNCTION
+

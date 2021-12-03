@@ -1,0 +1,248 @@
+﻿FUNCTION "FC_HMI_Data_Send" : Void
+{ S7_Optimized_Access := 'FALSE' }
+VERSION : 0.1
+
+BEGIN
+	// Состояние автоматических выключателей 
+	"CircBrcSts_0" := "GDB_Inputs".I_BrLigSrvFlt;
+	"CircBrcSts_1" := "GDB_Inputs".I_BrModFlt;
+	"CircBrcSts_2" := "GDB_Inputs".I_BrChilFlt;
+	"CircBrcSts_3" := "GDB_Inputs".I_BrPow1Flt;
+	"CircBrcSts_4" := "GDB_Inputs".I_BrPow2Flt;
+	"CircBrcSts_5" := "GDB_Inputs".I_BrFrqConvFlt;
+	"CircBrcSts_6" := "GDB_Inputs".I_BrAccConFlt;
+	"CircBrcSts_7" := "GDB_Inputs".I_BrXRayUnitFlt;
+	"CircBrcSts_8" := "GDB_Inputs".I_BrPowPlcFlt;
+	"CircBrcSts_9" := "GDB_Inputs".I_SitopPow1Flt;
+	"CircBrcSts_10" := "GDB_Inputs".I_SitopPow2Flt;
+	"CircBrcSts_11" := "GDB_Inputs".I_BrMod1PFlt;
+	"CircBrcSts_12" := FALSE;
+	"CircBrcSts_13" := FALSE;
+	"CircBrcSts_14" := FALSE;
+	"CircBrcSts_15" := FALSE;
+	
+	"GDB_PlcToHmi".Status.BrkCirc := "CircBrcSts";
+	
+	// Состояние ускорителя
+	"AccSts_0" := "FGDB_Inputs".I_P1KeyAccRel_Ch1;
+	"AccSts_1" := "GDB_Inputs".I_AccStRemMode;
+	"AccSts_2" := "GDB_Inputs".I_AccStPowerOn;
+	"AccSts_3" := "GDB_Inputs".I_AccStWarmUp;
+	"AccSts_4" := "GDB_Inputs".I_AccStStandby;
+	"AccSts_5" := "GDB_Inputs".I_AccStClear;
+	"AccSts_6" := "GDB_Inputs".I_AccStReady;
+	"AccSts_7" := "GDB_Inputs".I_AccStXRayOn;
+	"AccSts_8" := "GDB_Inputs".I_AccStFault;
+	"AccSts_9" := "GDB_Inputs".I_AccStNoEmStp;
+	"AccSts_10" := "GDB_Inputs".I_AccStMicroWave;
+	"AccSts_11" := "GDB_Inputs".I_AccStHighDoze;
+	"AccSts_12" := "GDB_Inputs".I_AccStRemouteKey;
+	"AccSts_13" := "GDB_Inputs".I_AccStEmStpPanel;
+	"AccSts_14" := FALSE;
+	"AccSts_15" := FALSE;
+	"GDB_PlcToHmi".Status.Acc := WORD_TO_INT(ROR(IN := INT_TO_WORD("AccSts"), N := 8));
+	
+	// Кнопки аварийной остановки
+	"P1EmrStp_0" := NOT "FGDB_EmStpButton".P1EmStp_Sv AND NOT "FGDB_EmStpButton".P1EmStp_AckReq;
+	"P1EmrStp_1" := "FGDB_EmStpButton".P1EmStp_AckReq;
+	"P1EmrStp_2" := "FGDB_EmStpButton".P1EmStp_Sv AND NOT "FGDB_EmStpButton".P1EmStp_AckReq;
+	"GDB_PlcToHmi".Status.EmrStp.P1 := WORD_TO_INT(ROR(IN := INT_TO_WORD("P1EmrStp"), N := 8));
+	
+	"P2EmrStp_0" := NOT "FGDB_EmStpButton".P2EmStp_Sv AND NOT "FGDB_EmStpButton".P2EmStp_AckReq;
+	"P2EmrStp_1" := "FGDB_EmStpButton".P2EmStp_AckReq;
+	"P2EmrStp_2" := "FGDB_EmStpButton".P2EmStp_Sv AND NOT "FGDB_EmStpButton".P2EmStp_AckReq;
+	"GDB_PlcToHmi".Status.EmrStp.P2 := WORD_TO_INT(ROR(IN := INT_TO_WORD("P2EmrStp"), N := 8));
+	
+	"P3EmrStp_0" := NOT "FGDB_EmStpButton".P3EmStp_Sv AND NOT "FGDB_EmStpButton".P3EmStp_AckReq;
+	"P3EmrStp_1" := "FGDB_EmStpButton".P3EmStp_AckReq;
+	"P3EmrStp_2" := "FGDB_EmStpButton".P3EmStp_Sv AND NOT "FGDB_EmStpButton".P2EmStp_AckReq;
+	"GDB_PlcToHmi".Status.EmrStp.P3 := WORD_TO_INT(ROR(IN := INT_TO_WORD("P3EmrStp"), N := 8));
+	
+	"AccEmrStp_0" := NOT "FGDB_EmStpButton".AccEmStp_Sv AND NOT "FGDB_EmStpButton".AccEmStp_AckReq;
+	"AccEmrStp_1" := "FGDB_EmStpButton".AccEmStp_AckReq;
+	"AccEmrStp_2" := "FGDB_EmStpButton".AccEmStp_Sv AND NOT "FGDB_EmStpButton".AccEmStp_AckReq;
+	"GDB_PlcToHmi".Status.EmrStp.Acc := WORD_TO_INT(ROR(IN := INT_TO_WORD("AccEmrStp"), N := 8));
+	
+	"DosimEmrStp_0" := NOT "FGDB_EmStpButton".DosimEmStp_Sv AND NOT "FGDB_EmStpButton".DosimEmStp_AckReq;
+	"DosimEmrStp_1" := "FGDB_EmStpButton".DosimEmStp_AckReq;
+	"DosimEmrStp_2" := "FGDB_EmStpButton".DosimEmStp_Sv AND NOT "FGDB_EmStpButton".DosimEmStp_AckReq;
+	"GDB_PlcToHmi".Status.EmrStp.Dosim := WORD_TO_INT(ROR(IN := INT_TO_WORD("DosimEmrStp"), N := 8));
+	
+	"GnEmStp_0" := NOT "FGDB_EmStpButton".GnEmStp_Sv AND NOT "FGDB_EmStpButton".GnEmStp_AckReq;
+	"GnEmStp_1" := "FGDB_EmStpButton".GnEmStp_AckReq;
+	"GnEmStp_2" := "FGDB_EmStpButton".GnEmStp_Sv AND NOT "FGDB_EmStpButton".GnEmStp_AckReq;
+	"GDB_PlcToHmi".Status.EmrStp.Gen := WORD_TO_INT(ROR(IN := INT_TO_WORD("GnEmStp"), N := 8));
+	
+	// Состояние системы
+	"Cmd_0" := "GDB_Gen_Ctrl".ServiceMode;
+	"Cmd_1" :="GDB_ScanSequence".RdyForScan;
+	"Cmd_2" :="GDB_ScanSequence".Run;
+	"Cmd_3" := "GDB_SpdClclt".RdySpdClclt;
+	"Cmd_4" := "GDB_SpdClclt".Run;
+	"Cmd_5" := FALSE;
+	"Cmd_6" := FALSE;
+	"Cmd_7" := FALSE;
+	"Cmd_8" := FALSE;
+	"Cmd_9" := FALSE;
+	"Cmd_10" := FALSE;
+	"Cmd_11" := FALSE;
+	"Cmd_12" := FALSE;
+	"Cmd_13" := FALSE;
+	"Cmd_14" := FALSE;
+	"Cmd_15" := FALSE;
+	"GDB_PlcToHmi".Status.Cmd := WORD_TO_INT(ROR(IN := INT_TO_WORD("Cmd"), N := 8));
+	
+	// Безопасность
+	"Sft_0" := "FGDB_Inputs".I_P1KeyGenRel_Ch1;
+	"Sft_1" := "FGDB_Outputs".O_AccIntrlck;
+	"Sft_2" := "FGDB_Inputs".I_PrDoor1Cls_Ch1;
+	"Sft_3" := "FGDB_Inputs".I_P3AckInSArea_Ch1;
+	"Sft_4" := "FGDB_Inputs".I_PrDoor1Req;
+	"Sft_5" := FALSE;
+	"Sft_6" := FALSE;
+	"Sft_7" := FALSE;
+	"Sft_8" := FALSE;
+	"Sft_9" := FALSE;
+	"Sft_10" := FALSE;
+	"Sft_11" := FALSE;
+	"Sft_12" := FALSE;
+	"Sft_13" := FALSE;
+	"Sft_14" := FALSE;
+	"Sft_15" := FALSE;
+	"GDB_PlcToHmi".Status.Sft := WORD_TO_INT(ROR(IN := INT_TO_WORD("Sft"), N := 8));
+	
+	// Питание устройств
+	"Pwr_All_0" := "FGDB_Outputs".O_PowerChiller;
+	"Pwr_All_1" := "FGDB_Outputs".O_PowerModulator;
+	"Pwr_All_2" := "FGDB_Outputs".O_PowerModulator1P;
+	"Pwr_All_3" := "FGDB_Outputs".O_PowerXRayUnit;
+	"Pwr_All_4" := "FGDB_Outputs"."O_PowerConveyor";
+	"Pwr_All_5" := "FDBI_ChillOff_Dly".PT - "FDBI_ChillOff_Dly".ET <> 0 AND NOT "FGDB_ContCtrl".ChilCont_OfIn AND "FGDB_Outputs".O_PowerChiller;
+	"Pwr_All_6" := "FDBI_ChillOn_Dly".PT - "FDBI_ChillOn_Dly".ET <> 0 AND "FGDB_Outputs".O_PowerChiller AND "FGDB_ContCtrl".ChilCont_OfIn;
+	"Pwr_All_7" := "GDB_HMI_IO_Retain".AccChiller.Type = 3;
+	"Pwr_All_8" := "FGDB_ContCtrl".ChillCont_Err;
+	"Pwr_All_9" := "FGDB_ContCtrl".ChillCont_AckReq;
+	"Pwr_All_10" := FALSE;
+	"Pwr_All_11" := FALSE;
+	"Pwr_All_12" := FALSE;
+	"Pwr_All_13" := FALSE;
+	"Pwr_All_14" := FALSE;
+	"Pwr_All_15" := FALSE;
+	"GDB_PlcToHmi".Status.Pwr_All := WORD_TO_INT(ROR(IN := INT_TO_WORD("Pwr_All"), N := 8));
+	
+	// Модулятор 400
+	"Mod400_RlyOn_0" := "FGDB_Outputs".O_PowerModulator;
+	"Mod400_RlyOn_1" := "FGDB_ContCtrl".ModCont400_Err;
+	"Mod400_RlyOn_2" := "FGDB_ContCtrl".ModCont400_AckReq;
+	"GDB_PlcToHmi".Status.Mod400_RlyOn := WORD_TO_INT(ROR(IN := INT_TO_WORD("Mod400_RlyOn"), N := 8));
+	
+	// Чиллер
+	"Chill_RlyOn_0" := "FGDB_Outputs".O_PowerChiller;
+	"Chill_RlyOn_1" := "FGDB_ContCtrl".ChillCont_Err;
+	"Chill_RlyOn_2" := "FGDB_ContCtrl".ChillCont_AckReq;
+	"GDB_PlcToHmi".Status.Chill_RlyOn := WORD_TO_INT(ROR(IN := INT_TO_WORD("Chill_RlyOn"), N := 8));
+	
+	// Конвейер
+	"Conv_RlyOn_0" := "FGDB_Outputs".O_PowerConveyor;
+	"Conv_RlyOn_1" := "FGDB_ContCtrl".ConvCont_Err;
+	"Conv_RlyOn_2" := "FGDB_ContCtrl".ConvCont_AckReq;
+	"GDB_PlcToHmi".Status.Conv_RlyOn := WORD_TO_INT(ROR(IN := INT_TO_WORD("Conv_RlyOn"), N := 8));
+	
+	// Ускоритель и общее питание
+	"Acc_RlyOn_0" := "FGDB_Outputs".O_PowerXRayUnit;
+	"Acc_RlyOn_1" := "FGDB_ContCtrl".AccCont_Err OR "FGDB_ContCtrl".AccCont_AckReq;
+	"Acc_RlyOn_2" := "FGDB_ContCtrl".AccCont_AckReq;
+	"GDB_PlcToHmi".Status.Acc_RlyOn := WORD_TO_INT(ROR(IN := INT_TO_WORD("Acc_RlyOn"), N := 8));
+	
+	// Модулятор 230
+	"Mod230_RlyOn_0" := "FGDB_Outputs".O_PowerModulator1P;
+	"Mod230_RlyOn_1" := "FGDB_ContCtrl".ModCont230_Err;
+	"Mod230_RlyOn_2" := "FGDB_ContCtrl".ModCont230_AckReq;
+	"GDB_PlcToHmi".Status.Mod230_RlyOn := WORD_TO_INT(ROR(IN := INT_TO_WORD("Mod230_RlyOn"), N := 8));
+	
+	// Время для чиллера
+	"GDB_PlcToHmi".Status.ChilPwrOffDlyTm := "FDBI_ChillOff_Dly".PT - "FDBI_ChillOff_Dly".ET;
+	"GDB_PlcToHmi".Status.ChilPwrOnDlyTm := "FDBI_ChillOn_Dly".PT - "FDBI_ChillOn_Dly".ET;
+	
+	// Состояние ускорителя
+	"GDB_PlcToHmi".Status.AccCs_StateNr := "GDB_Acc_Ctrl".Acc.ActState;
+	
+	// Состояние конвейера
+	"GDB_PlcToHmi".Status.ConvActState := "DBI_SM_Conv".S_ActState;
+	
+	// Функция сброса
+	IF "GDB_HmiTestBtns".TB1_13_StnDfltRst THEN
+	   "FC_SettingDfclt"();
+	END_IF;
+	
+	// Состояние сенсоров для конвейера
+	"ConvSns_0" := "GDB_Inputs".I_PSConvStpFwd;
+	"ConvSns_1" := "GDB_Inputs".I_PSConvSlowFwd;
+	"ConvSns_2" := "GDB_Inputs".I_PSConvXRayFwd;
+	"ConvSns_3" := "GDB_Inputs".I_PSConvXRayBwd;
+	"ConvSns_4" := "GDB_Inputs".I_PSConvSlowBwd;
+	"ConvSns_5" := "GDB_Inputs".I_PSConvStpBwd;
+	"ConvSns_6" := "DBI_SM_Conv".S_State[7] OR "DBI_SM_Conv".S_State[12] OR "DBI_SM_Conv".S_State[24] OR "DBI_SM_Conv".S_State[25];
+	"ConvSns_7" := "DBI_SM_Conv".S_State[9] OR "DBI_SM_Conv".S_State[10] OR "DBI_SM_Conv".S_State[22] OR "DBI_SM_Conv".S_State[23];
+	"ConvSns_8" := FALSE;
+	"ConvSns_9" := FALSE;
+	"ConvSns_10" := FALSE;
+	"ConvSns_11" := FALSE;
+	"ConvSns_12" := FALSE;
+	"ConvSns_13" := FALSE;
+	"ConvSns_14" := FALSE;
+	"ConvSns_15" := FALSE;
+	"GDB_PlcToHmi".Status.ConvSns := WORD_TO_INT(ROR(IN := INT_TO_WORD("ConvSns"), N := 8));
+	
+	// Параметры частотника в HMI
+	"GDB_PlcToHmi".Status.FrqConv.ActSpeed := "GDB_ConvCtrl".FrqConv.ActSpeed;
+	"GDB_PlcToHmi".Status.FrqConv.ActCurrent := "GDB_ConvCtrl".FrqConv.ActCurrent;
+	"GDB_PlcToHmi".Status.FrqConv.ActFault := "GDB_ConvCtrl".FrqConv.FaultNumber;
+	"GDB_PlcToHmi".Status.FrqConv.RefSpeed := "GDB_ConvCtrl".FrqConv.reqSpeed;
+	
+	// Состояние последовательности сканирования
+	"ScanSeq_Sts_0" := "GDB_ScanSequence".Step.Preparation;
+	"ScanSeq_Sts_1" := "GDB_ScanSequence".Step.StrtMove;
+	"ScanSeq_Sts_2" := "GDB_ScanSequence".Step.Scanning;
+	"ScanSeq_Sts_3" := "GDB_ScanSequence".Step.EndMove;
+	"ScanSeq_Sts_4" := "GDB_ScanSequence".Step.ScanCompl;
+	"ScanSeq_Sts_5" := "GDB_ScanSequence".Step.RF_On;
+	"ScanSeq_Sts_6" := "GDB_ScanSequence".Step.XRay_On;
+	"ScanSeq_Sts_7" := "GDB_ScanSequence".Step.Homing;
+	"ScanSeq_Sts_8" := FALSE;
+	"ScanSeq_Sts_9" := FALSE;
+	"ScanSeq_Sts_10" := FALSE;
+	"ScanSeq_Sts_11" := FALSE;
+	"ScanSeq_Sts_12" := FALSE;
+	"ScanSeq_Sts_13" := FALSE;
+	"ScanSeq_Sts_14" := FALSE;
+	"ScanSeq_Sts_15" := FALSE;
+	"GDB_PlcToHmi".Status.ScanSeq_Sts:= WORD_TO_INT(ROR(IN := INT_TO_WORD("ScanSeq_Sts"), N := 8));
+	
+	//Состояние детекторной линейки
+	"GDB_PlcToHmi".Status.DetLine_ErgMode := "GDB_DetLine".Status.ErgMd;
+	"GDB_PlcToHmi".Status.DetLine_TrigRate := "GDB_DetLine".Status.TrigRate;
+	
+	"DetLine_Sts_0" := "GDB_DetLine".Status.ConOk;
+	"DetLine_Sts_1" := "GDB_DetLine".Status.SyncStrt;
+	"DetLine_Sts_2" := "GDB_DetLine".Status.ScanAct;
+	"DetLine_Sts_3" := "GDB_DetLine".Status.RdyForScan;
+	"DetLine_Sts_4" := "GDB_DetLine".Status.Error;
+	"DetLine_Sts_5" := "GDB_DetLine".Status.SrvsMd;
+	"DetLine_Sts_6" := "GDB_DetLine".Status.AutoMd;
+	"DetLine_Sts_7" := FALSE;
+	"DetLine_Sts_8" := FALSE;
+	"DetLine_Sts_9" := FALSE;
+	"DetLine_Sts_10" := FALSE;
+	"DetLine_Sts_11" := FALSE;
+	"DetLine_Sts_12" := FALSE;
+	"DetLine_Sts_13" := FALSE;
+	"DetLine_Sts_14" := FALSE;
+	"DetLine_Sts_15" := FALSE;
+	"GDB_PlcToHmi".Status.DetLine_Sts := WORD_TO_INT(ROR(IN := INT_TO_WORD("DetLine_Sts"), N := 8));
+	
+	// Анимация для кубика
+	"GDB_PlcToHmi".Status.Animation := REAL_TO_INT(480 * "GDB_ConvCtrl".Animation.Value);
+	
+END_FUNCTION
+

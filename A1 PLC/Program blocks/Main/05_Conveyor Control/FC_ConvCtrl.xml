@@ -1,0 +1,2917 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V17" />
+  <DocumentInfo>
+    <Created>2021-12-03T08:13:04.2830787Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Advanced</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.FC ID="0">
+    <AttributeList>
+      <AutoNumber>false</AutoNumber>
+      <HeaderAuthor />
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Input" />
+  <Section Name="Output" />
+  <Section Name="InOut" />
+  <Section Name="Temp">
+    <Member Name="TimeMowBack" Datatype="Int" />
+    <Member Name="SRStartCountTime" Datatype="Bool" />
+    <Member Name="PSConvStpBwd" Datatype="Bool" />
+    <Member Name="PSConvXRayBwd" Datatype="Bool" />
+    <Member Name="P_SpeedSave" Datatype="Bool" />
+    <Member Name="TimeMowFwdReal" Datatype="Word" />
+    <Member Name="PSConvStpFwd" Datatype="Bool" />
+    <Member Name="NPSConvStpFwd" Datatype="Bool" />
+    <Member Name="NPSConvXRayFwd" Datatype="Bool" />
+    <Member Name="End" Datatype="Bool" />
+    <Member Name="PPSConvStpBwd" Datatype="Bool" />
+  </Section>
+  <Section Name="Constant">
+    <Member Name="TimeMowFwd" Datatype="Int">
+      <StartValue>1</StartValue>
+    </Member>
+  </Section>
+  <Section Name="Return">
+    <Member Name="Ret_Val" Datatype="Void" />
+  </Section>
+</Sections></Interface>
+      <IsIECCheckEnabled>false</IsIECCheckEnabled>
+      <Name>FC_ConvCtrl</Name>
+      <Number>500</Number>
+      <ProgrammingLanguage>FBD</ProgrammingLanguage>
+      <UDABlockProperties />
+      <UDAEnableTagReadback>false</UDAEnableTagReadback>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="3" CompositionName="Items">
+            <AttributeList>
+              <Culture>ru-RU</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="4" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="GDB_HMI_Data" />
+        <Component Name="Receive" />
+        <Component Name="CmndOn" />
+        <Component Name="bit01_FrqConvPwr" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="GDB_HMI_Data" />
+        <Component Name="Receive" />
+        <Component Name="CmndOn" />
+        <Component Name="bit00_Pwr" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="GDB_HMI_Data" />
+        <Component Name="Receive" />
+        <Component Name="CmndOff" />
+        <Component Name="bit00_Pwr" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="GDB_HMI_Data" />
+        <Component Name="Receive" />
+        <Component Name="CmndOff" />
+        <Component Name="bit01_FrqConvPwr" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="GnEmStp_Sv" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="FGDB_Inputs" />
+        <Component Name="I_P1KeyGenRel_Ch1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="GDB_Faults" />
+        <Component Name="CirBrk380VFb" />
+        <Component Name="I_BrFrqConvFlt" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="SR" />
+        <Component Name="FrqConvPwrOn" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="29">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="FrqConvPwrOn" />
+      </Symbol>
+    </Access>
+    <Part Name="O" UId="30">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="O" UId="31">
+      <TemplateValue Name="Card" Type="Cardinality">5</TemplateValue>
+      <Negated Name="in3" />
+      <Negated Name="in4" />
+    </Part>
+    <Part Name="Sr" UId="32" />
+    <Part Name="Coil" UId="33" />
+  </Parts>
+  <Wires>
+    <Wire UId="34">
+      <IdentCon UId="21" />
+      <NameCon UId="30" Name="in1" />
+    </Wire>
+    <Wire UId="35">
+      <IdentCon UId="22" />
+      <NameCon UId="30" Name="in2" />
+    </Wire>
+    <Wire UId="36">
+      <NameCon UId="30" Name="out" />
+      <NameCon UId="32" Name="s" />
+    </Wire>
+    <Wire UId="37">
+      <IdentCon UId="23" />
+      <NameCon UId="31" Name="in1" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="24" />
+      <NameCon UId="31" Name="in2" />
+    </Wire>
+    <Wire UId="39">
+      <IdentCon UId="25" />
+      <NameCon UId="31" Name="in3" />
+    </Wire>
+    <Wire UId="40">
+      <IdentCon UId="26" />
+      <NameCon UId="31" Name="in4" />
+    </Wire>
+    <Wire UId="41">
+      <IdentCon UId="27" />
+      <NameCon UId="31" Name="in5" />
+    </Wire>
+    <Wire UId="42">
+      <NameCon UId="31" Name="out" />
+      <NameCon UId="32" Name="r1" />
+    </Wire>
+    <Wire UId="43">
+      <IdentCon UId="28" />
+      <NameCon UId="32" Name="operand" />
+    </Wire>
+    <Wire UId="44">
+      <NameCon UId="32" Name="q" />
+      <NameCon UId="33" Name="in" />
+    </Wire>
+    <Wire UId="45">
+      <IdentCon UId="29" />
+      <NameCon UId="33" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="5" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="6" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="8" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="9" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Включение частотного преобразователя</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="B" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StatementList xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StatementList/v4">
+  <StlStatement UId="27">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : TRUE</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="21">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_Gen_Ctrl" />
+        <Component Name="Restart" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="24">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>1</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="26">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="29">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : Frq Conv Power is On</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="32">
+    <StlToken Text="AN" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="FGDB_Inputs" />
+        <Component Name="I_FBPowerConveyor" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="34">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>2</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="37">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="38">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : /Frq Conv Power is On</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="40">
+    <StlToken Text="AN" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>2</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="42">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>3</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="64">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="65">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : Frq Conv Fault</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="31">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="FrqConv" />
+        <Component Name="Fault" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="206">
+    <StlToken Text="AN" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_HMI_Data" />
+        <Component Name="Receive" />
+        <Component Name="Simulation" />
+        <Component Name="Console_SimEn" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="46">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>4</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="51">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="52">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : STO Drive</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="71">
+    <StlToken Text="X" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_Inputs" />
+        <Component Name="I_P2ConvLocal" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="70">
+    <StlToken Text="X" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="FGDB_Safety_Perimeter" />
+        <Component Name="SAreaClose" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="22">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>5</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="44">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="55">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : STO Drive</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="57">
+    <StlToken Text="AN" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>5</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="61">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>6</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="69">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="47">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : Conv is Forward Stop Position</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="76">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_Inputs" />
+        <Component Name="I_PSConvStpFwd" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="91">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>9</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="77">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="78">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : Conv is Backward Stop Position</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="94">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_Inputs" />
+        <Component Name="I_PSConvStpBwd" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="96">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>10</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="98">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="81">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : Auto Conv Forward Move</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="101">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_ScanSequence" />
+        <Component Name="Action" />
+        <Component Name="FwdMoveReq" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="50">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_HmiTestBtns" />
+        <Component Name="TB1_08_ConvFwrd" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="118">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_SpdClclt" />
+        <Component Name="Action" />
+        <Component Name="Homming" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="106">
+    <StlToken Text="Rise" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="Trig" />
+        <Component Name="P_StrtFwd" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="112">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>11</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="105">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="102">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : Auto Conv Backward Move</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="114">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_ScanSequence" />
+        <Component Name="Action" />
+        <Component Name="BwdMoveReq" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="63">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_HmiTestBtns" />
+        <Component Name="TB1_09_ConvBwrd" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="121">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_SpdClclt" />
+        <Component Name="Action" />
+        <Component Name="BwdStrt" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="87">
+    <StlToken Text="Rise" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="Trig" />
+        <Component Name="P_StrtBwd" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="122">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>12</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="124">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="125">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : Conv Stop</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="126">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_ScanSequence" />
+        <Component Name="IntrptCycl" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="108">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_Faults" />
+        <Component Name="Conveyer" />
+        <Component Name="FrqConv" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="110">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_Faults" />
+        <Component Name="Conveyer" />
+        <Component Name="CycleTime" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="130">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>14</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="132">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="133">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : Ack Fault</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="131">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_Gen_Ctrl" />
+        <Component Name="FaultReset" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="137">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>15</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="139">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="140">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : Conv JogMode selected</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="142">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_Inputs" />
+        <Component Name="I_P2ConvLocal" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="144">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>16</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="147">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="148">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : /Conv JogMode selected</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="150">
+    <StlToken Text="AN" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>16</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="152">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>17</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="155">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="156">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : Conv Agree B</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="157">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_Inputs" />
+        <Component Name="I_P2ConvLocal" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="158">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="FGDB_Inputs" />
+        <Component Name="I_P2AgreeBut_Ch1" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="159">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>18</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="167">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="168">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : /Conv Agree B</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="170">
+    <StlToken Text="AN" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>18</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="172">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>19</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="174">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="175">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : Conv Jog Fwd</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="180">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_Inputs" />
+        <Component Name="I_P2ConvLocal" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="202">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_Inputs" />
+        <Component Name="I_P2ConvFwd" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="190">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>20</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="195">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="186">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : /Conv Jog Fwd</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="193">
+    <StlToken Text="AN" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>20</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="191">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>21</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="194">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="178">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : Conv Jog Bwd</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="182">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_Inputs" />
+        <Component Name="I_P2ConvLocal" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="204">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_Inputs" />
+        <Component Name="I_P2ConvBwd" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="200">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>22</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="205">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="189">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : /Conv Jog Bwd</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="196">
+    <StlToken Text="AN" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>22</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="198">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>23</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="67">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="68">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : Conv Fast Forward</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="215">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_Inputs" />
+        <Component Name="I_PSConvSlowBwd" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="74">
+    <StlToken Text="Fall" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="Trig" />
+        <Component Name="N_SlowBwd" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="75">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>25</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="73">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="85">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : Conv Slow Forward</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="217">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_Inputs" />
+        <Component Name="I_PSConvSlowFwd" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="84">
+    <StlToken Text="Rise" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="Trig" />
+        <Component Name="P_SlowFwd" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="88">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>26</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="99">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="127">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : Conv Fast Backward</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="218">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_Inputs" />
+        <Component Name="I_PSConvSlowFwd" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="151">
+    <StlToken Text="Fall" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="Trig" />
+        <Component Name="N_SlowFwd" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="162">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>27</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="208">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="209">
+    <LineComment Inserted="false">
+      <Text> Fct.-Name : Conv Slow Backward</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="219">
+    <StlToken Text="A" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_Inputs" />
+        <Component Name="I_PSConvSlowBwd" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="211">
+    <StlToken Text="Rise" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="Trig" />
+        <Component Name="P_SlowBwd" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="213">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_Conditions" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>28</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="179">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="92">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+</StatementList></NetworkSource>
+          <ProgrammingLanguage>STL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="C" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="F" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="10" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="11" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Условия перехода для конвейера</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="12" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="Always_True" />
+      </Symbol>
+    </Access>
+    <Call UId="22">
+      <CallInfo Name="FB_SM_Conv" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="23">
+          <Component Name="DBI_SM_Conv" />
+        </Instance>
+        <Parameter Name="I_InitTrue" Section="Input" Type="Bool" />
+      </CallInfo>
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="25">
+      <OpenCon UId="24" />
+      <NameCon UId="22" Name="en" />
+    </Wire>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="22" Name="I_InitTrue" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="13" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="14" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="15" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="16" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="17" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="18" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Вызов блока State Machine</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="19" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StatementList xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StatementList/v4">
+  <StlStatement UId="33">
+    <LineComment Inserted="false">
+      <Text> Forward</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="21">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>10</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="26">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>16</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="27">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>22</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="29">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>23</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="22">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="FrqConv" />
+        <Component Name="reqForward" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="35">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="32">
+    <LineComment Inserted="false">
+      <Text> Backward</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="38">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>12</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="40">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>18</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="42">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>24</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="44">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>25</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="46">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="FrqConv" />
+        <Component Name="reqBackward" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="49">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="48">
+    <LineComment Inserted="false">
+      <Text> Speed</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="71">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>10</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="73">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>12</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="87">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>16</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="89">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>18</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="91">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>23</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="86">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>24</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="75">
+    <StlToken Text="JCN" />
+    <Access Scope="Label">
+      <Label Name="SpdS" />
+    </Access>
+  </StlStatement>
+  <StlStatement UId="77">
+    <StlToken Text="L" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_HMI_IO_Retain" />
+        <Component Name="FrqConv" />
+        <Component Name="LowSpeed" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="79">
+    <StlToken Text="T" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="FrqConv" />
+        <Component Name="reqSpeed" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="81">
+    <StlToken Text="JU" />
+    <Access Scope="Label">
+      <Label Name="SpdE" />
+    </Access>
+  </StlStatement>
+  <StlStatement UId="83">
+    <LabelDeclaration>
+      <Label Name="SpdS" />
+    </LabelDeclaration>
+    <StlToken Text="NOP_0" />
+  </StlStatement>
+  <StlStatement UId="70">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="37">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>22</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="54">
+    <StlToken Text="O" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>25</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="57">
+    <StlToken Text="JCN" />
+    <Access Scope="Label">
+      <Label Name="SpdF" />
+    </Access>
+  </StlStatement>
+  <StlStatement UId="60">
+    <StlToken Text="L" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_HMI_IO_Retain" />
+        <Component Name="FrqConv" />
+        <Component Name="FastSpeed" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="63">
+    <StlToken Text="T" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="FrqConv" />
+        <Component Name="reqSpeed" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="66">
+    <StlToken Text="JU" />
+    <Access Scope="Label">
+      <Label Name="SpdE" />
+    </Access>
+  </StlStatement>
+  <StlStatement UId="61">
+    <LabelDeclaration>
+      <Label Name="SpdF" />
+    </LabelDeclaration>
+    <StlToken Text="NOP_0" />
+  </StlStatement>
+  <StlStatement UId="55">
+    <StlToken Text="L" />
+    <Access Scope="LiteralConstant">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>0</ConstantValue>
+      </Constant>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="95">
+    <StlToken Text="T" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="FrqConv" />
+        <Component Name="reqSpeed" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="56">
+    <LabelDeclaration>
+      <Label Name="SpdE" />
+    </LabelDeclaration>
+    <StlToken Text="NOP_0" />
+  </StlStatement>
+</StatementList></NetworkSource>
+          <ProgrammingLanguage>STL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1A" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="1B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="1C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="1D" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="1E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="1F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Выбор направления и скорости</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="20" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="GDB_HMI_IO_Retain" />
+        <Component Name="FrqConv" />
+        <Component Name="Ramp" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="FrqConv" />
+        <Component Name="reqRampe" />
+      </Symbol>
+    </Access>
+    <Part Name="Move" UId="23">
+      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="25">
+      <OpenCon UId="24" />
+      <NameCon UId="23" Name="en" />
+    </Wire>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="23" Name="in" />
+    </Wire>
+    <Wire UId="27">
+      <NameCon UId="23" Name="out1" />
+      <IdentCon UId="22" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="21" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="22" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="23" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="24" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="25" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="26" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Запись ускорения</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="27" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LiteralConstant" UId="21">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>200</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="LiteralConstant" UId="22">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>256</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="FrqConv" />
+        <Component Name="reqForward" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="FrqConv" />
+        <Component Name="reqBackward" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="GDB_Gen_Ctrl" />
+        <Component Name="FaultReset" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="FrqConv" />
+        <Component Name="reqSpeed" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="FrqConv" />
+        <Component Name="reqRampe" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="FrqConv" />
+        <Component Name="Fault" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="29">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="FrqConv" />
+        <Component Name="FaultNumber" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="30">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="FrqConv" />
+        <Component Name="ActSpeed" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="31">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="FrqConv" />
+        <Component Name="ActCurrent" />
+      </Symbol>
+    </Access>
+    <Call UId="32">
+      <CallInfo Name="FB_SEW_MDX" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="33">
+          <Component Name="DBI_SEW_MDX" />
+        </Instance>
+        <Parameter Name="I_AdressFrom" Section="Input" Type="Int" />
+        <Parameter Name="I_AdressTo" Section="Input" Type="Int" />
+        <Parameter Name="I_bForward" Section="Input" Type="Bool" />
+        <Parameter Name="I_bBackward" Section="Input" Type="Bool" />
+        <Parameter Name="I_bReset" Section="Input" Type="Bool" />
+        <Parameter Name="I_bExterneFault" Section="Input" Type="Bool" />
+        <Parameter Name="I_iReqSpeed" Section="Input" Type="Int" />
+        <Parameter Name="I_iRampe" Section="Input" Type="Int" />
+        <Parameter Name="O_iFaultNumber" Section="Output" Type="Int" />
+        <Parameter Name="O_iActSpeed" Section="Output" Type="Int" />
+        <Parameter Name="O_iActCurrent" Section="Output" Type="Int" />
+        <Parameter Name="IO_bFault" Section="InOut" Type="Bool" />
+      </CallInfo>
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="36">
+      <OpenCon UId="34" />
+      <NameCon UId="32" Name="en" />
+    </Wire>
+    <Wire UId="37">
+      <IdentCon UId="21" />
+      <NameCon UId="32" Name="I_AdressFrom" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="22" />
+      <NameCon UId="32" Name="I_AdressTo" />
+    </Wire>
+    <Wire UId="39">
+      <IdentCon UId="23" />
+      <NameCon UId="32" Name="I_bForward" />
+    </Wire>
+    <Wire UId="40">
+      <IdentCon UId="24" />
+      <NameCon UId="32" Name="I_bBackward" />
+    </Wire>
+    <Wire UId="41">
+      <IdentCon UId="25" />
+      <NameCon UId="32" Name="I_bReset" />
+    </Wire>
+    <Wire UId="42">
+      <OpenCon UId="35" />
+      <NameCon UId="32" Name="I_bExterneFault" />
+    </Wire>
+    <Wire UId="43">
+      <IdentCon UId="26" />
+      <NameCon UId="32" Name="I_iReqSpeed" />
+    </Wire>
+    <Wire UId="44">
+      <IdentCon UId="27" />
+      <NameCon UId="32" Name="I_iRampe" />
+    </Wire>
+    <Wire UId="45">
+      <IdentCon UId="28" />
+      <NameCon UId="32" Name="IO_bFault" />
+    </Wire>
+    <Wire UId="46">
+      <NameCon UId="32" Name="O_iFaultNumber" />
+      <IdentCon UId="29" />
+    </Wire>
+    <Wire UId="47">
+      <NameCon UId="32" Name="O_iActSpeed" />
+      <IdentCon UId="30" />
+    </Wire>
+    <Wire UId="48">
+      <NameCon UId="32" Name="O_iActCurrent" />
+      <IdentCon UId="31" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="28" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="29" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="2A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="2B" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="2C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="2D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>SEW_MDX</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="2E" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Call UId="21">
+      <CallInfo Name="FC_SpdClclt" BlockType="FC" />
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="23">
+      <OpenCon UId="22" />
+      <NameCon UId="21" Name="en" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="2F" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="30" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="31" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="32" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="33" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="34" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Расчет скорости</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="35" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="Animation" />
+        <Component Name="Speed" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="GDB_HMI_IO_Retain" />
+        <Component Name="FrqConv" />
+        <Component Name="FastSpeed" />
+      </Symbol>
+    </Access>
+    <Access Scope="Label" UId="23">
+      <Label Name="TmrCount" />
+    </Access>
+    <Part Name="Eq" UId="24">
+      <TemplateValue Name="SrcType" Type="Type">Int</TemplateValue>
+    </Part>
+    <Part Name="Jump" UId="25" />
+  </Parts>
+  <Wires>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="24" Name="in1" />
+    </Wire>
+    <Wire UId="27">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="in2" />
+    </Wire>
+    <Wire UId="28">
+      <NameCon UId="24" Name="out" />
+      <NameCon UId="25" Name="in" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="23" />
+      <NameCon UId="25" Name="label" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="36" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="37" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="38" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="39" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="3A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="3B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Анимация для кубиков</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="3C" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StatementList xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StatementList/v4">
+  <StlStatement UId="21">
+    <StlToken Text="L" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_HMI_IO_Retain" />
+        <Component Name="FrqConv" />
+        <Component Name="FastSpeed" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="22">
+    <StlToken Text="T" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="Animation" />
+        <Component Name="Speed" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="27">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="29">
+    <StlToken Text="S" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="Animation" />
+        <Component Name="CalcBit" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+</StatementList></NetworkSource>
+          <ProgrammingLanguage>STL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="3D" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="3E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="3F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="40" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="41" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="42" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Взведение бита</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="43" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Labels>
+    <LabelDeclaration UId="21">
+      <Label Name="TmrCount" />
+    </LabelDeclaration>
+  </Labels>
+  <Parts>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="Animation" />
+        <Component Name="CalcBit" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>12</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>24</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>25</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="26">
+      <Symbol>
+        <Component Name="End" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="Animation" />
+        <Component Name="CalcBit" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="Animation" />
+        <Component Name="SR" />
+      </Symbol>
+    </Access>
+    <Access Scope="TypedConstant" UId="29">
+      <Constant>
+        <ConstantValue>T#1m</ConstantValue>
+      </Constant>
+    </Access>
+    <Part Name="O" UId="30">
+      <TemplateValue Name="Card" Type="Cardinality">3</TemplateValue>
+    </Part>
+    <Part Name="Coil" UId="31" />
+    <Part Name="A" UId="32">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="Sr" UId="33">
+      <Negated Name="r1" />
+    </Part>
+    <Part Name="TON" Version="1.0" UId="34">
+      <Instance Scope="GlobalVariable" UId="35">
+        <Component Name="DBI_TmrCount" />
+      </Instance>
+      <TemplateValue Name="time_type" Type="Type">Time</TemplateValue>
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="37">
+      <IdentCon UId="23" />
+      <NameCon UId="30" Name="in1" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="24" />
+      <NameCon UId="30" Name="in2" />
+    </Wire>
+    <Wire UId="39">
+      <IdentCon UId="25" />
+      <NameCon UId="30" Name="in3" />
+    </Wire>
+    <Wire UId="40">
+      <NameCon UId="30" Name="out" />
+      <NameCon UId="31" Name="in" />
+    </Wire>
+    <Wire UId="41">
+      <IdentCon UId="26" />
+      <NameCon UId="31" Name="operand" />
+    </Wire>
+    <Wire UId="42">
+      <NameCon UId="31" Name="out" />
+      <NameCon UId="32" Name="in2" />
+    </Wire>
+    <Wire UId="43">
+      <IdentCon UId="22" />
+      <NameCon UId="32" Name="in1" />
+    </Wire>
+    <Wire UId="44">
+      <NameCon UId="32" Name="out" />
+      <NameCon UId="33" Name="s" />
+    </Wire>
+    <Wire UId="45">
+      <IdentCon UId="27" />
+      <NameCon UId="33" Name="r1" />
+    </Wire>
+    <Wire UId="46">
+      <IdentCon UId="28" />
+      <NameCon UId="33" Name="operand" />
+    </Wire>
+    <Wire UId="47">
+      <NameCon UId="33" Name="q" />
+      <NameCon UId="34" Name="IN" />
+    </Wire>
+    <Wire UId="48">
+      <IdentCon UId="29" />
+      <NameCon UId="34" Name="PT" />
+    </Wire>
+    <Wire UId="49">
+      <NameCon UId="34" Name="ET" />
+      <OpenCon UId="36" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="44" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="45" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="46" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="47" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="48" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="49" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Таймер для подсчета времени проезда</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="4A" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="End" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="Animation" />
+        <Component Name="N_Trig" />
+      </Symbol>
+    </Access>
+    <Access Scope="Label" UId="23">
+      <Label Name="TmrNotCount" />
+    </Access>
+    <Part Name="NBox" UId="24" />
+    <Part Name="JumpNot" UId="25" />
+  </Parts>
+  <Wires>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="24" Name="in" />
+    </Wire>
+    <Wire UId="27">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="bit" />
+    </Wire>
+    <Wire UId="28">
+      <NameCon UId="24" Name="out" />
+      <NameCon UId="25" Name="in" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="23" />
+      <NameCon UId="25" Name="label" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4B" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="4C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="4D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="4E" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="4F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="50" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Окончание подсчета времени</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="51" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StatementList xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StatementList/v4">
+  <StlStatement UId="30">
+    <StlToken Text="L" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_TmrCount" />
+        <Component Name="ET" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="32">
+    <StlToken Text="T" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_HMI_IO_Retain" />
+        <Component Name="TmrValue" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="28">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="21">
+    <StlToken Text="R" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="Animation" />
+        <Component Name="CalcBit" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+</StatementList></NetworkSource>
+          <ProgrammingLanguage>STL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="52" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="53" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="54" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="55" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="56" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="57" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Сброс бита</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="58" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Labels>
+    <LabelDeclaration UId="21">
+      <Label Name="TmrNotCount" />
+    </LabelDeclaration>
+  </Labels>
+  <Parts>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>10</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>12</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>22</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>23</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>24</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>25</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="TypedConstant" UId="28">
+      <Constant>
+        <ConstantValue>T#1m</ConstantValue>
+      </Constant>
+    </Access>
+    <Part Name="O" UId="29">
+      <TemplateValue Name="Card" Type="Cardinality">6</TemplateValue>
+    </Part>
+    <Part Name="TON" Version="1.0" UId="30">
+      <Instance Scope="GlobalVariable" UId="31">
+        <Component Name="DBI_TmrAnimation" />
+      </Instance>
+      <TemplateValue Name="time_type" Type="Type">Time</TemplateValue>
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="33">
+      <IdentCon UId="22" />
+      <NameCon UId="29" Name="in1" />
+    </Wire>
+    <Wire UId="34">
+      <IdentCon UId="23" />
+      <NameCon UId="29" Name="in2" />
+    </Wire>
+    <Wire UId="35">
+      <IdentCon UId="24" />
+      <NameCon UId="29" Name="in3" />
+    </Wire>
+    <Wire UId="36">
+      <IdentCon UId="25" />
+      <NameCon UId="29" Name="in4" />
+    </Wire>
+    <Wire UId="37">
+      <IdentCon UId="26" />
+      <NameCon UId="29" Name="in5" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="27" />
+      <NameCon UId="29" Name="in6" />
+    </Wire>
+    <Wire UId="39">
+      <NameCon UId="29" Name="out" />
+      <NameCon UId="30" Name="IN" />
+    </Wire>
+    <Wire UId="40">
+      <IdentCon UId="28" />
+      <NameCon UId="30" Name="PT" />
+    </Wire>
+    <Wire UId="41">
+      <NameCon UId="30" Name="ET" />
+      <OpenCon UId="32" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="59" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="5A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="5B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="5C" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="5D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="5E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Таймер для анимации</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="5F" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StatementList xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StatementList/v4">
+  <StlStatement UId="21">
+    <StlToken Text="L" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="DBI_TmrAnimation" />
+        <Component Name="ET" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="22">
+    <StlToken Text="L" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_HMI_IO_Retain" />
+        <Component Name="TmrValue" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="25">
+    <StlToken Text="DIV_R" />
+  </StlStatement>
+  <StlStatement UId="26">
+    <StlToken Text="T" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_ConvCtrl" />
+        <Component Name="Animation" />
+        <Component Name="Value" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+</StatementList></NetworkSource>
+          <ProgrammingLanguage>STL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="60" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="61" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="62" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="63" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="64" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="65" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="66" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="67" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="68" CompositionName="Items">
+            <AttributeList>
+              <Culture>ru-RU</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.FC>
+</Document>

@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V17" />
+  <DocumentInfo>
+    <Created>2021-12-03T08:12:58.0456001Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Advanced</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.OB ID="0">
+    <AttributeList>
+      <HeaderAuthor />
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Temp">
+    <Member Name="OB100_EV_CLASS" Datatype="Byte">
+      <Comment>
+        <MultiLanguageText Lang="en-US">16#13, Event class 1, Entering event state, Event logged in diagnostic buffer</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="OB100_STRTUP" Datatype="Byte">
+      <Comment>
+        <MultiLanguageText Lang="en-US">16#81/82/83/84 Method of startup</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="OB100_PRIORITY" Datatype="Byte">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Priority of OB Execution</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="OB100_OB_NUMBR" Datatype="Byte">
+      <Comment>
+        <MultiLanguageText Lang="en-US">100 (Organization block 100, OB100)</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="OB100_RESERVED_1" Datatype="Byte">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Reserved for system</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="OB100_RESERVED_2" Datatype="Byte">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Reserved for system</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="OB100_STOP" Datatype="Word">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Event that caused CPU to stop (16#4xxx)</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="OB100_STRT_INFO" Datatype="DWord">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Information on how system started</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="OB100_DATE_TIME" Datatype="Date_And_Time">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Date and time OB100 started</MultiLanguageText>
+      </Comment>
+    </Member>
+  </Section>
+  <Section Name="Constant" />
+</Sections></Interface>
+      <IsIECCheckEnabled>false</IsIECCheckEnabled>
+      <Name>COMPLETE RESTART</Name>
+      <Number>100</Number>
+      <ProgrammingLanguage>FBD</ProgrammingLanguage>
+      <SecondaryType>Startup</SecondaryType>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="3" CompositionName="Items">
+            <AttributeList>
+              <Culture>ru-RU</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="4" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="GDB_Gen_Ctrl" />
+        <Component Name="Restart" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="GDB_Gen_Ctrl" />
+        <Component Name="Restart" />
+      </Symbol>
+    </Access>
+    <Part Name="SCoil" UId="23">
+      <Negated Name="in" />
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="24">
+      <IdentCon UId="21" />
+      <NameCon UId="23" Name="in" />
+    </Wire>
+    <Wire UId="25">
+      <IdentCon UId="22" />
+      <NameCon UId="23" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="5" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="6" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="8" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="9" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="B" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource />
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="C" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="F" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="10" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="11" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="12" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="13" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text>"Complete Restart"</Text>
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="14" CompositionName="Items">
+            <AttributeList>
+              <Culture>ru-RU</Culture>
+              <Text>"Complete Restart"</Text>
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.OB>
+</Document>

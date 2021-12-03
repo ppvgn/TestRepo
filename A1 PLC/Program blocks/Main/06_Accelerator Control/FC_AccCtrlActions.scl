@@ -1,0 +1,196 @@
+﻿FUNCTION "FC_AccCtrlActions" : Void
+{ S7_Optimized_Access := 'FALSE' }
+VERSION : 0.1
+   VAR_INPUT 
+      I_Acc_ActState : Int;   // Состояние ускорителя
+   END_VAR
+
+   VAR_OUTPUT 
+      O_AccPreh_PwrOn : Bool;   // Включение сушки ускорителя
+      O_Mod400V_PwrOn : Bool;   // Включить модулятор 380 В
+      O_Mod230V_PwrOn : Bool;   // Включить модулятор 220 В
+      O_Acc230V_PwrOn : Bool;   // Включить ускоритель 220 В
+      O_FltRst : Bool;   // Сброс ошибки
+      O_WarmUp : Bool;   // Запрос на прогрев
+      O_RF_OnRq : Bool;   // Включить СВЧ
+      O_XRay_OnRq : Bool;   // Включить ТИ
+   END_VAR
+
+   VAR_TEMP 
+      T_Acc_ActState : Int;   // Состояние ускорителя
+   END_VAR
+
+
+BEGIN
+	// Копирование состояния ускорителя в локальную переменную
+	#T_Acc_ActState := #I_Acc_ActState;
+	CASE #T_Acc_ActState OF
+	    1:  // Подготовка
+	        #O_AccPreh_PwrOn := FALSE;
+	        #O_Mod400V_PwrOn := FALSE;
+	        #O_Mod230V_PwrOn := FALSE;
+	        #O_Acc230V_PwrOn := FALSE;
+	        #O_WarmUp := FALSE;
+	        #O_FltRst := FALSE;
+	        #O_RF_OnRq := FALSE;
+	        #O_XRay_OnRq := FALSE;
+	    2:  // Ускоритель выключен
+	        #O_AccPreh_PwrOn := FALSE;
+	        #O_Mod400V_PwrOn := FALSE;
+	        #O_Mod230V_PwrOn := FALSE;
+	        #O_Acc230V_PwrOn := FALSE;
+	        #O_WarmUp := FALSE;
+	        #O_FltRst := FALSE;
+	        #O_RF_OnRq := FALSE;
+	        #O_XRay_OnRq := FALSE;
+	    3:  // Включение систем климатики
+	        #O_AccPreh_PwrOn := TRUE;
+	        #O_Mod400V_PwrOn := FALSE;
+	        #O_Mod230V_PwrOn := FALSE;
+	        #O_Acc230V_PwrOn := FALSE;
+	        #O_WarmUp := FALSE;
+	        #O_FltRst := FALSE;
+	        #O_RF_OnRq := FALSE;
+	        #O_XRay_OnRq := FALSE;
+	    4:  // Включение питания модулятора
+	        #O_AccPreh_PwrOn := FALSE;
+	        #O_Mod400V_PwrOn := TRUE;
+	        #O_Mod230V_PwrOn := TRUE;
+	        #O_Acc230V_PwrOn := FALSE;
+	        #O_WarmUp := FALSE;
+	        #O_FltRst := FALSE;
+	        #O_RF_OnRq := FALSE;
+	        #O_XRay_OnRq := FALSE;
+	    5:  // Включение ускорителя
+	        #O_AccPreh_PwrOn := FALSE;
+	        #O_Mod400V_PwrOn := TRUE;
+	        #O_Mod230V_PwrOn := TRUE;
+	        #O_Acc230V_PwrOn := TRUE;
+	        #O_WarmUp := FALSE;
+	        #O_FltRst := FALSE;
+	        #O_RF_OnRq := FALSE;
+	        #O_XRay_OnRq := FALSE;
+	    6:  // Питание всех систем ускорителя включено. Включение детекторной линейки
+	        #O_AccPreh_PwrOn := FALSE;
+	        #O_Mod400V_PwrOn := TRUE;
+	        #O_Mod230V_PwrOn := TRUE;
+	        #O_Acc230V_PwrOn := TRUE;
+	        #O_WarmUp := TRUE;
+	        #O_FltRst := TRUE;
+	        #O_RF_OnRq := FALSE;
+	        #O_XRay_OnRq := FALSE;
+	    7:  // Выбран удаленный режим упрвления
+	        #O_AccPreh_PwrOn := FALSE;
+	        #O_Mod400V_PwrOn := TRUE;
+	        #O_Mod230V_PwrOn := TRUE;
+	        #O_Acc230V_PwrOn := TRUE;
+	        #O_WarmUp := TRUE;
+	        #O_FltRst := FALSE;
+	        #O_RF_OnRq := FALSE;
+	        #O_XRay_OnRq := FALSE;
+	    8:  // Прогрев ускорителя
+	        #O_AccPreh_PwrOn := FALSE;
+	        #O_Mod400V_PwrOn := TRUE;
+	        #O_Mod230V_PwrOn := TRUE;
+	        #O_Acc230V_PwrOn := TRUE;
+	        #O_WarmUp := TRUE;
+	        #O_FltRst := FALSE;
+	        #O_RF_OnRq := FALSE;
+	        #O_XRay_OnRq := FALSE;
+	    9:  // Предварительная готовность
+	        #O_AccPreh_PwrOn := FALSE;
+	        #O_Mod400V_PwrOn := TRUE;
+	        #O_Mod230V_PwrOn := TRUE;
+	        #O_Acc230V_PwrOn := TRUE;
+	        #O_WarmUp := TRUE;
+	        #O_FltRst := TRUE;
+	        #O_RF_OnRq := FALSE;
+	        #O_XRay_OnRq := FALSE;
+	    10:  // Основная готовность
+	        #O_AccPreh_PwrOn := FALSE;
+	        #O_Mod400V_PwrOn := TRUE;
+	        #O_Mod230V_PwrOn := TRUE;
+	        #O_Acc230V_PwrOn := TRUE;
+	        #O_WarmUp := TRUE;
+	        #O_FltRst := FALSE;
+	        #O_RF_OnRq := FALSE;
+	        #O_XRay_OnRq := FALSE;
+	    11:  // Включено СВЧ
+	        #O_AccPreh_PwrOn := FALSE;
+	        #O_Mod400V_PwrOn := TRUE;
+	        #O_Mod230V_PwrOn := TRUE;
+	        #O_Acc230V_PwrOn := TRUE;
+	        #O_WarmUp := TRUE;
+	        #O_FltRst := FALSE;
+	        #O_RF_OnRq := TRUE;
+	        #O_XRay_OnRq := FALSE;
+	    12:  // Включение ТИ
+	        #O_AccPreh_PwrOn := FALSE;
+	        #O_Mod400V_PwrOn := TRUE;
+	        #O_Mod230V_PwrOn := TRUE;
+	        #O_Acc230V_PwrOn := TRUE;
+	        #O_WarmUp := TRUE;
+	        #O_RF_OnRq := TRUE;
+	        #O_XRay_OnRq := TRUE;
+	        #O_FltRst := FALSE;
+	    13:  // Ошибка
+	        #O_AccPreh_PwrOn := FALSE;
+	        #O_Mod400V_PwrOn := TRUE;
+	        #O_Mod230V_PwrOn := TRUE;
+	        #O_Acc230V_PwrOn := TRUE;
+	        #O_WarmUp := TRUE;
+	        #O_RF_OnRq := FALSE;
+	        #O_XRay_OnRq := FALSE;
+	        #O_FltRst := FALSE;
+	        
+	    14:  // Выключение накала ускорителя
+	        #O_AccPreh_PwrOn := FALSE;
+	        #O_Mod400V_PwrOn := TRUE;
+	        #O_Mod230V_PwrOn := TRUE;
+	        #O_Acc230V_PwrOn := TRUE;
+	        #O_WarmUp := FALSE;
+	        #O_FltRst := FALSE;
+	        #O_RF_OnRq := FALSE;
+	        #O_XRay_OnRq := FALSE;
+	    15:  // Выключение питания детекторной линейки
+	        #O_AccPreh_PwrOn := FALSE;
+	        #O_Mod400V_PwrOn := TRUE;
+	        #O_Mod230V_PwrOn := TRUE;
+	        #O_Acc230V_PwrOn := TRUE;
+	        #O_WarmUp := FALSE;
+	        #O_FltRst := FALSE;
+	        #O_RF_OnRq := FALSE;
+	        #O_XRay_OnRq := FALSE;
+	    16:  // Выключение модулятора
+	        #O_AccPreh_PwrOn := FALSE;
+	        #O_Mod400V_PwrOn := FALSE;
+	        #O_Mod230V_PwrOn := TRUE;
+	        #O_Acc230V_PwrOn := TRUE;
+	        #O_WarmUp := FALSE;
+	        #O_FltRst := FALSE;
+	        #O_RF_OnRq := FALSE;
+	        #O_XRay_OnRq := FALSE;
+	    17:  // Выключение чиллера
+	        #O_AccPreh_PwrOn := FALSE;
+	        #O_Mod400V_PwrOn := FALSE;
+	        #O_Mod230V_PwrOn := TRUE;
+	        #O_Acc230V_PwrOn := TRUE;
+	        #O_WarmUp := FALSE;
+	        #O_FltRst := FALSE;
+	        #O_RF_OnRq := FALSE;
+	        #O_XRay_OnRq := FALSE;
+	    18:  // Пауза
+	        #O_AccPreh_PwrOn := FALSE;
+	        #O_Mod400V_PwrOn := TRUE;
+	        #O_Mod230V_PwrOn := TRUE;
+	        #O_Acc230V_PwrOn := TRUE;
+	        #O_WarmUp := TRUE;
+	        #O_FltRst := FALSE;
+	        #O_RF_OnRq := FALSE;
+	        #O_XRay_OnRq := FALSE;
+	    ELSE  // Statement section ELSE
+	        ;
+	END_CASE;
+	
+END_FUNCTION
+

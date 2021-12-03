@@ -1,0 +1,168 @@
+﻿FUNCTION "FC_HMI_Logging" : Void
+{ S7_Optimized_Access := 'FALSE' }
+VERSION : 0.1
+
+BEGIN
+	// Условия для закрытия периметра
+	"SafetyPer_0" := NOT "FGDB_Safety_Perimeter".RdyCls_P3;
+	"SafetyPer_1" := NOT "FGDB_EmStpButton".GnEmStp_Sv;
+	"SafetyPer_2" := "GDB_Inputs".I_P2ConvLocal;
+	"SafetyPer_3" := NOT "FGDB_Safety_Perimeter".AckCls AND NOT "FGDB_Safety_Perimeter".SAreaClose;
+	"SafetyPer_4" := NOT "FGDB_Inputs".I_PrDoor1Cls_Ch1;
+	"SafetyPer_5" := NOT "FGDB_Safety_Perimeter".SAreaClose;
+	"SafetyPer_6" := FALSE;
+	"SafetyPer_7" := FALSE;
+	"SafetyPer_8" := FALSE;
+	"SafetyPer_9" := FALSE;
+	"SafetyPer_10" := FALSE;
+	"SafetyPer_11" := FALSE;
+	"SafetyPer_12" := FALSE;
+	"SafetyPer_13" := FALSE;
+	"SafetyPer_14" := FALSE;
+	"SafetyPer_15" := FALSE;
+	
+	"GDB_HmiLog".SafetyPer := ROR(IN := ("SafetyPer"), N := 8);
+	
+	// Условия для запуска сканирования
+	"ScanSeqCond_0" := "GDB_Gen_Ctrl".ServiceMode;
+	"ScanSeqCond_1" := NOT "FGDB_EmStpButton".GnEmStp_Sv;
+	"ScanSeqCond_2" := NOT "FGDB_Safety_Perimeter".SAreaClose;
+	"ScanSeqCond_3" := NOT "GDB_ScanSequence".ConvRdy AND NOT "GDB_ScanSequence".Run;
+	"ScanSeqCond_4" := NOT "GDB_ScanSequence".AccRdy AND NOT "GDB_ScanSequence".Run;
+	"ScanSeqCond_5" := NOT "GDB_ScanSequence".DetLineRdy;
+	"ScanSeqCond_6" := FALSE;
+	"ScanSeqCond_7" := FALSE;
+	"ScanSeqCond_8" := FALSE;
+	"ScanSeqCond_9" := FALSE;
+	"ScanSeqCond_10" := FALSE;
+	"ScanSeqCond_11" := FALSE;
+	"ScanSeqCond_12" := FALSE;
+	"ScanSeqCond_13" := FALSE;
+	"ScanSeqCond_14" := FALSE;
+	"ScanSeqCond_15" := FALSE;
+	
+	"GDB_HmiLog".ScanSeqCond := ROR(IN := ("ScanSeqCond"), N := 8);
+	
+	// Цепи питания 24V
+	"CirBrk24VFb_0" := "GDB_Faults".CirBrk24VFb.I_BrPow1Flt;
+	"CirBrk24VFb_1" := "GDB_Faults".CirBrk24VFb.I_BrPow2Flt;
+	"CirBrk24VFb_2" := "GDB_Faults".CirBrk24VFb.I_SitopPow1Flt;
+	"CirBrk24VFb_3" := "GDB_Faults".CirBrk24VFb.I_SitopPow2Flt;
+	"CirBrk24VFb_4" := FALSE;
+	"CirBrk24VFb_5" := FALSE;
+	"CirBrk24VFb_6" := FALSE;
+	"CirBrk24VFb_7" := FALSE;
+	"CirBrk24VFb_8" := FALSE;
+	"CirBrk24VFb_9" := FALSE;
+	"CirBrk24VFb_10" := FALSE;
+	"CirBrk24VFb_11" := FALSE;
+	"CirBrk24VFb_12" := FALSE;
+	"CirBrk24VFb_13" := FALSE;
+	"CirBrk24VFb_14" := FALSE;
+	"CirBrk24VFb_15" := FALSE;
+	
+	"GDB_PlcToHmi".Faults.FeedBack."24V" := WORD_TO_INT(ROR(IN := INT_TO_WORD("CirBrk24VFb"), N := 8));
+	
+	// Цепи питания 220v
+	"CirBrk220VFb_0" := "GDB_Faults".CirBrk220VFb.I_BrLigSrvFlt;
+	"CirBrk220VFb_1" := "GDB_Faults".CirBrk220VFb.I_BrAccConFlt;
+	"CirBrk220VFb_2" := "GDB_Faults".CirBrk220VFb.I_BrXRayUnitFlt;
+	"CirBrk220VFb_3" := "GDB_Faults".CirBrk220VFb.I_BrPowPlcFlt;
+	"CirBrk220VFb_4" := "GDB_Faults".CirBrk220VFb.I_BrMod1PFlt;
+	"CirBrk220VFb_5" := FALSE;
+	"CirBrk220VFb_6" := FALSE;
+	"CirBrk220VFb_7" := FALSE;
+	"CirBrk220VFb_8" := FALSE;
+	"CirBrk220VFb_9" := FALSE;
+	"CirBrk220VFb_10" := FALSE;
+	"CirBrk220VFb_11" := FALSE;
+	"CirBrk220VFb_12" := FALSE;
+	"CirBrk220VFb_13" := FALSE;
+	"CirBrk220VFb_14" := FALSE;
+	"CirBrk220VFb_15" := FALSE;
+	
+	"GDB_PlcToHmi".Faults.FeedBack."220V" := WORD_TO_INT(ROR(IN := INT_TO_WORD("CirBrk220VFb"), N := 8));
+	
+	// Цепи питания 380v
+	"CirBrk380VFb_0" := "GDB_Faults".CirBrk380VFb.I_BrModFlt;
+	"CirBrk380VFb_1" := "GDB_Faults".CirBrk380VFb.I_BrChilFlt;
+	"CirBrk380VFb_2" := "GDB_Faults".CirBrk380VFb.I_BrFrqConvFlt;
+	"CirBrk380VFb_3" := FALSE;
+	"CirBrk380VFb_4" := FALSE;
+	"CirBrk380VFb_5" := FALSE;
+	"CirBrk380VFb_6" := FALSE;
+	"CirBrk380VFb_7" := FALSE;
+	"CirBrk380VFb_8" := FALSE;
+	"CirBrk380VFb_9" := FALSE;
+	"CirBrk380VFb_10" := FALSE;
+	"CirBrk380VFb_11" := FALSE;
+	"CirBrk380VFb_12" := FALSE;
+	"CirBrk380VFb_13" := FALSE;
+	"CirBrk380VFb_14" := FALSE;
+	"CirBrk380VFb_15" := FALSE;
+	
+	"GDB_PlcToHmi".Faults.FeedBack."380V" := WORD_TO_INT(ROR(IN := INT_TO_WORD("CirBrk380VFb"), N := 8));
+	
+	// Контакторы
+	"FitBackControl_0" := "GDB_Faults".FeedBackControl.ModCont400_Err;
+	"FitBackControl_1" := "GDB_Faults".FeedBackControl.ModCont230_Err;
+	"FitBackControl_2" := "GDB_Faults".FeedBackControl.ChillCont_Err;
+	"FitBackControl_3" := "GDB_Faults".FeedBackControl.AccCont_Err;
+	"FitBackControl_4" := FALSE;
+	"FitBackControl_5" := "GDB_Faults".FeedBackControl.ConvCont_Err;
+	"FitBackControl_6" := FALSE;
+	"FitBackControl_7" := FALSE;
+	"FitBackControl_8" := FALSE;
+	"FitBackControl_9" := FALSE;
+	"FitBackControl_10" := FALSE;
+	"FitBackControl_11" := FALSE;
+	"FitBackControl_12" := FALSE;
+	"FitBackControl_13" := FALSE;
+	"FitBackControl_14" := FALSE;
+	"FitBackControl_15" := FALSE;
+	
+	"GDB_PlcToHmi".Faults.FeedBack.Control := WORD_TO_INT(ROR(IN := INT_TO_WORD("FitBackControl"), N := 8));
+	
+	
+	// Аварийные кнопки
+	"EmStBt_0" := "GDB_Faults".EmStBt.P1EmStp_Sv;
+	"EmStBt_1" := "GDB_Faults".EmStBt.P2EmStp_Sv;
+	"EmStBt_2" := "GDB_Faults".EmStBt.P3EmStp_Sv;
+	"EmStBt_3" := "GDB_Faults".EmStBt.AccEmStp_Sv;
+	"EmStBt_4" := "GDB_Faults".EmStBt.DosimEmStp_Sv;
+	"EmStBt_5" := "GDB_Faults".EmStBt.PerOpnIllegal;
+	"EmStBt_6" := FALSE;
+	"EmStBt_7" := FALSE;
+	"EmStBt_8" := FALSE;
+	"EmStBt_9" := FALSE;
+	"EmStBt_10" := FALSE;
+	"EmStBt_11" := FALSE;
+	"EmStBt_12" := FALSE;
+	"EmStBt_13" := FALSE;
+	"EmStBt_14" := FALSE;
+	"EmStBt_15" := FALSE;
+	
+	"GDB_PlcToHmi".Faults.EmStBt := WORD_TO_INT(ROR(IN := INT_TO_WORD("EmStBt"), N := 8));
+	
+	// Последовательность сканирования и частотник
+	"Conveyer_0" := "GDB_Faults".Conveyer.FrqConv;
+	"Conveyer_1" := "GDB_Faults".Conveyer.CycleTime;
+	"Conveyer_2" := "GDB_Faults".Conveyer.IntrptCycl;
+	"Conveyer_3" := "GDB_Faults".DetLine.NotCon;
+	"Conveyer_4" := "GDB_Inputs".I_P2ConvLocal;
+	"Conveyer_5" := FALSE;
+	"Conveyer_6" := FALSE;
+	"Conveyer_7" := FALSE;
+	"Conveyer_8" := FALSE;
+	"Conveyer_9" := FALSE;
+	"Conveyer_10" := FALSE;
+	"Conveyer_11" := FALSE;
+	"Conveyer_12" := FALSE;
+	"Conveyer_13" := FALSE;
+	"Conveyer_14" := FALSE;
+	"Conveyer_15" := FALSE;
+	
+	"GDB_PlcToHmi".Faults.Conveyer := WORD_TO_INT(ROR(IN := INT_TO_WORD("Conveyer"), N := 8));
+	
+END_FUNCTION
+

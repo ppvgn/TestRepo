@@ -1,0 +1,1095 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V17" />
+  <DocumentInfo>
+    <Created>2021-12-03T08:12:53.967625Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Advanced</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.FC ID="0">
+    <AttributeList>
+      <AutoNumber>false</AutoNumber>
+      <HeaderAuthor />
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Input" />
+  <Section Name="Output" />
+  <Section Name="InOut" />
+  <Section Name="Temp" />
+  <Section Name="Constant">
+    <Member Name="Speed_Convert" Datatype="Int">
+      <StartValue>6</StartValue>
+    </Member>
+  </Section>
+  <Section Name="Return">
+    <Member Name="Ret_Val" Datatype="Void" />
+  </Section>
+</Sections></Interface>
+      <IsIECCheckEnabled>false</IsIECCheckEnabled>
+      <Name>FC_DetLineCommunication_V2</Name>
+      <Number>20</Number>
+      <ProgrammingLanguage>FBD</ProgrammingLanguage>
+      <UDABlockProperties />
+      <UDAEnableTagReadback>false</UDAEnableTagReadback>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="3" CompositionName="Items">
+            <AttributeList>
+              <Culture>ru-RU</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="4" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="GDB_ScanSequence" />
+        <Component Name="Action" />
+        <Component Name="DetLineStrtReq" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="GDB_HmiTestBtns" />
+        <Component Name="TB1_10_DetLineStrt" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Request" />
+        <Component Name="DetLineStrtRq" />
+      </Symbol>
+    </Access>
+    <Part Name="O" UId="24">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="Coil" UId="25" />
+  </Parts>
+  <Wires>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="24" Name="in1" />
+    </Wire>
+    <Wire UId="27">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="in2" />
+    </Wire>
+    <Wire UId="28">
+      <NameCon UId="24" Name="out" />
+      <NameCon UId="25" Name="in" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="23" />
+      <NameCon UId="25" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="5" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="6" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="8" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="9" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Detector Line: Start Request</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="B" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="GDB_ScanSequence" />
+        <Component Name="Action" />
+        <Component Name="DetLineStpReq" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="GDB_HmiTestBtns" />
+        <Component Name="TB1_11_DetLineStp" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Request" />
+        <Component Name="DetLineStpRq" />
+      </Symbol>
+    </Access>
+    <Part Name="O" UId="24">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="Coil" UId="25" />
+  </Parts>
+  <Wires>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="24" Name="in1" />
+    </Wire>
+    <Wire UId="27">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="in2" />
+    </Wire>
+    <Wire UId="28">
+      <NameCon UId="24" Name="out" />
+      <NameCon UId="25" Name="in" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="23" />
+      <NameCon UId="25" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="C" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="F" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="10" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="11" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Detector Line: Stop Request</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="12" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="GDB_HmiTestBtns" />
+        <Component Name="TB1_12_DetLineSetup" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Request" />
+        <Component Name="DetLineSetRq" />
+      </Symbol>
+    </Access>
+    <Part Name="Coil" UId="23" />
+  </Parts>
+  <Wires>
+    <Wire UId="24">
+      <IdentCon UId="21" />
+      <NameCon UId="23" Name="in" />
+    </Wire>
+    <Wire UId="25">
+      <IdentCon UId="22" />
+      <NameCon UId="23" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="13" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="14" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="15" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="16" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="17" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="18" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Detector Line: Setup Request</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="19" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StatementList xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StatementList/v4">
+  <StlStatement UId="21">
+    <StlToken Text="L" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_HMI_IO_Retain" />
+        <Component Name="FrqConv" />
+        <Component Name="FastSpeed" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="26">
+    <StlToken Text="L" />
+    <Access Scope="LiteralConstant">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>6</ConstantValue>
+      </Constant>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="22">
+    <StlToken Text="MUL_I" />
+  </StlStatement>
+  <StlStatement UId="25">
+    <StlToken Text="T" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Request" />
+        <Component Name="VehSpd" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="29">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="27">
+    <StlToken Text="L" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Request" />
+        <Component Name="VehSpd" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="32">
+    <StlToken Text="L" />
+    <Access Scope="LiteralConstant">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>100</ConstantValue>
+      </Constant>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="34">
+    <StlToken Text="DIV_I" />
+  </StlStatement>
+  <StlStatement UId="35">
+    <StlToken Text="T" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Request" />
+        <Component Name="VehSpd" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+</StatementList></NetworkSource>
+          <ProgrammingLanguage>STL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1A" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="1B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="1C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="1D" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="1E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="1F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Пересчет скорости</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="20" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>10</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>22</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="DBI_SM_Conv" />
+        <Component Name="S_State" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>23</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Request" />
+        <Component Name="VehMovDrct" />
+      </Symbol>
+    </Access>
+    <Part Name="O" UId="25">
+      <TemplateValue Name="Card" Type="Cardinality">3</TemplateValue>
+    </Part>
+    <Part Name="Coil" UId="26" />
+  </Parts>
+  <Wires>
+    <Wire UId="27">
+      <IdentCon UId="21" />
+      <NameCon UId="25" Name="in1" />
+    </Wire>
+    <Wire UId="28">
+      <IdentCon UId="22" />
+      <NameCon UId="25" Name="in2" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="23" />
+      <NameCon UId="25" Name="in3" />
+    </Wire>
+    <Wire UId="30">
+      <NameCon UId="25" Name="out" />
+      <NameCon UId="26" Name="in" />
+    </Wire>
+    <Wire UId="31">
+      <IdentCon UId="24" />
+      <NameCon UId="26" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="21" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="22" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="23" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="24" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="25" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="26" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Vehicle Moving Direction: 0=Backward 1=Forward</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="27" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="Always_False" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Request" />
+        <Component Name="HiDoseMd" />
+      </Symbol>
+    </Access>
+    <Part Name="Coil" UId="23" />
+  </Parts>
+  <Wires>
+    <Wire UId="24">
+      <IdentCon UId="21" />
+      <NameCon UId="23" Name="in" />
+    </Wire>
+    <Wire UId="25">
+      <IdentCon UId="22" />
+      <NameCon UId="23" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="28" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="29" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="2A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="2B" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="2C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="2D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>High Dose Mode: 0=Off, 1=On</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="2E" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LiteralConstant" UId="21">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>1</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="TypedConstant" UId="22">
+      <Constant>
+        <ConstantValue>W#16#0180</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Request" />
+        <Component Name="DetLineStrtRq" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Request" />
+        <Component Name="DetLineStpRq" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Request" />
+        <Component Name="DetLineSetRq" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Request" />
+        <Component Name="VehSpd" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Request" />
+        <Component Name="VehMovDrct" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Request" />
+        <Component Name="HiDoseMd" />
+      </Symbol>
+    </Access>
+    <Call UId="29">
+      <CallInfo Name="FB_DetLineCtrl" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="30">
+          <Component Name="DBI_DetLineCtrl" />
+        </Instance>
+        <Parameter Name="ID" Section="Input" Type="Int" />
+        <Parameter Name="LADDR" Section="Input" Type="Word" />
+        <Parameter Name="I_StartScan" Section="Input" Type="Bool" />
+        <Parameter Name="I_StopScan" Section="Input" Type="Bool" />
+        <Parameter Name="I_Setup" Section="Input" Type="Bool" />
+        <Parameter Name="I_Speed" Section="Input" Type="Int" />
+        <Parameter Name="I_Direct" Section="Input" Type="Bool" />
+        <Parameter Name="I_HighDose" Section="Input" Type="Bool" />
+      </CallInfo>
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="32">
+      <OpenCon UId="31" />
+      <NameCon UId="29" Name="en" />
+    </Wire>
+    <Wire UId="33">
+      <IdentCon UId="21" />
+      <NameCon UId="29" Name="ID" />
+    </Wire>
+    <Wire UId="34">
+      <IdentCon UId="22" />
+      <NameCon UId="29" Name="LADDR" />
+    </Wire>
+    <Wire UId="35">
+      <IdentCon UId="23" />
+      <NameCon UId="29" Name="I_StartScan" />
+    </Wire>
+    <Wire UId="36">
+      <IdentCon UId="24" />
+      <NameCon UId="29" Name="I_StopScan" />
+    </Wire>
+    <Wire UId="37">
+      <IdentCon UId="25" />
+      <NameCon UId="29" Name="I_Setup" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="26" />
+      <NameCon UId="29" Name="I_Speed" />
+    </Wire>
+    <Wire UId="39">
+      <IdentCon UId="27" />
+      <NameCon UId="29" Name="I_Direct" />
+    </Wire>
+    <Wire UId="40">
+      <IdentCon UId="28" />
+      <NameCon UId="29" Name="I_HighDose" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="2F" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="30" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="31" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="32" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="33" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="34" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Запись данных на линейку</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="35" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LiteralConstant" UId="21">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>1</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="TypedConstant" UId="22">
+      <Constant>
+        <ConstantValue>W#16#0180</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="GDB_Gen_Ctrl" />
+        <Component Name="FaultReset" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Status" />
+        <Component Name="ConOk" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Status" />
+        <Component Name="SyncStrt" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Status" />
+        <Component Name="ScanAct" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Status" />
+        <Component Name="RdyForScan" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Status" />
+        <Component Name="State" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="29">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Status" />
+        <Component Name="ErgMd" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="30">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Status" />
+        <Component Name="TrigRate" />
+      </Symbol>
+    </Access>
+    <Call UId="31">
+      <CallInfo Name="FB_DetLineSts" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="32">
+          <Component Name="DBI_DetLineSts" />
+        </Instance>
+        <Parameter Name="ID" Section="Input" Type="Int" />
+        <Parameter Name="LADDR" Section="Input" Type="Word" />
+        <Parameter Name="I_FltAck" Section="Input" Type="Bool" />
+        <Parameter Name="O_ConOk" Section="Output" Type="Bool" />
+        <Parameter Name="O_SyncStrt" Section="Output" Type="Bool" />
+        <Parameter Name="O_ScanAct" Section="Output" Type="Bool" />
+        <Parameter Name="O_RdyForScan" Section="Output" Type="Bool" />
+        <Parameter Name="O_ErrRdyAck" Section="Output" Type="Bool" />
+        <Parameter Name="O_State" Section="Output" Type="Int" />
+        <Parameter Name="O_ErgMd" Section="Output" Type="Int" />
+        <Parameter Name="O_TrigRate" Section="Output" Type="Int" />
+      </CallInfo>
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="35">
+      <OpenCon UId="33" />
+      <NameCon UId="31" Name="en" />
+    </Wire>
+    <Wire UId="36">
+      <IdentCon UId="21" />
+      <NameCon UId="31" Name="ID" />
+    </Wire>
+    <Wire UId="37">
+      <IdentCon UId="22" />
+      <NameCon UId="31" Name="LADDR" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="23" />
+      <NameCon UId="31" Name="I_FltAck" />
+    </Wire>
+    <Wire UId="39">
+      <NameCon UId="31" Name="O_ConOk" />
+      <IdentCon UId="24" />
+    </Wire>
+    <Wire UId="40">
+      <NameCon UId="31" Name="O_SyncStrt" />
+      <IdentCon UId="25" />
+    </Wire>
+    <Wire UId="41">
+      <NameCon UId="31" Name="O_ScanAct" />
+      <IdentCon UId="26" />
+    </Wire>
+    <Wire UId="42">
+      <NameCon UId="31" Name="O_RdyForScan" />
+      <IdentCon UId="27" />
+    </Wire>
+    <Wire UId="43">
+      <NameCon UId="31" Name="O_ErrRdyAck" />
+      <OpenCon UId="34" />
+    </Wire>
+    <Wire UId="44">
+      <NameCon UId="31" Name="O_State" />
+      <IdentCon UId="28" />
+    </Wire>
+    <Wire UId="45">
+      <NameCon UId="31" Name="O_ErgMd" />
+      <IdentCon UId="29" />
+    </Wire>
+    <Wire UId="46">
+      <NameCon UId="31" Name="O_TrigRate" />
+      <IdentCon UId="30" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="36" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="37" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="38" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="39" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="3A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="3B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Чтение данных с линейки</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="3C" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StatementList xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StatementList/v4">
+  <StlStatement UId="24">
+    <StlToken Text="L" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Status" />
+        <Component Name="State" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="43">
+    <StlToken Text="L" />
+    <Access Scope="LiteralConstant">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>0</ConstantValue>
+      </Constant>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="41">
+    <StlToken Text="EQ_I" />
+  </StlStatement>
+  <StlStatement UId="31">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Status" />
+        <Component Name="Error" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="47">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="48">
+    <StlToken Text="L" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Status" />
+        <Component Name="State" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="50">
+    <StlToken Text="L" />
+    <Access Scope="LiteralConstant">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>1</ConstantValue>
+      </Constant>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="52">
+    <StlToken Text="EQ_I" />
+  </StlStatement>
+  <StlStatement UId="59">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Status" />
+        <Component Name="SrvsMd" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="53">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="54">
+    <StlToken Text="L" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Status" />
+        <Component Name="State" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="56">
+    <StlToken Text="L" />
+    <Access Scope="LiteralConstant">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>2</ConstantValue>
+      </Constant>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="58">
+    <StlToken Text="EQ_I" />
+  </StlStatement>
+  <StlStatement UId="40">
+    <StlToken Text="Assign" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="GDB_DetLine" />
+        <Component Name="Status" />
+        <Component Name="AutoMd" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="45">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+</StatementList></NetworkSource>
+          <ProgrammingLanguage>STL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="3D" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="3E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="3F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="40" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="41" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="42" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>1=Ошибка</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="43" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="44" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="45" CompositionName="Items">
+            <AttributeList>
+              <Culture>ru-RU</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.FC>
+</Document>

@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V17" />
+  <DocumentInfo>
+    <Created>2021-12-03T08:12:58.3526092Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Advanced</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.OB ID="0">
+    <AttributeList>
+      <HeaderAuthor />
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Temp">
+    <Member Name="OB85_EV_CLASS" Datatype="Byte">
+      <Comment>
+        <MultiLanguageText Lang="en-US">16#35 Event class 3</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="OB85_FLT_ID" Datatype="Byte">
+      <Comment>
+        <MultiLanguageText Lang="en-US">16#XX, Fault identification code</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="OB85_PRIORITY" Datatype="Byte">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Priority of OB Execution</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="OB85_OB_NUMBR" Datatype="Byte">
+      <Comment>
+        <MultiLanguageText Lang="en-US">85 (Organization block 85, OB85)</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="OB85_RESERVED_1" Datatype="Byte">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Reserved for system</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="OB85_RESERVED_2" Datatype="Byte">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Reserved for system</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="OB85_RESERVED_3" Datatype="Int">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Reserved for system</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="OB85_ERR_EV_CLASS" Datatype="Byte">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Class of event causing error</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="OB85_ERR_EV_NUM" Datatype="Byte">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Number of event causing error</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="OB85_OB_PRIOR" Datatype="Byte">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Priority of OB causing error</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="OB85_OB_NUM" Datatype="Byte">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Number of OB causing error</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="OB85_DATE_TIME" Datatype="Date_And_Time">
+      <Comment>
+        <MultiLanguageText Lang="en-US">Date and time OB85 started</MultiLanguageText>
+      </Comment>
+    </Member>
+  </Section>
+  <Section Name="Constant" />
+</Sections></Interface>
+      <IsIECCheckEnabled>false</IsIECCheckEnabled>
+      <Name>OBNL_FLT</Name>
+      <Number>85</Number>
+      <ProgrammingLanguage>FBD</ProgrammingLanguage>
+      <SecondaryType>AccessError</SecondaryType>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="3" CompositionName="Items">
+            <AttributeList>
+              <Culture>ru-RU</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="4" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource />
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="5" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="6" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="8" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="9" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="B" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="C" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text>"Organization Block (OB) Not Loaded Fault"</Text>
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="D" CompositionName="Items">
+            <AttributeList>
+              <Culture>ru-RU</Culture>
+              <Text>"Organization Block (OB) Not Loaded Fault"</Text>
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.OB>
+</Document>

@@ -1,0 +1,96 @@
+﻿FUNCTION "FC_HMI_Data_Read" : Void
+{ S7_Optimized_Access := 'FALSE' }
+VERSION : 0.1
+
+BEGIN
+	//Команды включения
+	"CmndON" := ROR(IN:="GDB_HmiToPlc".CmndON, N:=8);
+	
+	"GDB_HMI_Data".Receive.CmndOn.bit00_Pwr := "CmndON_0";
+	"GDB_HMI_Data".Receive.CmndOn.bit01_FrqConvPwr := "CmndON_1";
+	"GDB_HMI_Data".Receive.CmndOn.bit02_SrvcMd := "CmndON_2";
+	"GDB_HMI_Data".Receive.CmndOn.bit03_PwrAcc := "CmndON_3";
+	"GDB_HMI_Data".Receive.CmndOn.bit04 := "CmndON_4";
+	"GDB_HMI_Data".Receive.CmndOn.bit05 := "CmndON_5";
+	"GDB_HMI_Data".Receive.CmndOn.bit06 := "CmndON_6";
+	"GDB_HMI_Data".Receive.CmndOn.bit07 := "CmndON_7";
+	"GDB_HMI_Data".Receive.CmndOn.bit08 := "CmndON_8";
+	"GDB_HMI_Data".Receive.CmndOn.bit09 := "CmndON_9";
+	"GDB_HMI_Data".Receive.CmndOn.bit10 := "CmndON_10";
+	"GDB_HMI_Data".Receive.CmndOn.bit11 := "CmndON_11";
+	"GDB_HMI_Data".Receive.CmndOn.bit12 := "CmndON_12";
+	"GDB_HMI_Data".Receive.CmndOn.bit13 := "CmndON_13";
+	"GDB_HMI_Data".Receive.CmndOn.bit14 := "CmndON_14";
+	"GDB_HMI_Data".Receive.CmndOn.bit15 := "CmndON_15";
+	
+	//Команды выключения
+	"CmndOFF" := ROR(IN := "GDB_HmiToPlc".CmndOFF, N := 8);
+	
+	"GDB_HMI_Data".Receive.CmndOff.bit00_Pwr := "CmndOFF_0";
+	"GDB_HMI_Data".Receive.CmndOff.bit01_FrqConvPwr := "CmndOFF_1";
+	"GDB_HMI_Data".Receive.CmndOff.bit02_SrvcMd := "CmndOFF_2";
+	"GDB_HMI_Data".Receive.CmndOff.bit03_PwrAcc := "CmndOFF_3";
+	"GDB_HMI_Data".Receive.CmndOff.bit04 := "CmndOFF_4";
+	"GDB_HMI_Data".Receive.CmndOff.bit05 := "CmndOFF_5";
+	"GDB_HMI_Data".Receive.CmndOff.bit06 := "CmndOFF_6";
+	"GDB_HMI_Data".Receive.CmndOff.bit07 := "CmndOFF_7";
+	"GDB_HMI_Data".Receive.CmndOff.bit08 := "CmndOFF_8";
+	"GDB_HMI_Data".Receive.CmndOff.bit09 := "CmndOFF_9";
+	"GDB_HMI_Data".Receive.CmndOff.bit10 := "CmndOFF_10";
+	"GDB_HMI_Data".Receive.CmndOff.bit11 := "CmndOFF_11";
+	"GDB_HMI_Data".Receive.CmndOff.bit12 := "CmndOFF_12";
+	"GDB_HMI_Data".Receive.CmndOff.bit13 := "CmndOFF_13";
+	"GDB_HMI_Data".Receive.CmndOff.bit14 := "CmndOFF_14";
+	"GDB_HMI_Data".Receive.CmndOff.bit15 := "CmndOFF_15";
+	
+	//Команды сброса
+	"Cmnd_AckRst" := ROR(IN:="GDB_HmiToPlc".Cmnd_AckRst, N:=8);
+	
+	"GDB_HMI_Data".Receive.Cmnd_AckRst.bit00_Faults := "Cmnd_AckRst_0";
+	"GDB_HMI_Data".Receive.Cmnd_AckRst.bit01_AccFaults := "Cmnd_AckRst_1";
+	"GDB_HMI_Data".Receive.Cmnd_AckRst.bit02_AccFullWrmUp := "Cmnd_AckRst_2";
+	"GDB_HMI_Data".Receive.Cmnd_AckRst.bit03_AccPwrRst := "Cmnd_AckRst_3";
+	"GDB_HMI_Data".Receive.Cmnd_AckRst.bit04_DetLinePwrRst := "Cmnd_AckRst_4";
+	"GDB_HMI_Data".Receive.Cmnd_AckRst.bit05_ParDefltRst := "Cmnd_AckRst_5";
+	"GDB_HMI_Data".Receive.Cmnd_AckRst.bit06_WarmUpFull := "Cmnd_AckRst_6";
+	"GDB_HMI_Data".Receive.Cmnd_AckRst.bit07_StrtScan := "Cmnd_AckRst_7";
+	"GDB_HMI_Data".Receive.Cmnd_AckRst.bit08_StpScan := "Cmnd_AckRst_8";
+	"GDB_HMI_Data".Receive.Cmnd_AckRst.bit09 := "Cmnd_AckRst_9";
+	"GDB_HMI_Data".Receive.Cmnd_AckRst.bit10 := "Cmnd_AckRst_10";
+	"GDB_HMI_Data".Receive.Cmnd_AckRst.bit11 := "Cmnd_AckRst_11";
+	"GDB_HMI_Data".Receive.Cmnd_AckRst.bit12 := "Cmnd_AckRst_12";
+	"GDB_HMI_Data".Receive.Cmnd_AckRst.bit13 := "Cmnd_AckRst_13";
+	"GDB_HMI_Data".Receive.Cmnd_AckRst.bit14 := "Cmnd_AckRst_14";
+	"GDB_HMI_Data".Receive.Cmnd_AckRst.bit15 := "Cmnd_AckRst_15";
+	
+	//Команды переключения
+	"CmndSwitch":= ROR(IN :="GDB_HmiToPlc".CmndSwitch, N := 8);
+	
+	"GDB_HMI_Data".Receive.CmndSwitch.bit00_FastOnAcc := "CmndSwitch_0";
+	"GDB_HMI_Data".Receive.CmndSwitch.bit01_FastOffAcc := "CmndSwitch_1";
+	"GDB_HMI_Data".Receive.CmndSwitch."bit02_" := "CmndSwitch_2";
+	"GDB_HMI_Data".Receive.CmndSwitch."bit03_" := "CmndSwitch_3";
+	"GDB_HMI_Data".Receive.CmndSwitch."bit04_" := "CmndSwitch_4";
+	"GDB_HMI_Data".Receive.CmndSwitch."bit05_" := "CmndSwitch_5";
+	"GDB_HMI_Data".Receive.CmndSwitch."bit06_" := "CmndSwitch_6";
+	"GDB_HMI_Data".Receive.CmndSwitch."bit07_" := "CmndSwitch_7";
+	"GDB_HMI_Data".Receive.CmndSwitch."bit08_" := "CmndSwitch_8";
+	"GDB_HMI_Data".Receive.CmndSwitch."bit09_" := "CmndSwitch_9";
+	"GDB_HMI_Data".Receive.CmndSwitch."bit10_" := "CmndSwitch_10";
+	"GDB_HMI_Data".Receive.CmndSwitch."bit11_" := "CmndSwitch_11";
+	"GDB_HMI_Data".Receive.CmndSwitch."bit12_" := "CmndSwitch_12";
+	"GDB_HMI_Data".Receive.CmndSwitch."bit13_" := "CmndSwitch_13";
+	"GDB_HMI_Data".Receive.CmndSwitch."bit14_" := "CmndSwitch_14";
+	"GDB_HMI_Data".Receive.CmndSwitch."bit15_" := "CmndSwitch_15";
+	
+	//Время для чиллера
+	"GDB_HMI_IO_Retain".AccChiller.ChilPwrOffTm_PT_ms := INT_TO_DINT("GDB_HMI_IO_Retain".AccChiller.ChilPwrOffTm_PT) * 60000;
+	"GDB_HMI_IO_Retain".AccChiller.ChilPwrOnTm_PT_ms := INT_TO_DINT("GDB_HMI_IO_Retain".AccChiller.ChilPwrOnTm_PT) * 60000;
+	
+	// Время уставок для сканирования
+	"GDB_HMI_IO_Retain".ScanSeqSet.RfOn_ms := INT_TO_DINT("GDB_HMI_IO_Retain".ScanSeqSet.RfOn) * 1000;
+	"GDB_HMI_IO_Retain".ScanSeqSet.XrayOn_ms := INT_TO_DINT("GDB_HMI_IO_Retain".ScanSeqSet.XrayOn) * 1000;
+	"GDB_HMI_IO_Retain".ScanSeqSet.CycleTime_ms := INT_TO_DINT("GDB_HMI_IO_Retain".ScanSeqSet.CycleTime) * 1000;
+	
+END_FUNCTION
+
