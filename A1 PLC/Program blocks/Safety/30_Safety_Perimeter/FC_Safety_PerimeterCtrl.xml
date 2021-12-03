@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V17" />
+  <DocumentInfo>
+    <Created>2021-12-03T08:13:12.9041866Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Advanced</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.FC ID="0">
+    <AttributeList>
+      <AutoNumber>false</AutoNumber>
+      <HeaderAuthor />
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Input" />
+  <Section Name="Output" />
+  <Section Name="InOut" />
+  <Section Name="Temp" />
+  <Section Name="Constant" />
+  <Section Name="Return">
+    <Member Name="Ret_Val" Datatype="Void" />
+  </Section>
+</Sections></Interface>
+      <IsIECCheckEnabled>false</IsIECCheckEnabled>
+      <Name>FC_Safety_PerimeterCtrl</Name>
+      <Number>300</Number>
+      <ProgrammingLanguage>F_FBD</ProgrammingLanguage>
+      <UDABlockProperties />
+      <UDAEnableTagReadback>false</UDAEnableTagReadback>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="3" CompositionName="Items">
+            <AttributeList>
+              <Culture>ru-RU</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="4" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="Always_True" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="FGDB_Safety_Perimeter" />
+        <Component Name="RdyOpn" />
+      </Symbol>
+    </Access>
+    <Part Name="Coil" UId="23" />
+  </Parts>
+  <Wires>
+    <Wire UId="24">
+      <IdentCon UId="21" />
+      <NameCon UId="23" Name="in" />
+    </Wire>
+    <Wire UId="25">
+      <IdentCon UId="22" />
+      <NameCon UId="23" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>F_FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="5" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="6" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="8" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="9" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Готовность к открытию</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="B" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="FGDB_Inputs" />
+        <Component Name="I_P3AckInSArea_Ch1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="FGDB_Inputs" />
+        <Component Name="I_PrDoor1Cls_Ch1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="FGDB_Inputs" />
+        <Component Name="I_PrDoor1Req" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="FGDB_Safety_Perimeter" />
+        <Component Name="RdyOpn" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="FGDB_Safety_Perimeter" />
+        <Component Name="SPBreak" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="FGDB_fCycle_Glob" />
+        <Component Name="AckCom" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="GnEmStp_Sv" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="GDB_Inputs" />
+        <Component Name="I_P2ConvLocal" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="29">
+      <Symbol>
+        <Component Name="GDB_Inputs" />
+        <Component Name="I_P2ConvLocal" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="30">
+      <Symbol>
+        <Component Name="FGDB_Safety_Perimeter" />
+        <Component Name="SAreaClose" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="31">
+      <Symbol>
+        <Component Name="FGDB_Safety_Perimeter" />
+        <Component Name="RdyCls_P3" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="32">
+      <Symbol>
+        <Component Name="FGDB_Safety_Perimeter" />
+        <Component Name="AckCls" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="33">
+      <Symbol>
+        <Component Name="FGDB_Safety_Perimeter" />
+        <Component Name="Opn" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="34">
+      <Symbol>
+        <Component Name="FGDB_Safety_Perimeter" />
+        <Component Name="SPBreak" />
+      </Symbol>
+    </Access>
+    <Part Name="A" UId="35">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Call UId="36">
+      <CallInfo Name="FFB_Safety_Perimeter" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="37">
+          <Component Name="FDBI_Safety_Perimeter" />
+        </Instance>
+        <Parameter Name="I_ReqAckCls" Section="Input" Type="Bool" />
+        <Parameter Name="I_PrDrCls" Section="Input" Type="Bool" />
+        <Parameter Name="I_ReqCnfrm" Section="Input" Type="Bool" />
+        <Parameter Name="I_SpRdyOpn" Section="Input" Type="Bool" />
+        <Parameter Name="I_AckFltRst" Section="Input" Type="Bool" />
+        <Parameter Name="I_EmrStp" Section="Input" Type="Bool" />
+        <Parameter Name="I_KeyConv" Section="Input" Type="Bool" />
+        <Parameter Name="I_SPBreak" Section="Input" Type="Bool" />
+        <Parameter Name="O_SPClose" Section="Output" Type="Bool" />
+        <Parameter Name="O_RdySPCls_P3" Section="Output" Type="Bool" />
+        <Parameter Name="O_AckSPCls" Section="Output" Type="Bool" />
+        <Parameter Name="O_OpnP" Section="Output" Type="Bool" />
+        <Parameter Name="O_SPBreak" Section="Output" Type="Bool" />
+      </CallInfo>
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="39">
+      <IdentCon UId="25" />
+      <NameCon UId="35" Name="in1" />
+    </Wire>
+    <Wire UId="40">
+      <IdentCon UId="26" />
+      <NameCon UId="35" Name="in2" />
+    </Wire>
+    <Wire UId="41">
+      <NameCon UId="35" Name="out" />
+      <NameCon UId="36" Name="I_AckFltRst" />
+    </Wire>
+    <Wire UId="42">
+      <OpenCon UId="38" />
+      <NameCon UId="36" Name="en" />
+    </Wire>
+    <Wire UId="43">
+      <IdentCon UId="21" />
+      <NameCon UId="36" Name="I_ReqAckCls" />
+    </Wire>
+    <Wire UId="44">
+      <IdentCon UId="22" />
+      <NameCon UId="36" Name="I_PrDrCls" />
+    </Wire>
+    <Wire UId="45">
+      <IdentCon UId="23" />
+      <NameCon UId="36" Name="I_ReqCnfrm" />
+    </Wire>
+    <Wire UId="46">
+      <IdentCon UId="24" />
+      <NameCon UId="36" Name="I_SpRdyOpn" />
+    </Wire>
+    <Wire UId="47">
+      <IdentCon UId="27" />
+      <NameCon UId="36" Name="I_EmrStp" />
+    </Wire>
+    <Wire UId="48">
+      <IdentCon UId="28" />
+      <NameCon UId="36" Name="I_KeyConv" />
+    </Wire>
+    <Wire UId="49">
+      <IdentCon UId="29" />
+      <NameCon UId="36" Name="I_SPBreak" />
+    </Wire>
+    <Wire UId="50">
+      <NameCon UId="36" Name="O_SPClose" />
+      <IdentCon UId="30" />
+    </Wire>
+    <Wire UId="51">
+      <NameCon UId="36" Name="O_RdySPCls_P3" />
+      <IdentCon UId="31" />
+    </Wire>
+    <Wire UId="52">
+      <NameCon UId="36" Name="O_AckSPCls" />
+      <IdentCon UId="32" />
+    </Wire>
+    <Wire UId="53">
+      <NameCon UId="36" Name="O_OpnP" />
+      <IdentCon UId="33" />
+    </Wire>
+    <Wire UId="54">
+      <NameCon UId="36" Name="O_SPBreak" />
+      <IdentCon UId="34" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>F_FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="C" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="F" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="10" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="11" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Блок периметра безопасности</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="12" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="13" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="14" CompositionName="Items">
+            <AttributeList>
+              <Culture>ru-RU</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.FC>
+</Document>

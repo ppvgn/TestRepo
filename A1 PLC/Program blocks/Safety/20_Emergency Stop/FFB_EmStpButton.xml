@@ -1,0 +1,1218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V17" />
+  <DocumentInfo>
+    <Created>2021-12-03T08:13:10.6546653Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Advanced</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.FB ID="0">
+    <AttributeList>
+      <AutoNumber>false</AutoNumber>
+      <HeaderAuthor />
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Input" />
+  <Section Name="Output" />
+  <Section Name="InOut" />
+  <Section Name="Static">
+    <Member Name="P1" Datatype="ESTOP1" Version="1.5"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="Input"><Member Name="E_STOP" Datatype="Bool" /><Member Name="ACK_NEC" Datatype="Bool" /><Member Name="ACK" Datatype="Bool" /><Member Name="TIME_DEL" Datatype="Time" /></Section><Section Name="Output"><Member Name="Q" Datatype="Bool" /><Member Name="Q_DELAY" Datatype="Bool" /><Member Name="ACK_REQ" Datatype="Bool" /><Member Name="DIAG" Datatype="Byte" /></Section><Section Name="InOut" /><Section Name="Static" /></Sections></Member>
+    <Member Name="P2" Datatype="ESTOP1" Version="1.5"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="Input"><Member Name="E_STOP" Datatype="Bool" /><Member Name="ACK_NEC" Datatype="Bool" /><Member Name="ACK" Datatype="Bool" /><Member Name="TIME_DEL" Datatype="Time" /></Section><Section Name="Output"><Member Name="Q" Datatype="Bool" /><Member Name="Q_DELAY" Datatype="Bool" /><Member Name="ACK_REQ" Datatype="Bool" /><Member Name="DIAG" Datatype="Byte" /></Section><Section Name="InOut" /><Section Name="Static" /></Sections></Member>
+    <Member Name="P3" Datatype="ESTOP1" Version="1.5"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="Input"><Member Name="E_STOP" Datatype="Bool" /><Member Name="ACK_NEC" Datatype="Bool" /><Member Name="ACK" Datatype="Bool" /><Member Name="TIME_DEL" Datatype="Time" /></Section><Section Name="Output"><Member Name="Q" Datatype="Bool" /><Member Name="Q_DELAY" Datatype="Bool" /><Member Name="ACK_REQ" Datatype="Bool" /><Member Name="DIAG" Datatype="Byte" /></Section><Section Name="InOut" /><Section Name="Static" /></Sections></Member>
+    <Member Name="AccCons" Datatype="ESTOP1" Version="1.5"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="Input"><Member Name="E_STOP" Datatype="Bool" /><Member Name="ACK_NEC" Datatype="Bool" /><Member Name="ACK" Datatype="Bool" /><Member Name="TIME_DEL" Datatype="Time" /></Section><Section Name="Output"><Member Name="Q" Datatype="Bool" /><Member Name="Q_DELAY" Datatype="Bool" /><Member Name="ACK_REQ" Datatype="Bool" /><Member Name="DIAG" Datatype="Byte" /></Section><Section Name="InOut" /><Section Name="Static" /></Sections></Member>
+    <Member Name="Dosimetr" Datatype="ESTOP1" Version="1.5"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="Input"><Member Name="E_STOP" Datatype="Bool" /><Member Name="ACK_NEC" Datatype="Bool" /><Member Name="ACK" Datatype="Bool" /><Member Name="TIME_DEL" Datatype="Time" /></Section><Section Name="Output"><Member Name="Q" Datatype="Bool" /><Member Name="Q_DELAY" Datatype="Bool" /><Member Name="ACK_REQ" Datatype="Bool" /><Member Name="DIAG" Datatype="Byte" /></Section><Section Name="InOut" /><Section Name="Static" /></Sections></Member>
+  </Section>
+  <Section Name="Temp" />
+  <Section Name="Constant" />
+</Sections></Interface>
+      <IsIECCheckEnabled>false</IsIECCheckEnabled>
+      <Name>FFB_EmStpButton</Name>
+      <Number>200</Number>
+      <ProgrammingLanguage>F_FBD</ProgrammingLanguage>
+      <UDABlockProperties />
+      <UDAEnableTagReadback>false</UDAEnableTagReadback>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="3" CompositionName="Items">
+            <AttributeList>
+              <Culture>ru-RU</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="4" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="FGDB_Inputs" />
+        <Component Name="I_/EmStpP1_Ch1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="P1EmStp_Ev" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="FGDB_fCycle_Glob" />
+        <Component Name="AlwaysTrue" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="FGDB_fCycle_Glob" />
+        <Component Name="AckCom" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="P1EmStp_AckReq" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="P1EmStp_Sv" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="P1EmStp_AckReq" />
+      </Symbol>
+    </Access>
+    <Part Name="Coil" UId="28" />
+    <Part Name="A" UId="29">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="ESTOP1" Version="1.5" UId="30">
+      <Instance Scope="LocalVariable" UId="31">
+        <Component Name="P1" />
+      </Instance>
+      <TemplateValue Name="f_user_card" Type="Cardinality">1</TemplateValue>
+      <TemplateValue Name="f_image_card" Type="Cardinality">0</TemplateValue>
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="36">
+      <IdentCon UId="21" />
+      <NameCon UId="28" Name="in" />
+    </Wire>
+    <Wire UId="37">
+      <IdentCon UId="22" />
+      <NameCon UId="28" Name="operand" />
+    </Wire>
+    <Wire UId="38">
+      <NameCon UId="28" Name="out" />
+      <NameCon UId="30" Name="E_STOP" />
+    </Wire>
+    <Wire UId="39">
+      <IdentCon UId="24" />
+      <NameCon UId="29" Name="in1" />
+    </Wire>
+    <Wire UId="40">
+      <IdentCon UId="25" />
+      <NameCon UId="29" Name="in2" />
+    </Wire>
+    <Wire UId="41">
+      <NameCon UId="29" Name="out" />
+      <NameCon UId="30" Name="ACK" />
+    </Wire>
+    <Wire UId="42">
+      <OpenCon UId="32" />
+      <NameCon UId="30" Name="en" />
+    </Wire>
+    <Wire UId="43">
+      <IdentCon UId="23" />
+      <NameCon UId="30" Name="ACK_NEC" />
+    </Wire>
+    <Wire UId="44">
+      <OpenCon UId="33" />
+      <NameCon UId="30" Name="TIME_DEL" />
+    </Wire>
+    <Wire UId="45">
+      <NameCon UId="30" Name="Q" />
+      <IdentCon UId="26" />
+    </Wire>
+    <Wire UId="46">
+      <NameCon UId="30" Name="Q_DELAY" />
+      <OpenCon UId="34" />
+    </Wire>
+    <Wire UId="47">
+      <NameCon UId="30" Name="ACK_REQ" />
+      <IdentCon UId="27" />
+    </Wire>
+    <Wire UId="48">
+      <NameCon UId="30" Name="DIAG" />
+      <OpenCon UId="35" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>F_FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="5" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="6" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="8" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="9" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Em Stp P1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="B" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="FGDB_Inputs" />
+        <Component Name="I_/EmStpP2_Ch1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="P2EmStp_Ev" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="FGDB_fCycle_Glob" />
+        <Component Name="AlwaysTrue" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="FGDB_fCycle_Glob" />
+        <Component Name="AckCom" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="P2EmStp_AckReq" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="P2EmStp_Sv" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="P2EmStp_AckReq" />
+      </Symbol>
+    </Access>
+    <Part Name="Coil" UId="28" />
+    <Part Name="A" UId="29">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="ESTOP1" Version="1.5" UId="30">
+      <Instance Scope="LocalVariable" UId="31">
+        <Component Name="P2" />
+      </Instance>
+      <TemplateValue Name="f_user_card" Type="Cardinality">1</TemplateValue>
+      <TemplateValue Name="f_image_card" Type="Cardinality">0</TemplateValue>
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="36">
+      <IdentCon UId="21" />
+      <NameCon UId="28" Name="in" />
+    </Wire>
+    <Wire UId="37">
+      <IdentCon UId="22" />
+      <NameCon UId="28" Name="operand" />
+    </Wire>
+    <Wire UId="38">
+      <NameCon UId="28" Name="out" />
+      <NameCon UId="30" Name="E_STOP" />
+    </Wire>
+    <Wire UId="39">
+      <IdentCon UId="24" />
+      <NameCon UId="29" Name="in1" />
+    </Wire>
+    <Wire UId="40">
+      <IdentCon UId="25" />
+      <NameCon UId="29" Name="in2" />
+    </Wire>
+    <Wire UId="41">
+      <NameCon UId="29" Name="out" />
+      <NameCon UId="30" Name="ACK" />
+    </Wire>
+    <Wire UId="42">
+      <OpenCon UId="32" />
+      <NameCon UId="30" Name="en" />
+    </Wire>
+    <Wire UId="43">
+      <IdentCon UId="23" />
+      <NameCon UId="30" Name="ACK_NEC" />
+    </Wire>
+    <Wire UId="44">
+      <OpenCon UId="33" />
+      <NameCon UId="30" Name="TIME_DEL" />
+    </Wire>
+    <Wire UId="45">
+      <NameCon UId="30" Name="Q" />
+      <IdentCon UId="26" />
+    </Wire>
+    <Wire UId="46">
+      <NameCon UId="30" Name="Q_DELAY" />
+      <OpenCon UId="34" />
+    </Wire>
+    <Wire UId="47">
+      <NameCon UId="30" Name="ACK_REQ" />
+      <IdentCon UId="27" />
+    </Wire>
+    <Wire UId="48">
+      <NameCon UId="30" Name="DIAG" />
+      <OpenCon UId="35" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>F_FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="C" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="F" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="10" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="11" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Em Stp P2</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="12" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="FGDB_Inputs" />
+        <Component Name="I_/EmStpP3_Ch1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="P3EmStp_Ev" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="FGDB_fCycle_Glob" />
+        <Component Name="AlwaysTrue" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="FGDB_fCycle_Glob" />
+        <Component Name="AckCom" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="P3EmStp_AckReq" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="P3EmStp_Sv" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="P3EmStp_AckReq" />
+      </Symbol>
+    </Access>
+    <Part Name="Coil" UId="28" />
+    <Part Name="A" UId="29">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="ESTOP1" Version="1.5" UId="30">
+      <Instance Scope="LocalVariable" UId="31">
+        <Component Name="P3" />
+      </Instance>
+      <TemplateValue Name="f_user_card" Type="Cardinality">1</TemplateValue>
+      <TemplateValue Name="f_image_card" Type="Cardinality">0</TemplateValue>
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="36">
+      <IdentCon UId="21" />
+      <NameCon UId="28" Name="in" />
+    </Wire>
+    <Wire UId="37">
+      <IdentCon UId="22" />
+      <NameCon UId="28" Name="operand" />
+    </Wire>
+    <Wire UId="38">
+      <NameCon UId="28" Name="out" />
+      <NameCon UId="30" Name="E_STOP" />
+    </Wire>
+    <Wire UId="39">
+      <IdentCon UId="24" />
+      <NameCon UId="29" Name="in1" />
+    </Wire>
+    <Wire UId="40">
+      <IdentCon UId="25" />
+      <NameCon UId="29" Name="in2" />
+    </Wire>
+    <Wire UId="41">
+      <NameCon UId="29" Name="out" />
+      <NameCon UId="30" Name="ACK" />
+    </Wire>
+    <Wire UId="42">
+      <OpenCon UId="32" />
+      <NameCon UId="30" Name="en" />
+    </Wire>
+    <Wire UId="43">
+      <IdentCon UId="23" />
+      <NameCon UId="30" Name="ACK_NEC" />
+    </Wire>
+    <Wire UId="44">
+      <OpenCon UId="33" />
+      <NameCon UId="30" Name="TIME_DEL" />
+    </Wire>
+    <Wire UId="45">
+      <NameCon UId="30" Name="Q" />
+      <IdentCon UId="26" />
+    </Wire>
+    <Wire UId="46">
+      <NameCon UId="30" Name="Q_DELAY" />
+      <OpenCon UId="34" />
+    </Wire>
+    <Wire UId="47">
+      <NameCon UId="30" Name="ACK_REQ" />
+      <IdentCon UId="27" />
+    </Wire>
+    <Wire UId="48">
+      <NameCon UId="30" Name="DIAG" />
+      <OpenCon UId="35" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>F_FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="13" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="14" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="15" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="16" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="17" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="18" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Em Stp P3</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="19" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="FGDB_Inputs" />
+        <Component Name="I_/EmStpAccCon_Ch1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="AccEmStp_Ev" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="FGDB_fCycle_Glob" />
+        <Component Name="AlwaysTrue" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="FGDB_fCycle_Glob" />
+        <Component Name="AckCom" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="AccEmStp_AckReq" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="AccEmStp_Sv" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="AccEmStp_AckReq" />
+      </Symbol>
+    </Access>
+    <Part Name="Coil" UId="28" />
+    <Part Name="A" UId="29">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="ESTOP1" Version="1.5" UId="30">
+      <Instance Scope="LocalVariable" UId="31">
+        <Component Name="AccCons" />
+      </Instance>
+      <TemplateValue Name="f_user_card" Type="Cardinality">1</TemplateValue>
+      <TemplateValue Name="f_image_card" Type="Cardinality">0</TemplateValue>
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="36">
+      <IdentCon UId="21" />
+      <NameCon UId="28" Name="in" />
+    </Wire>
+    <Wire UId="37">
+      <IdentCon UId="22" />
+      <NameCon UId="28" Name="operand" />
+    </Wire>
+    <Wire UId="38">
+      <NameCon UId="28" Name="out" />
+      <NameCon UId="30" Name="E_STOP" />
+    </Wire>
+    <Wire UId="39">
+      <IdentCon UId="24" />
+      <NameCon UId="29" Name="in1" />
+    </Wire>
+    <Wire UId="40">
+      <IdentCon UId="25" />
+      <NameCon UId="29" Name="in2" />
+    </Wire>
+    <Wire UId="41">
+      <NameCon UId="29" Name="out" />
+      <NameCon UId="30" Name="ACK" />
+    </Wire>
+    <Wire UId="42">
+      <OpenCon UId="32" />
+      <NameCon UId="30" Name="en" />
+    </Wire>
+    <Wire UId="43">
+      <IdentCon UId="23" />
+      <NameCon UId="30" Name="ACK_NEC" />
+    </Wire>
+    <Wire UId="44">
+      <OpenCon UId="33" />
+      <NameCon UId="30" Name="TIME_DEL" />
+    </Wire>
+    <Wire UId="45">
+      <NameCon UId="30" Name="Q" />
+      <IdentCon UId="26" />
+    </Wire>
+    <Wire UId="46">
+      <NameCon UId="30" Name="Q_DELAY" />
+      <OpenCon UId="34" />
+    </Wire>
+    <Wire UId="47">
+      <NameCon UId="30" Name="ACK_REQ" />
+      <IdentCon UId="27" />
+    </Wire>
+    <Wire UId="48">
+      <NameCon UId="30" Name="DIAG" />
+      <OpenCon UId="35" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>F_FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1A" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="1B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="1C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="1D" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="1E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="1F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Em Stp Acc</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="20" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="FGDB_Inputs" />
+        <Component Name="I_/EmStpDosimeter_Ch1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="DosimEmStp_Ev" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="FGDB_fCycle_Glob" />
+        <Component Name="AlwaysTrue" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="FGDB_fCycle_Glob" />
+        <Component Name="AckCom" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="DosimEmStp_AckReq" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="DosimEmStp_Sv" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="DosimEmStp_AckReq" />
+      </Symbol>
+    </Access>
+    <Part Name="Coil" UId="28" />
+    <Part Name="A" UId="29">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="ESTOP1" Version="1.5" UId="30">
+      <Instance Scope="LocalVariable" UId="31">
+        <Component Name="Dosimetr" />
+      </Instance>
+      <TemplateValue Name="f_user_card" Type="Cardinality">1</TemplateValue>
+      <TemplateValue Name="f_image_card" Type="Cardinality">0</TemplateValue>
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="36">
+      <IdentCon UId="21" />
+      <NameCon UId="28" Name="in" />
+    </Wire>
+    <Wire UId="37">
+      <IdentCon UId="22" />
+      <NameCon UId="28" Name="operand" />
+    </Wire>
+    <Wire UId="38">
+      <NameCon UId="28" Name="out" />
+      <NameCon UId="30" Name="E_STOP" />
+    </Wire>
+    <Wire UId="39">
+      <IdentCon UId="24" />
+      <NameCon UId="29" Name="in1" />
+    </Wire>
+    <Wire UId="40">
+      <IdentCon UId="25" />
+      <NameCon UId="29" Name="in2" />
+    </Wire>
+    <Wire UId="41">
+      <NameCon UId="29" Name="out" />
+      <NameCon UId="30" Name="ACK" />
+    </Wire>
+    <Wire UId="42">
+      <OpenCon UId="32" />
+      <NameCon UId="30" Name="en" />
+    </Wire>
+    <Wire UId="43">
+      <IdentCon UId="23" />
+      <NameCon UId="30" Name="ACK_NEC" />
+    </Wire>
+    <Wire UId="44">
+      <OpenCon UId="33" />
+      <NameCon UId="30" Name="TIME_DEL" />
+    </Wire>
+    <Wire UId="45">
+      <NameCon UId="30" Name="Q" />
+      <IdentCon UId="26" />
+    </Wire>
+    <Wire UId="46">
+      <NameCon UId="30" Name="Q_DELAY" />
+      <OpenCon UId="34" />
+    </Wire>
+    <Wire UId="47">
+      <NameCon UId="30" Name="ACK_REQ" />
+      <IdentCon UId="27" />
+    </Wire>
+    <Wire UId="48">
+      <NameCon UId="30" Name="DIAG" />
+      <OpenCon UId="35" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>F_FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="21" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="22" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="23" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="24" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="25" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="26" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Dosimetr</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="27" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="P1EmStp_Ev" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="P2EmStp_Ev" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="P3EmStp_Ev" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="AccEmStp_Ev" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="GnEmStp_Ev" />
+      </Symbol>
+    </Access>
+    <Part Name="O" UId="26">
+      <TemplateValue Name="Card" Type="Cardinality">4</TemplateValue>
+      <Negated Name="in1" />
+      <Negated Name="in2" />
+      <Negated Name="in3" />
+      <Negated Name="in4" />
+    </Part>
+    <Part Name="Coil" UId="27" />
+  </Parts>
+  <Wires>
+    <Wire UId="28">
+      <IdentCon UId="21" />
+      <NameCon UId="26" Name="in1" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="22" />
+      <NameCon UId="26" Name="in2" />
+    </Wire>
+    <Wire UId="30">
+      <IdentCon UId="23" />
+      <NameCon UId="26" Name="in3" />
+    </Wire>
+    <Wire UId="31">
+      <IdentCon UId="24" />
+      <NameCon UId="26" Name="in4" />
+    </Wire>
+    <Wire UId="32">
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="27" Name="in" />
+    </Wire>
+    <Wire UId="33">
+      <IdentCon UId="25" />
+      <NameCon UId="27" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>F_FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="28" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="29" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="2A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="2B" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="2C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="2D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Общий аварийный останов Ev</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="2E" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="P1EmStp_AckReq" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="P2EmStp_AckReq" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="P3EmStp_AckReq" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="AccEmStp_AckReq" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="GnEmStp_Ev" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="GnEmStp_AckReq" />
+      </Symbol>
+    </Access>
+    <Part Name="O" UId="27">
+      <TemplateValue Name="Card" Type="Cardinality">4</TemplateValue>
+    </Part>
+    <Part Name="A" UId="28">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+      <Negated Name="in2" />
+    </Part>
+    <Part Name="Coil" UId="29" />
+  </Parts>
+  <Wires>
+    <Wire UId="30">
+      <IdentCon UId="21" />
+      <NameCon UId="27" Name="in1" />
+    </Wire>
+    <Wire UId="31">
+      <IdentCon UId="22" />
+      <NameCon UId="27" Name="in2" />
+    </Wire>
+    <Wire UId="32">
+      <IdentCon UId="23" />
+      <NameCon UId="27" Name="in3" />
+    </Wire>
+    <Wire UId="33">
+      <IdentCon UId="24" />
+      <NameCon UId="27" Name="in4" />
+    </Wire>
+    <Wire UId="34">
+      <NameCon UId="27" Name="out" />
+      <NameCon UId="28" Name="in1" />
+    </Wire>
+    <Wire UId="35">
+      <IdentCon UId="25" />
+      <NameCon UId="28" Name="in2" />
+    </Wire>
+    <Wire UId="36">
+      <NameCon UId="28" Name="out" />
+      <NameCon UId="29" Name="in" />
+    </Wire>
+    <Wire UId="37">
+      <IdentCon UId="26" />
+      <NameCon UId="29" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>F_FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="2F" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="30" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="31" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="32" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="33" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="34" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Общий аварийный останов AckRq</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="35" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="P1EmStp_Sv" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="P2EmStp_Sv" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="P3EmStp_Sv" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="AccEmStp_Sv" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="FGDB_EmStpButton" />
+        <Component Name="GnEmStp_Sv" />
+      </Symbol>
+    </Access>
+    <Part Name="A" UId="26">
+      <TemplateValue Name="Card" Type="Cardinality">4</TemplateValue>
+    </Part>
+    <Part Name="Coil" UId="27" />
+  </Parts>
+  <Wires>
+    <Wire UId="28">
+      <IdentCon UId="21" />
+      <NameCon UId="26" Name="in1" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="22" />
+      <NameCon UId="26" Name="in2" />
+    </Wire>
+    <Wire UId="30">
+      <IdentCon UId="23" />
+      <NameCon UId="26" Name="in3" />
+    </Wire>
+    <Wire UId="31">
+      <IdentCon UId="24" />
+      <NameCon UId="26" Name="in4" />
+    </Wire>
+    <Wire UId="32">
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="27" Name="in" />
+    </Wire>
+    <Wire UId="33">
+      <IdentCon UId="25" />
+      <NameCon UId="27" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>F_FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="36" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="37" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="38" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="39" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="3A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="3B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Общий аварийный останов Sv</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="3C" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource />
+          <ProgrammingLanguage>F_FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="3D" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="3E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="3F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="40" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="41" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="42" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="43" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="44" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="45" CompositionName="Items">
+            <AttributeList>
+              <Culture>ru-RU</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.FB>
+</Document>

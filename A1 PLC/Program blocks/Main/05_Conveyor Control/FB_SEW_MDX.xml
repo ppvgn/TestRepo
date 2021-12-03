@@ -1,0 +1,1583 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V17" />
+  <DocumentInfo>
+    <Created>2021-12-03T08:13:03.8999842Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Advanced</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.FB ID="0">
+    <AttributeList>
+      <AutoNumber>false</AutoNumber>
+      <HeaderAuthor>TSe</HeaderAuthor>
+      <HeaderFamily>SEW_MC07</HeaderFamily>
+      <HeaderName />
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Input">
+    <Member Name="I_AdressFrom" Datatype="Int" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Harware Adress from</MultiLanguageText></Comment></Member>
+    <Member Name="I_AdressTo" Datatype="Int" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Harware Adress to</MultiLanguageText></Comment></Member>
+    <Member Name="I_bForward" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Прямое направление</MultiLanguageText></Comment></Member>
+    <Member Name="I_bBackward" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Обратное направление</MultiLanguageText></Comment></Member>
+    <Member Name="I_bReset" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Сброс ошибки</MultiLanguageText></Comment></Member>
+    <Member Name="I_bExterneFault" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Внешняя ошибка</MultiLanguageText></Comment></Member>
+    <Member Name="I_iReqSpeed" Datatype="Int" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Запрашиваемая скорость</MultiLanguageText></Comment></Member>
+    <Member Name="I_iRampe" Datatype="Int" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Запрашиваемая рампа</MultiLanguageText></Comment></Member>
+  </Section>
+  <Section Name="Output">
+    <Member Name="O_iFaultNumber" Datatype="Int" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Номер ошибки</MultiLanguageText></Comment></Member>
+    <Member Name="O_iActSpeed" Datatype="Int" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Скорость</MultiLanguageText></Comment></Member>
+    <Member Name="O_iActCurrent" Datatype="Int" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Ток</MultiLanguageText></Comment></Member>
+  </Section>
+  <Section Name="InOut">
+    <Member Name="IO_bFault" Datatype="Bool" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList></Member>
+  </Section>
+  <Section Name="Static">
+    <Member Name="sEingangswerte" Datatype="Struct" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Member Name="byStatusFehlernummer" Datatype="Byte"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Номер ошибки</MultiLanguageText></Comment></Member><Member Name="bStatusFreigabe" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Endstufe freigegeben</MultiLanguageText></Comment></Member><Member Name="bStatusBetriebsbereit" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Инвертор готов к работе</MultiLanguageText></Comment></Member><Member Name="bStatusFreigabeAusgDaten" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">PA-Daten sind freigegeben</MultiLanguageText></Comment></Member><Member Name="bStateBit_3" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member><Member Name="bStateBit_4" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member><Member Name="bStatusFehler" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Ошибка</MultiLanguageText></Comment></Member><Member Name="bStateBit_6" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member><Member Name="bStateBit_7" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member><Member Name="iAktGeschwindigkeit" Datatype="Int"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Актуальная скорость</MultiLanguageText></Comment></Member><Member Name="iAktStrom" Datatype="Int"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Актуальный ток</MultiLanguageText></Comment></Member></Member>
+    <Member Name="sAusgangswerte" Datatype="Struct" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Member Name="bRichtung" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">1 = Вправо 0 = Влево</MultiLanguageText></Comment></Member><Member Name="bMotorVor" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member><Member Name="bMotorZurueck" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member><Member Name="bFestsollwert1" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member><Member Name="bFestsollwert2" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member><Member Name="bFestsollwertUmschaltung" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member><Member Name="bControlBit_14" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member><Member Name="bControlBit_15" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member><Member Name="bReglersperre" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">1=Regler sperren Bremse aktiv 0=Freigabe</MultiLanguageText></Comment></Member><Member Name="bFreigabe" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">1=Freigabe 0=Schnellstopp</MultiLanguageText></Comment></Member><Member Name="bFreigabemitRampe" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">1=Freigabe 0=Halt mit Rampe</MultiLanguageText></Comment></Member><Member Name="bControlBit_3" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member><Member Name="bControlBit_4" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member><Member Name="bControlBit_5" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member><Member Name="bResetFehler" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member><Member Name="bControlBit_7" Datatype="Bool"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member><Member Name="iVorgabeGeschwindigkeit" Datatype="Int"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Заданная скорость</MultiLanguageText></Comment></Member><Member Name="iRampe" Datatype="Int"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Заданная рампа</MultiLanguageText></Comment></Member></Member>
+    <Member Name="sSimulation" Datatype="Struct" Remanence="SetInIDB"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Member Name="Speed" Datatype="Int"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="ru-RU">Скорость при симуляции</MultiLanguageText></Comment></Member></Member>
+  </Section>
+  <Section Name="Temp">
+    <Member Name="T_iRueckgabewert" Datatype="Int">
+      <Comment>
+        <MultiLanguageText Lang="ru-RU">Ошибка передачи</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="T_wGeraeteIAdress" Datatype="Word">
+      <Comment>
+        <MultiLanguageText Lang="ru-RU">Адрес для чтения</MultiLanguageText>
+      </Comment>
+    </Member>
+    <Member Name="T_wGeraeteOAdress" Datatype="Word">
+      <Comment>
+        <MultiLanguageText Lang="ru-RU">Адрес для записи</MultiLanguageText>
+      </Comment>
+    </Member>
+  </Section>
+  <Section Name="Constant" />
+</Sections></Interface>
+      <Name>FB_SEW_MDX</Name>
+      <Number>530</Number>
+      <ProgrammingLanguage>STL</ProgrammingLanguage>
+      <UDABlockProperties />
+      <UDAEnableTagReadback>false</UDAEnableTagReadback>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="3" CompositionName="Items">
+            <AttributeList>
+              <Culture>ru-RU</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="4" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StatementList xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StatementList/v4">
+  <StlStatement UId="22">
+    <StlToken Text="CLR" />
+  </StlStatement>
+  <StlStatement UId="23">
+    <StlToken Text="Assign" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="IO_bFault" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+</StatementList></NetworkSource>
+          <ProgrammingLanguage>STL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="5" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="6" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="8" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="9" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Инициализация</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="B" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StatementList xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StatementList/v4">
+  <StlStatement UId="25">
+    <StlToken Text="L" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="I_AdressFrom" />
+      </Symbol>
+      <LineComment Inserted="false">
+        <Text>Адрес для чтения</Text>
+      </LineComment>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="28">
+    <StlToken Text="T" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="T_wGeraeteIAdress" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="99">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="100">
+    <StlToken Text="L" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="I_AdressTo" />
+      </Symbol>
+      <LineComment Inserted="false">
+        <Text>Адрес для записи</Text>
+      </LineComment>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="103">
+    <StlToken Text="T" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="T_wGeraeteOAdress" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="77">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="31">
+    <StlToken Text="CALL" />
+    <Access Scope="Call">
+      <Instruction Name="DPRD_DAT" Version="1.0">
+        <Token Text="," />
+        <LineComment Inserted="false">
+          <Text> Чтение</Text>
+        </LineComment>
+        <TemplateValue Name="ptr_type" Type="Type">Any</TemplateValue>
+        <TemplateValue Name="laddr_type" Type="Type">Word</TemplateValue>
+        <Parameter Name="LADDR">
+          <Access Scope="LocalVariable">
+            <Symbol>
+              <Component Name="T_wGeraeteIAdress" />
+            </Symbol>
+          </Access>
+          <LineComment Inserted="false">
+            <Text> Адрес для чтения</Text>
+          </LineComment>
+        </Parameter>
+        <Parameter Name="RET_VAL">
+          <Access Scope="LocalVariable">
+            <Symbol>
+              <Component Name="T_iRueckgabewert" />
+            </Symbol>
+          </Access>
+          <LineComment Inserted="false">
+            <Text> &lt;&gt; 0 =&gt; Ошибка чтения</Text>
+          </LineComment>
+        </Parameter>
+        <Parameter Name="RECORD">
+          <Access Scope="LocalVariable">
+            <Symbol>
+              <Component Name="sEingangswerte" />
+            </Symbol>
+          </Access>
+          <LineComment Inserted="false">
+            <Text> Структура данных для получения от частотного преобразователя</Text>
+          </LineComment>
+        </Parameter>
+      </Instruction>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="41">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="42">
+    <StlToken Text="L" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="T_iRueckgabewert" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="44">
+    <StlToken Text="L" />
+    <Access Scope="LiteralConstant">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>0</ConstantValue>
+      </Constant>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="46">
+    <StlToken Text="NE_I" />
+    <LineComment Inserted="false">
+      <Text>Если ошибка чтения - переходим в окончание блока</Text>
+    </LineComment>
+  </StlStatement>
+  <StlStatement UId="48">
+    <StlToken Text="CAC" />
+  </StlStatement>
+  <StlStatement UId="49">
+    <StlToken Text="JC" />
+    <Access Scope="Label">
+      <Label Name="END" />
+      <LineComment Inserted="false">
+        <Text>Таким образом функция будет остановлена</Text>
+      </LineComment>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="52">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="53">
+    <LineComment Inserted="false">
+      <Text>Anpassung aktuelle Geschwindigkeit 1 digit = 0.2 rpm auf 1 rpm</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="55">
+    <StlToken Text="L" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sEingangswerte" />
+        <Component Name="iAktGeschwindigkeit" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="57">
+    <StlToken Text="L" />
+    <Access Scope="LiteralConstant">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>5</ConstantValue>
+      </Constant>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="59">
+    <StlToken Text="DIV_I" />
+  </StlStatement>
+  <StlStatement UId="60">
+    <StlToken Text="T" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="O_iActSpeed" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="62">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="63">
+    <LineComment Inserted="false">
+      <Text>Anpassung Stromwert 1 digit = 0.1% In auf 1% In</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="65">
+    <StlToken Text="L" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sEingangswerte" />
+        <Component Name="iAktStrom" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="67">
+    <StlToken Text="L" />
+    <Access Scope="LiteralConstant">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>10</ConstantValue>
+      </Constant>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="69">
+    <StlToken Text="DIV_I" />
+  </StlStatement>
+  <StlStatement UId="70">
+    <StlToken Text="T" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="O_iActCurrent" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="72">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="73">
+    <StlToken Text="A" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sEingangswerte" />
+        <Component Name="bStatusFehler" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="24">
+    <StlToken Text="Assign" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="IO_bFault" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+</StatementList></NetworkSource>
+          <ProgrammingLanguage>STL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="C" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="F" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="10" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="11" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Чтение входящих значений</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="12" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StatementList xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StatementList/v4">
+  <StlStatement UId="99">
+    <StlToken Text="A" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sEingangswerte" />
+        <Component Name="bStatusFehler" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="101">
+    <StlToken Text="JCN" />
+    <Access Scope="Label">
+      <Label Name="M001" />
+    </Access>
+  </StlStatement>
+  <StlStatement UId="103">
+    <StlToken Text="L" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sEingangswerte" />
+        <Component Name="byStatusFehlernummer" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="105">
+    <StlToken Text="T" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="O_iFaultNumber" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="107">
+    <StlToken Text="JU" />
+    <Access Scope="Label">
+      <Label Name="M002" />
+    </Access>
+  </StlStatement>
+  <StlStatement UId="109">
+    <LabelDeclaration>
+      <Label Name="M001" />
+    </LabelDeclaration>
+    <StlToken Text="L" />
+    <Access Scope="LiteralConstant">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>0</ConstantValue>
+      </Constant>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="112">
+    <StlToken Text="T" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="O_iFaultNumber" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="114">
+    <LabelDeclaration>
+      <Label Name="M002" />
+    </LabelDeclaration>
+    <StlToken Text="NOP_0" />
+  </StlStatement>
+</StatementList></NetworkSource>
+          <ProgrammingLanguage>STL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="13" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="14" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="15" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Ist das Fehlerbit gesetzt, so wird die Fehlernummer ausgegeben.
+Liegt kein Fehler vor, so wird eine Null ausgegeben.</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="16" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="17" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="18" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>evaluate errors/warnings</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="19" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StatementList xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StatementList/v4">
+  <StlStatement UId="116">
+    <StlToken Text="A" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="I_bForward" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="118">
+    <StlToken Text="AN" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="I_bBackward" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="120">
+    <StlToken Text="L" />
+    <Access Scope="LiteralConstant">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>1</ConstantValue>
+      </Constant>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="122">
+    <StlToken Text="JC" />
+    <Access Scope="Label">
+      <Label Name="SPED" />
+    </Access>
+  </StlStatement>
+  <StlStatement UId="124">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="125">
+    <StlToken Text="A" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="I_bBackward" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="127">
+    <StlToken Text="AN" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="I_bForward" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="129">
+    <StlToken Text="L" />
+    <Access Scope="LiteralConstant">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>-1</ConstantValue>
+      </Constant>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="131">
+    <StlToken Text="JC" />
+    <Access Scope="Label">
+      <Label Name="SPED" />
+    </Access>
+  </StlStatement>
+  <StlStatement UId="133">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="134">
+    <StlToken Text="L" />
+    <Access Scope="LiteralConstant">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>0</ConstantValue>
+      </Constant>
+    </Access>
+  </StlStatement>
+</StatementList></NetworkSource>
+          <ProgrammingLanguage>STL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1A" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="1B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="1C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="1D" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="1E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="1F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Выбор направления путем изменения знака перед скоростью</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="20" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StatementList xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StatementList/v4">
+  <StlStatement UId="136">
+    <LabelDeclaration>
+      <Label Name="SPED" />
+    </LabelDeclaration>
+    <StlToken Text="L" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="I_iReqSpeed" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="139">
+    <StlToken Text="MUL_I" />
+  </StlStatement>
+  <StlStatement UId="140">
+    <StlToken Text="T" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="iVorgabeGeschwindigkeit" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+</StatementList></NetworkSource>
+          <ProgrammingLanguage>STL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="21" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="22" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="23" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="24" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="25" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="26" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Запись скорости для ЧП</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="27" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StatementList xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StatementList/v4">
+  <StlStatement UId="142">
+    <StlToken Text="A" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="I_bExterneFault" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="144">
+    <StlToken Text="O" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="IO_bFault" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="146">
+    <StlToken Text="R" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="bReglersperre" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="148">
+    <StlToken Text="R" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="bFreigabe" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="150">
+    <StlToken Text="R" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="bFreigabemitRampe" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="152">
+    <StlToken Text="JC" />
+    <Access Scope="Label">
+      <Label Name="CONT" />
+    </Access>
+  </StlStatement>
+</StatementList></NetworkSource>
+          <ProgrammingLanguage>STL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="28" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="29" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="2A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="2B" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="2C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="2D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>ProzeЯausgangsdaten: Freigabe / Schnellstopp rangieren</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="2E" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StatementList xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StatementList/v4">
+  <StlStatement UId="154">
+    <StlToken Text="L" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="iVorgabeGeschwindigkeit" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="156">
+    <StlToken Text="L" />
+    <Access Scope="LiteralConstant">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>0</ConstantValue>
+      </Constant>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="158">
+    <StlToken Text="EQ_I" />
+  </StlStatement>
+  <StlStatement UId="159">
+    <StlToken Text="O" />
+  </StlStatement>
+  <StlStatement UId="160">
+    <StlToken Text="AN" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="I_bForward" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="162">
+    <StlToken Text="AN" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="I_bBackward" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="164">
+    <StlToken Text="O" />
+  </StlStatement>
+  <StlStatement UId="165">
+    <StlToken Text="A" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="I_bForward" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="167">
+    <StlToken Text="A" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="I_bBackward" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="169">
+    <StlToken Text="R" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="bReglersperre" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="171">
+    <StlToken Text="S" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="bFreigabe" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="173">
+    <StlToken Text="R" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="bFreigabemitRampe" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="175">
+    <StlToken Text="JC" />
+    <Access Scope="Label">
+      <Label Name="CONT" />
+    </Access>
+  </StlStatement>
+</StatementList></NetworkSource>
+          <ProgrammingLanguage>STL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="2F" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="30" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="31" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="32" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="33" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="34" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Инвертор стоп</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="35" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StatementList xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StatementList/v4">
+  <StlStatement UId="177">
+    <StlToken Text="A" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="I_bForward" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="179">
+    <StlToken Text="AN" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="I_bBackward" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="181">
+    <StlToken Text="O" />
+  </StlStatement>
+  <StlStatement UId="182">
+    <StlToken Text="A" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="I_bBackward" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="184">
+    <StlToken Text="AN" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="I_bForward" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="186">
+    <StlToken Text="R" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="bReglersperre" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="188">
+    <StlToken Text="S" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="bFreigabe" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="190">
+    <StlToken Text="S" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="bFreigabemitRampe" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="192">
+    <StlToken Text="JC" />
+    <Access Scope="Label">
+      <Label Name="CONT" />
+    </Access>
+  </StlStatement>
+  <StlStatement UId="194">
+    <StlToken Text="BEU" />
+  </StlStatement>
+</StatementList></NetworkSource>
+          <ProgrammingLanguage>STL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="36" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="37" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="38" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="39" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="3A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="3B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>drive enable</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="3C" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StatementList xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StatementList/v4">
+  <StlStatement UId="195">
+    <LabelDeclaration>
+      <Label Name="CONT" />
+    </LabelDeclaration>
+    <StlToken Text="SET" />
+  </StlStatement>
+  <StlStatement UId="197">
+    <StlToken Text="R" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="bControlBit_3" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="199">
+    <StlToken Text="R" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="bControlBit_4" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="201">
+    <StlToken Text="R" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="bControlBit_5" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="203">
+    <StlToken Text="R" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="bControlBit_7" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="205">
+    <LineComment Inserted="false">
+      <Text>Steuerwort 2</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="207">
+    <StlToken Text="R" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="bRichtung" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="209">
+    <StlToken Text="R" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="bMotorVor" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="211">
+    <StlToken Text="R" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="bMotorZurueck" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="213">
+    <StlToken Text="R" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="bFestsollwert1" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="215">
+    <StlToken Text="R" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="bFestsollwert2" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="217">
+    <StlToken Text="R" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="bFestsollwertUmschaltung" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="219">
+    <StlToken Text="R" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="bControlBit_14" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="221">
+    <StlToken Text="R" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="bControlBit_15" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="223">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="224">
+    <LineComment Inserted="false">
+      <Text>Anpassung Geschwindigkeit 1 digit = 0.2 rpm auf 1 rpm</Text>
+    </LineComment>
+    <StlToken Text="COMMENT" />
+  </StlStatement>
+  <StlStatement UId="226">
+    <StlToken Text="L" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="iVorgabeGeschwindigkeit" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="228">
+    <StlToken Text="L" />
+    <Access Scope="LiteralConstant">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>5</ConstantValue>
+      </Constant>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="230">
+    <StlToken Text="MUL_I" />
+  </StlStatement>
+  <StlStatement UId="231">
+    <StlToken Text="T" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="iVorgabeGeschwindigkeit" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="233">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="234">
+    <StlToken Text="L" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="I_iRampe" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="236">
+    <StlToken Text="T" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="iRampe" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="238">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="239">
+    <StlToken Text="CALL" />
+    <Access Scope="Call">
+      <Instruction Name="DPWR_DAT" Version="1.0">
+        <Token Text="," />
+        <LineComment Inserted="false">
+          <Text> Запись данных</Text>
+        </LineComment>
+        <TemplateValue Name="ptr_type" Type="Type">Any</TemplateValue>
+        <TemplateValue Name="laddr_type" Type="Type">Word</TemplateValue>
+        <Parameter Name="LADDR">
+          <Access Scope="LocalVariable">
+            <Symbol>
+              <Component Name="T_wGeraeteOAdress" />
+            </Symbol>
+          </Access>
+          <LineComment Inserted="false">
+            <Text> Адрес частотного преобразователя для записи</Text>
+          </LineComment>
+        </Parameter>
+        <Parameter Name="RECORD">
+          <Access Scope="LocalVariable">
+            <Symbol>
+              <Component Name="sAusgangswerte" />
+            </Symbol>
+          </Access>
+          <LineComment Inserted="false">
+            <Text> Структура данных для записи на частотный преобразователь</Text>
+          </LineComment>
+        </Parameter>
+        <Parameter Name="RET_VAL">
+          <Access Scope="LocalVariable">
+            <Symbol>
+              <Component Name="T_iRueckgabewert" />
+            </Symbol>
+          </Access>
+          <LineComment Inserted="false">
+            <Text> &lt;&gt; 0 =&gt; Ошибка блока записи</Text>
+          </LineComment>
+        </Parameter>
+      </Instruction>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="249">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+  <StlStatement UId="250">
+    <StlToken Text="L" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="T_iRueckgabewert" />
+      </Symbol>
+      <LineComment Inserted="false">
+        <Text>Tritt wдhrend der Abarbeitung des SFCs ein Fehler auf, </Text>
+      </LineComment>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="253">
+    <StlToken Text="L" />
+    <Access Scope="LiteralConstant">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>0</ConstantValue>
+      </Constant>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="255">
+    <StlToken Text="NE_I" />
+  </StlStatement>
+  <StlStatement UId="256">
+    <StlToken Text="CAC" />
+  </StlStatement>
+  <StlStatement UId="257">
+    <StlToken Text="JC" />
+    <Access Scope="Label">
+      <Label Name="END" />
+      <LineComment Inserted="false">
+        <Text>so wird die Funktion verlassen.</Text>
+      </LineComment>
+    </Access>
+  </StlStatement>
+</StatementList></NetworkSource>
+          <ProgrammingLanguage>STL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="3D" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="3E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="3F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Сброс всех неиспользуемых битов управляющего слова</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="40" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="41" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="42" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>ProzeЯausgangsdaten aufbereiten</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="43" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StatementList xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StatementList/v4">
+  <StlStatement UId="260">
+    <StlToken Text="A" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="IO_bFault" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="262">
+    <StlToken Text="A" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="I_bReset" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="264">
+    <StlToken Text="Assign" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="sAusgangswerte" />
+        <Component Name="bResetFehler" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+</StatementList></NetworkSource>
+          <ProgrammingLanguage>STL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="44" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="45" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="46" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="47" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="48" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="49" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Fault Reset</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="4A" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StatementList xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StatementList/v4">
+  <StlStatement UId="266">
+    <StlToken Text="BEU" />
+    <LineComment Inserted="false">
+      <Text>Ende der Funktion</Text>
+    </LineComment>
+  </StlStatement>
+  <StlStatement UId="268">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+</StatementList></NetworkSource>
+          <ProgrammingLanguage>STL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4B" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="4C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="4D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>      U     #I_bEnableForward
+      UN    #I_bEnableBackward
+      S     #bEnableForwardHIS
+      R     #bEnableBackwardHIS
+
+      U     #I_bEnableBackward
+      UN    #I_bEnableForward
+      S     #bEnableBackwardHIS
+      R     #bEnableForwardHIS</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="4E" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="4F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="50" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>set history values</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="51" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StatementList xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StatementList/v4">
+  <StlStatement UId="269">
+    <LabelDeclaration>
+      <Label Name="END" />
+    </LabelDeclaration>
+    <StlToken Text="T" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="O_iFaultNumber" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="272">
+    <StlToken Text="L" />
+    <Access Scope="LiteralConstant">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>0</ConstantValue>
+      </Constant>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="274">
+    <StlToken Text="T" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="O_iActSpeed" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="276">
+    <StlToken Text="T" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="O_iActCurrent" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="278">
+    <StlToken Text="SET" />
+  </StlStatement>
+  <StlStatement UId="279">
+    <StlToken Text="S" />
+    <Access Scope="LocalVariable">
+      <Symbol>
+        <Component Name="IO_bFault" />
+      </Symbol>
+    </Access>
+  </StlStatement>
+  <StlStatement UId="21">
+    <StlToken Text="EMPTY_LINE" />
+  </StlStatement>
+</StatementList></NetworkSource>
+          <ProgrammingLanguage>STL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="52" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="53" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="54" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Ist die Abarbeitung der SFCs fehlerhaft, so werden alle Ausgдnge der Funktion 
+abgelцscht
+</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="55" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="56" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="57" CompositionName="Items">
+                <AttributeList>
+                  <Culture>ru-RU</Culture>
+                  <Text>Ошибка связи</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="58" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="59" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="5A" CompositionName="Items">
+            <AttributeList>
+              <Culture>ru-RU</Culture>
+              <Text>FB_SEW_MDX</Text>
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.FB>
+</Document>

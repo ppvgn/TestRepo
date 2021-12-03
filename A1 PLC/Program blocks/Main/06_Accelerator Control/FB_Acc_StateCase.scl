@@ -1,0 +1,1494 @@
+﻿FUNCTION_BLOCK "FB_Acc_StateCase"
+{ S7_Optimized_Access := 'FALSE' }
+VERSION : 0.1
+   VAR_INPUT 
+      I_Transit { ExternalVisible := 'False'} : Struct
+         InitTrue { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // Инициализация
+         ReqAccPwrOn { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // Запрос на включение
+         ChillOnDly { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // Чиллер включен
+         ModOnDly { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // Модулятор включен
+         AccPrwOn { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // Ускоритель включен
+         NAccPrwOn { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // Ускоритель НЕ включен
+         AccRemMode { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // Удаленный режим
+         NAccRemMode { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // Местный режим
+         AccWarmUp { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // Прогрев ускорителя
+         AccClear { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // Предварительная готовность
+         AccStandby { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // Пауза
+         AccReady { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // Основная готовность
+         AccRfOn { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // СВЧ включено
+         AccRfOff { ExternalVisible := 'False'} : Bool;   // СВЧ выключено
+         AccXrayOn { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // ТИ включено
+         AccXrayOff { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // ТИ вЫключено
+         ReqAccPwrOff { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // Запрос на отключение
+         AccNotActive { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // Ускоритель неактивен
+         XrayHeadOffDly { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // Накал выключен
+         ModOffDly { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // Модулятор выключен
+         ChillOffDly { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // Чиллер включен
+         AccFault { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // Ошибка ускорителя
+         ACK_AccFault { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // Ошибка сброшена
+         EStop { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;   // Аварийный останов
+      END_STRUCT;
+   END_VAR
+
+   VAR_OUTPUT 
+      O_Acc_ActState { ExternalVisible := 'False'; ExternalWritable := 'False'} : Int;
+   END_VAR
+
+   VAR 
+      Timer_1 { ExternalVisible := 'False'; ExternalWritable := 'False'} : Int := -1;
+      Timer_2 { ExternalVisible := 'False'; ExternalWritable := 'False'} : Int := -1;
+      respEvent { ExternalVisible := 'False'; ExternalWritable := 'False'} : Int := -1;
+      Zustand_akt { ExternalVisible := 'False'; ExternalWritable := 'False'} : Int := 1;
+      trace { ExternalVisible := 'False'; ExternalWritable := 'False'} : "UDT_TRACE";
+      firstTime { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool := TRUE;
+      Aktion { ExternalVisible := 'False'; ExternalWritable := 'False'} : Array[1..3] of Int;
+      Bedingung { ExternalVisible := 'False'; ExternalWritable := 'False'} : Array[1..26] of Int;
+      transitionType { ExternalVisible := 'False'; ExternalWritable := 'False'} : Int := 0;
+      InitTrue { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      ReqAccPwrOn { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      ChillOnDly { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      ModOnDly { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      AccPrwOn { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      NAccPrwOn { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      AccRemMode { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      NAccRemMode { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      spare { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      AccWarmUp { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      AccClear { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      AccStandby { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      AccReady { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      AccRfOn { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      AccRfOff { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      AccXrayOn { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      AccXrayOff { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      ReqAccPwrOff { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      AccNotActive { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      XrayHeadOffDly { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      ModOffDly { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      ChillOffDly { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      spare_1 { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      AccFault { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      ACK_AccFault { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      EStop { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      AccWithRfOn { ExternalVisible := 'False'} : Bool;
+   END_VAR
+
+   VAR_TEMP 
+      condIndex : Int;
+      i : Int;
+      stayInExecute : Bool;
+      isEventRecv : Bool;
+      Zustand_alt : Int;
+      tempEvent : Int;
+   END_VAR
+
+   VAR CONSTANT 
+      INIT : Int := 1;
+      PowerOFF : Int := 2;
+      PowerONChiller : Int := 3;
+      PowerONModulator : Int := 4;
+      PowerONX_rayconsole : Int := 5;
+      PowerONOK : Int := 6;
+      RemoteModeSelected : Int := 7;
+      WarmingUp : Int := 8;
+      Clear : Int := 9;
+      Ready : Int := 10;
+      RFON : Int := 11;
+      x_RayON : Int := 12;
+      Fault : Int := 13;
+      SwitchingOFF : Int := 14;
+      PowerOFFX_rayconsole : Int := 15;
+      PowerOFFModulator : Int := 16;
+      PowerOFFChiller : Int := 17;
+      Standby : Int := 18;
+      KEINE_AKTION : Int := -1;
+      TRANSITIONTYPE_NORMAL : Int := 0;
+      TRANSITIONTYPE_ERROR : Int := 1;
+      AKTION_AUS : Int := 1;
+      AKTION_TRANS : Int := 2;
+      AKTION_EIN : Int := 3;
+      EVENT_UNDEF : Int := -1;
+      EVENT_FALSE : Int := 0;
+      EVENT_TRUE : Int := 1;
+      eTRUE : Int := 1;
+      eReqPowerON : Int := 2;
+      eChillerOnDelay : Int := 3;
+      eModulatorOnDelay : Int := 4;
+      eACCPowerOn : Int := 5;
+      eNACCPowerOn : Int := 6;
+      eACCRemoteModeSelected : Int := 7;
+      eNACCRemModeSel : Int := 8;
+      eSpare : Int := 9;
+      eACCWarmingUp : Int := 10;
+      eACCClear : Int := 11;
+      eACCStandby : Int := 12;
+      eACCReady : Int := 13;
+      eACCRFOn : Int := 14;
+      eACCX_RayOn : Int := 15;
+      eACCX_RayOff : Int := 16;
+      eReqPowerOFF : Int := 17;
+      eACCNOTClearReadyWarmUp : Int := 18;
+      eX_RayHeadOffDelay : Int := 19;
+      eModulatorOffDelay : Int := 20;
+      eChillerOffDelay : Int := 21;
+      espare_1 : Int := 22;
+      eACCFault : Int := 23;
+      eACK_Fault : Int := 24;
+      eEmergencyStop : Int := 25;
+      eACCRFOff : Int := 26;
+   END_VAR
+
+
+BEGIN
+	// Определение переходов
+	#InitTrue := #I_Transit.InitTrue;
+	#ReqAccPwrOn := #I_Transit.ReqAccPwrOn;
+	#ChillOnDly := #I_Transit.ChillOnDly;
+	#ModOnDly := #I_Transit.ModOnDly;
+	#AccPrwOn := #I_Transit.AccPrwOn;
+	#NAccPrwOn := #I_Transit.NAccPrwOn;
+	#AccRemMode := #I_Transit.AccRemMode;
+	#NAccRemMode := #I_Transit.NAccRemMode;
+	#AccWarmUp := #I_Transit.AccWarmUp;
+	#AccClear := #I_Transit.AccClear;
+	#AccStandby := #I_Transit.AccStandby;
+	#AccReady := #I_Transit.AccReady;
+	#AccRfOn := #I_Transit.AccRfOn;
+	#AccRfOff := #I_Transit.AccRfOff;
+	#AccXrayOn := #I_Transit.AccXrayOn;
+	#AccXrayOff := #I_Transit.AccXrayOff;
+	#ReqAccPwrOff := #I_Transit.ReqAccPwrOff;
+	#AccNotActive := #I_Transit.AccNotActive;
+	#XrayHeadOffDly := #I_Transit.XrayHeadOffDly;
+	#ModOffDly := #I_Transit.ModOffDly;
+	#ChillOffDly := #I_Transit.ChillOffDly;
+	#AccFault := #I_Transit.AccFault;
+	#ACK_AccFault := #I_Transit.ACK_AccFault;
+	#EStop := #I_Transit.EStop;
+	
+	#stayInExecute := FALSE;
+	
+	REPEAT
+	    #isEventRecv := FALSE;
+	    #Zustand_alt := #Zustand_akt;
+	    #tempEvent := -1;
+	    #Aktion[#AKTION_AUS] := #KEINE_AKTION;
+	    #Aktion[#AKTION_TRANS] := #KEINE_AKTION;
+	    #Aktion[#AKTION_EIN] := #KEINE_AKTION;
+	    
+	    // Ereignis-Flags initialisieren
+	    FOR #i := 1 TO 25 BY 1 DO
+	        #Bedingung[#i] := #EVENT_UNDEF;
+	    END_FOR;
+	    
+	    
+	    
+	    //--------------------------------------------------
+	    // VERKNUEPFUNGSTEIL
+	    //--------------------------------------------------
+	    WHILE (TRUE) DO
+	        CASE #Zustand_alt OF
+	            #INIT:
+	                // Текущее состояние: INIT
+	                // Transition: INIT --> Power OFF
+	                // Priorität : ---
+	                IF (#Bedingung[1] = #EVENT_UNDEF) THEN
+	                    #condIndex := 1;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[1] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eTRUE;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerOFF;
+	                END_IF;
+	            #PowerOFF:
+	                // Текущее состояние: Power OFF
+	                // Переход: Power OFF --> Power ON Chiller
+	                // Приоритет : 10
+	                IF (#Bedingung[2] = #EVENT_UNDEF) THEN
+	                    #condIndex := 2;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[2] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eReqPowerON;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerONChiller;
+	                END_IF;
+	            #PowerONChiller:
+	                // Aktueller Zustand: Power ON Chiller
+	                // Transition: Power ON Chiller --> Power OFF
+	                // Priorität : 1
+	                IF (#Bedingung[25] = #EVENT_UNDEF) THEN
+	                    #condIndex := 25;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[25] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eEmergencyStop;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_ERROR;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerOFF;
+	                    // Transition: Power ON Chiller --> Power ON Modulator
+	                    // Priorität : 5
+	                ELSIF (#Bedingung[3] = #EVENT_UNDEF) THEN
+	                    #condIndex := 3;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[3] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eChillerOnDelay;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerONModulator;
+	                    // Transition: Power ON Chiller --> Power OFF Chiller
+	                    // Priorität : 6
+	                ELSIF (#Bedingung[17] = #EVENT_UNDEF) THEN
+	                    #condIndex := 17;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[17] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eReqPowerOFF;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerOFFChiller;
+	                END_IF;
+	            #PowerONModulator:
+	                // Aktueller Zustand: Power ON Modulator
+	                // Transition: Power ON Modulator --> Power OFF Chiller
+	                // Priorität : 1
+	                IF (#Bedingung[25] = #EVENT_UNDEF) THEN
+	                    #condIndex := 25;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[25] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eEmergencyStop;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_ERROR;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerOFFChiller;
+	                    // Transition: Power ON Modulator --> Power ON x-ray/console
+	                    // Priorität : 5
+	                ELSIF (#Bedingung[4] = #EVENT_UNDEF) THEN
+	                    #condIndex := 4;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[4] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eModulatorOnDelay;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerONX_rayconsole;
+	                    // Transition: Power ON Modulator -->  Power OFF Modulator
+	                    // Priorität : 6
+	                ELSIF (#Bedingung[17] = #EVENT_UNDEF) THEN
+	                    #condIndex := 17;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[17] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eReqPowerOFF;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerOFFModulator;
+	                END_IF;
+	            #PowerONX_rayconsole:
+	                // Aktueller Zustand: Power ON x-ray/console
+	                // Transition: Power ON x-ray/console --> Power OFF Chiller
+	                // Priorität : 1
+	                IF (#Bedingung[25] = #EVENT_UNDEF) THEN
+	                    #condIndex := 25;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[25] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eEmergencyStop;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_ERROR;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerOFFChiller;
+	                    // Transition: Power ON x-ray/console --> Power ON OK
+	                    // Priorität : 5
+	                ELSIF (#Bedingung[5] = #EVENT_UNDEF) THEN
+	                    #condIndex := 5;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[5] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCPowerOn;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerONOK;
+	                    // Transition: Power ON x-ray/console --> Switching OFF
+	                    // Priorität : 6
+	                ELSIF (#Bedingung[17] = #EVENT_UNDEF) THEN
+	                    #condIndex := 17;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[17] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eReqPowerOFF;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #SwitchingOFF;
+	                END_IF;
+	            #PowerONOK:
+	                // Aktueller Zustand: Power ON OK
+	                // Transition: Power ON OK --> Power OFF Chiller
+	                // Priorität : 1
+	                IF (#Bedingung[25] = #EVENT_UNDEF) THEN
+	                    #condIndex := 25;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[25] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eEmergencyStop;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_ERROR;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerOFFChiller;
+	                    // Transition: Power ON OK --> Switching OFF
+	                    // Priorität : 2
+	                ELSIF (#Bedingung[17] = #EVENT_UNDEF) THEN
+	                    #condIndex := 17;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[17] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eReqPowerOFF;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #SwitchingOFF;
+	                    // Transition: Power ON OK --> Power ON x-ray/console
+	                    // Priorität : 4
+	                ELSIF (#Bedingung[6] = #EVENT_UNDEF) THEN
+	                    #condIndex := 6;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[6] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eNACCPowerOn;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerONX_rayconsole;
+	                    // Transition: Power ON OK --> Remote Mode Selected
+	                    // Priorität : 5
+	                ELSIF (#Bedingung[7] = #EVENT_UNDEF) THEN
+	                    #condIndex := 7;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[7] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCRemoteModeSelected;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #RemoteModeSelected;
+	                END_IF;
+	            #RemoteModeSelected:
+	                // Aktueller Zustand: Remote Mode Selected
+	                // Transition: Remote Mode Selected --> Power OFF Chiller
+	                // Priorität : 1
+	                IF (#Bedingung[25] = #EVENT_UNDEF) THEN
+	                    #condIndex := 25;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[25] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eEmergencyStop;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_ERROR;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerOFFChiller;
+	                    // Transition: Remote Mode Selected --> Fault
+	                    // Priorität : 2
+	                ELSIF (#Bedingung[23] = #EVENT_UNDEF) THEN
+	                    #condIndex := 23;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[23] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCFault;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_ERROR;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #Fault;
+	                    // Transition: Remote Mode Selected --> Switching OFF
+	                    // Priorität : 3
+	                ELSIF (#Bedingung[17] = #EVENT_UNDEF) THEN
+	                    #condIndex := 17;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[17] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eReqPowerOFF;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #SwitchingOFF;
+	                    // Transition: Remote Mode Selected --> Power ON x-ray/console
+	                    // Priorität : 4
+	                ELSIF (#Bedingung[6] = #EVENT_UNDEF) THEN
+	                    #condIndex := 6;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[6] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eNACCPowerOn;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerONX_rayconsole;
+	                    // Transition: Remote Mode Selected --> Power ON OK
+	                    // Priorität : 5
+	                ELSIF (#Bedingung[8] = #EVENT_UNDEF) THEN
+	                    #condIndex := 8;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[8] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eNACCRemModeSel;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerONOK;
+	                    // Transition: Remote Mode Selected --> Standby
+	                    // Priorität : 9
+	                ELSIF (#Bedingung[12] = #EVENT_UNDEF) THEN
+	                    #condIndex := 12;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[12] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCStandby;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #Standby;
+	                    // Transition: Remote Mode Selected --> Warming Up
+	                    // Priorität : 10
+	                ELSIF (#Bedingung[10] = #EVENT_UNDEF) THEN
+	                    #condIndex := 10;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[10] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCWarmingUp;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #WarmingUp;
+	                    // Transition: Remote Mode Selected --> Clear
+	                    // Priorität : 11
+	                ELSIF (#Bedingung[11] = #EVENT_UNDEF) THEN
+	                    #condIndex := 11;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[11] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCClear;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #Clear;
+	                    // Transition: Remote Mode Selected --> Ready
+	                    // Priorität : 12
+	                ELSIF (#Bedingung[13] = #EVENT_UNDEF) THEN
+	                    #condIndex := 13;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[13] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCReady;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #Ready;
+	                END_IF;
+	            #WarmingUp:
+	                // Aktueller Zustand: Warming Up
+	                // Transition: Warming Up --> Power OFF Chiller
+	                // Priorität : 1
+	                IF (#Bedingung[25] = #EVENT_UNDEF) THEN
+	                    #condIndex := 25;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[25] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eEmergencyStop;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_ERROR;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerOFFChiller;
+	                    // Transition: Warming Up --> Fault
+	                    // Priorität : 2
+	                ELSIF (#Bedingung[23] = #EVENT_UNDEF) THEN
+	                    #condIndex := 23;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[23] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCFault;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #Fault;
+	                    // Transition: Warming Up --> Switching OFF
+	                    // Priorität : 3
+	                ELSIF (#Bedingung[17] = #EVENT_UNDEF) THEN
+	                    #condIndex := 17;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[17] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eReqPowerOFF;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #SwitchingOFF;
+	                    // Transition: Warming Up --> Power ON x-ray/console
+	                    // Priorität : 4
+	                ELSIF (#Bedingung[6] = #EVENT_UNDEF) THEN
+	                    #condIndex := 6;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[6] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eNACCPowerOn;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerONX_rayconsole;
+	                    // Transition: Warming Up --> Power ON OK
+	                    // Priorität : 5
+	                ELSIF (#Bedingung[8] = #EVENT_UNDEF) THEN
+	                    #condIndex := 8;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[8] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eNACCRemModeSel;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerONOK;
+	                    // Transition: Warming Up --> Clear
+	                    // Priorität : 10
+	                ELSIF (#Bedingung[11] = #EVENT_UNDEF) THEN
+	                    #condIndex := 11;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[11] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCClear;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #Clear;
+	                    // Transition: Warming Up --> Ready
+	                    // Priorität : 12
+	                ELSIF (#Bedingung[13] = #EVENT_UNDEF) THEN
+	                    #condIndex := 13;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[13] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCReady;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #Ready;
+	                END_IF;
+	            #Clear:
+	                // Aktueller Zustand: Clear
+	                // Transition: Clear --> Power OFF Chiller
+	                // Priorität : 1
+	                IF (#Bedingung[25] = #EVENT_UNDEF) THEN
+	                    #condIndex := 25;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[25] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eEmergencyStop;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_ERROR;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerOFFChiller;
+	                    // Transition: Clear --> Fault
+	                    // Priorität : 2
+	                ELSIF (#Bedingung[23] = #EVENT_UNDEF) THEN
+	                    #condIndex := 23;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[23] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCFault;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_ERROR;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #Fault;
+	                    // Transition: Clear --> Switching OFF
+	                    // Priorität : 3
+	                ELSIF (#Bedingung[17] = #EVENT_UNDEF) THEN
+	                    #condIndex := 17;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[17] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eReqPowerOFF;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #SwitchingOFF;
+	                    // Transition: Clear --> Power ON x-ray/console
+	                    // Priorität : 4
+	                ELSIF (#Bedingung[6] = #EVENT_UNDEF) THEN
+	                    #condIndex := 6;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[6] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eNACCPowerOn;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerONX_rayconsole;
+	                    // Transition: Clear --> Power ON OK
+	                    // Priorität : 5
+	                ELSIF (#Bedingung[8] = #EVENT_UNDEF) THEN
+	                    #condIndex := 8;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[8] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eNACCRemModeSel;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerONOK;
+	                    // Transition: Clear --> Warming Up
+	                    // Priorität : 6
+	                ELSIF (#Bedingung[10] = #EVENT_UNDEF) THEN
+	                    #condIndex := 10;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[10] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCWarmingUp;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #WarmingUp;
+	                    // Transition: Clear --> Standby
+	                    // Priorität : 9
+	                ELSIF (#Bedingung[12] = #EVENT_UNDEF) THEN
+	                    #condIndex := 12;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[12] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCStandby;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #Standby;
+	                    // Transition: Clear --> Ready
+	                    // Priorität : 10
+	                ELSIF (#Bedingung[13] = #EVENT_UNDEF) THEN
+	                    #condIndex := 13;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[13] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCReady;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #Ready;
+	                END_IF;
+	            #Ready:
+	                // Aktueller Zustand: Ready
+	                // Transition: Ready --> Power OFF Chiller
+	                // Priorität : 1
+	                IF (#Bedingung[25] = #EVENT_UNDEF) THEN
+	                    #condIndex := 25;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[25] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eEmergencyStop;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_ERROR;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerOFFChiller;
+	                    // Transition: Ready --> Fault
+	                    // Priorität : 2
+	                ELSIF (#Bedingung[23] = #EVENT_UNDEF) THEN
+	                    #condIndex := 23;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[23] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCFault;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_ERROR;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #Fault;
+	                    // Transition: Ready --> Switching OFF
+	                    // Priorität : 3
+	                ELSIF (#Bedingung[17] = #EVENT_UNDEF) THEN
+	                    #condIndex := 17;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[17] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eReqPowerOFF;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #SwitchingOFF;
+	                    // Transition: Ready --> Power ON x-ray/console
+	                    // Priorität : 4
+	                ELSIF (#Bedingung[6] = #EVENT_UNDEF) THEN
+	                    #condIndex := 6;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[6] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eNACCPowerOn;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerONX_rayconsole;
+	                    // Transition: Ready --> Power ON OK
+	                    // Priorität : 5
+	                ELSIF (#Bedingung[8] = #EVENT_UNDEF) THEN
+	                    #condIndex := 8;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[8] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eNACCRemModeSel;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerONOK;
+	                    // Transition: Ready --> Warming Up
+	                    // Priorität : 6
+	                ELSIF (#Bedingung[10] = #EVENT_UNDEF) THEN
+	                    #condIndex := 10;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[10] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCWarmingUp;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #WarmingUp;
+	                    // Transition: Ready --> Clear
+	                    // Priorität : 7
+	                ELSIF (#Bedingung[11] = #EVENT_UNDEF) THEN
+	                    #condIndex := 11;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[11] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCClear;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #Clear;
+	                    // Transition: Ready --> Standby
+	                    // Priorität : 9
+	                ELSIF (#Bedingung[12] = #EVENT_UNDEF) THEN
+	                    #condIndex := 12;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[12] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCStandby;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #Standby;
+	                    // Transition: Ready --> x-Ray ON
+	                    // Priorität : 15
+	                ELSIF (#Bedingung[15] = #EVENT_UNDEF) THEN
+	                    #condIndex := 15;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[15] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCX_RayOn; 
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #x_RayON;
+	                    // Transition: Ready --> RF ON
+	                    // Priorität : 15
+	                ELSIF (#Bedingung[14] = #EVENT_UNDEF) THEN
+	                    #condIndex := 14;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[14] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCRFOn;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #RFON;
+	                END_IF;
+	            #RFON:
+	                // Aktueller Zustand: RF ON
+	                // Transition: RF ON --> Power OFF Chiller
+	                // Priorität : 1
+	                IF (#Bedingung[25] = #EVENT_UNDEF) THEN
+	                    #condIndex := 25;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[25] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eEmergencyStop;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_ERROR;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerOFFChiller;
+	                    // Transition: RF ON --> Fault
+	                    // Priorität : 2
+	                ELSIF (#Bedingung[23] = #EVENT_UNDEF) THEN
+	                    #condIndex := 23;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[23] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCFault;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_ERROR;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #Fault;
+	                    // Transition: RF ON --> Power ON x-ray/console
+	                    // Priorität : 4
+	                ELSIF (#Bedingung[6] = #EVENT_UNDEF) THEN
+	                    #condIndex := 6;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[6] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eNACCPowerOn;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerONX_rayconsole;
+	                    // Transition: RF ON --> Power ON OK
+	                    // Priorität : 5
+	                ELSIF (#Bedingung[8] = #EVENT_UNDEF) THEN
+	                    #condIndex := 8;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[8] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eNACCRemModeSel;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerONOK;
+	                    // Transition: RF ON --> Warming Up
+	                    // Priorität : 6
+	                ELSIF (#Bedingung[10] = #EVENT_UNDEF) THEN
+	                    #condIndex := 10;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[10] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCWarmingUp;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #WarmingUp;
+	                    // Transition: RF ON --> Clear
+	                    // Priorität : 7
+	                ELSIF (#Bedingung[11] = #EVENT_UNDEF) THEN
+	                    #condIndex := 11;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[11] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCClear;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #Clear;
+	                    // Transition: RF ON --> x-Ray ON
+	                    // Priorität : 15
+	                ELSIF (#Bedingung[15] = #EVENT_UNDEF) THEN
+	                    #condIndex := 15;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[15] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCX_RayOn;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #x_RayON;
+	                    // Transition: RF ON --> Ready
+	                    // Priorität : ---
+	                ELSIF (#Bedingung[22] = #EVENT_UNDEF) THEN
+	                    #condIndex := 22;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[22] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCRFOff;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #Ready;
+	                END_IF;
+	            #x_RayON:
+	                // Aktueller Zustand: x-Ray ON
+	                // Transition: x-Ray ON --> Power OFF Chiller
+	                // Priorität : 1
+	                IF (#Bedingung[25] = #EVENT_UNDEF) THEN
+	                    #condIndex := 25;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[25] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eEmergencyStop;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_ERROR;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerOFFChiller;
+	                    // Transition: x-Ray ON --> Fault
+	                    // Priorität : 2
+	                ELSIF (#Bedingung[23] = #EVENT_UNDEF) THEN
+	                    #condIndex := 23;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[23] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCFault;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_ERROR;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #Fault;
+	                    // Transition: RF ON --> Power ON x-ray/console
+	                    // Priorität : 4
+	                ELSIF (#Bedingung[6] = #EVENT_UNDEF) THEN
+	                    #condIndex := 6;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[6] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eNACCPowerOn;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerONX_rayconsole;
+	                    // Transition: x-Ray ON --> Power ON OK
+	                    // Priorität : 5
+	                ELSIF (#Bedingung[8] = #EVENT_UNDEF) THEN
+	                    #condIndex := 8;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[8] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eNACCRemModeSel;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerONOK;
+	                    // Transition: x-Ray ON --> Warming Up
+	                    // Priorität : 6
+	                ELSIF (#Bedingung[10] = #EVENT_UNDEF) THEN
+	                    #condIndex := 10;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[10] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCWarmingUp;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #WarmingUp;
+	                    // Transition: x-Ray ON --> Clear
+	                    // Priorität : 7
+	                ELSIF (#Bedingung[11] = #EVENT_UNDEF) THEN
+	                    #condIndex := 11;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[11] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCClear;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #Clear;
+	                    // Transition: x-Ray ON --> Ready
+	                    // Priorität : 9
+	                    (*                ELSIF (#Bedingung[13] = #EVENT_UNDEF) THEN
+	                    #condIndex := 13;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[13] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCReady;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #Ready;*)
+	                    // Transition: x-Ray ON --> Ready
+	                    // Priorität : 15
+	                ELSIF (#Bedingung[16] = #EVENT_UNDEF) THEN
+	                    #condIndex := 16;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[16] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCX_RayOff;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #Ready;
+	                END_IF;
+	            #Fault:
+	                // Aktueller Zustand: Fault
+	                // Transition: Fault --> Power OFF Chiller
+	                // Priorität : 1
+	                IF (#Bedingung[25] = #EVENT_UNDEF) THEN
+	                    #condIndex := 25;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[25] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eEmergencyStop;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_ERROR;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerOFFChiller;
+	                    // Transition: Fault --> Power OFF x-ray/console
+	                    // Priorität : 3
+	                ELSIF (#Bedingung[17] = #EVENT_UNDEF) THEN
+	                    #condIndex := 17;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[17] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eReqPowerOFF;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerOFFX_rayconsole;
+	                    // Transition: Fault --> Remote Mode Selected
+	                    // Priorität : 10
+	                ELSIF (#Bedingung[24] = #EVENT_UNDEF) THEN
+	                    #condIndex := 24;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[24] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACK_Fault;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #RemoteModeSelected;
+	                END_IF;
+	            #SwitchingOFF:
+	                // Aktueller Zustand: Switching OFF
+	                // Transition: Switching OFF --> Power OFF Chiller
+	                // Priorität : 1
+	                IF (#Bedingung[25] = #EVENT_UNDEF) THEN
+	                    #condIndex := 25;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[25] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eEmergencyStop;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_ERROR;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerOFFChiller;
+	                    // Transition: Switching OFF --> Power ON Chiller
+	                    // Priorität : 9
+	                ELSIF (#Bedingung[2] = #EVENT_UNDEF) THEN
+	                    #condIndex := 2;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[2] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eReqPowerON;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerONChiller;
+	                    // Transition: Switching OFF --> Power OFF x-ray/console
+	                    // Priorität : 10
+	                ELSIF (#Bedingung[18] = #EVENT_UNDEF) THEN
+	                    #condIndex := 18;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[18] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCNOTClearReadyWarmUp;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerOFFX_rayconsole;
+	                END_IF;
+	            #PowerOFFX_rayconsole:
+	                // Aktueller Zustand: Power OFF x-ray/console
+	                // Transition: Power OFF x-ray/console --> Power OFF Chiller
+	                // Priorität : 1
+	                IF (#Bedingung[25] = #EVENT_UNDEF) THEN
+	                    #condIndex := 25;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[25] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eEmergencyStop;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_ERROR;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerOFFChiller;
+	                    // Transition: Power OFF x-ray/console --> Power ON Chiller
+	                    // Priorität : 9
+	                ELSIF (#Bedingung[2] = #EVENT_UNDEF) THEN
+	                    #condIndex := 2;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[2] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eReqPowerON;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerONChiller;
+	                    // Transition: Power OFF x-ray/console --> Power OFF Modulator
+	                    // Priorität : ---
+	                ELSIF (#Bedingung[19] = #EVENT_UNDEF) THEN
+	                    #condIndex := 19;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[19] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eX_RayHeadOffDelay;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerOFFModulator;
+	                END_IF;
+	            #PowerOFFModulator:
+	                // Aktueller Zustand: Power OFF Modulator
+	                // Transition: Power OFF Modulator --> Power OFF Chiller
+	                // Priorität : 1
+	                IF (#Bedingung[25] = #EVENT_UNDEF) THEN
+	                    #condIndex := 25;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[25] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eEmergencyStop;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_ERROR;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerOFFChiller;
+	                    // Transition: Power OFF Modulator --> Power ON Chiller
+	                    // Priorität : 9
+	                ELSIF (#Bedingung[2] = #EVENT_UNDEF) THEN
+	                    #condIndex := 2;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[2] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eReqPowerON;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerONChiller;
+	                    // Transition: Power OFF Modulator --> Power OFF Chiller
+	                    // Priorität : ---
+	                ELSIF (#Bedingung[20] = #EVENT_UNDEF) THEN
+	                    #condIndex := 20;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[20] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eModulatorOffDelay;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerOFFChiller;
+	                END_IF;
+	            #PowerOFFChiller:
+	                // Aktueller Zustand: Power OFF Chiller
+	                // Transition: Power OFF Chiller --> Power ON Chiller
+	                // Priorität : 9
+	                IF (#Bedingung[2] = #EVENT_UNDEF) THEN
+	                    #condIndex := 2;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[2] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eReqPowerON;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerONChiller;
+	                    // Transition: Power OFF Chiller --> Power OFF
+	                    // Priorität : ---
+	                ELSIF (#Bedingung[21] = #EVENT_UNDEF) THEN
+	                    #condIndex := 21;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[21] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eChillerOffDelay;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerOFF;
+	                END_IF;
+	            #Standby:
+	                // Aktueller Zustand: Standby
+	                // Transition: Standby --> Power OFF Chiller
+	                // Priorität : 1
+	                IF (#Bedingung[25] = #EVENT_UNDEF) THEN
+	                    #condIndex := 25;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[25] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eEmergencyStop;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerOFFChiller;
+	                    // Transition: Standby --> Fault
+	                    // Priorität : 2
+	                ELSIF (#Bedingung[23] = #EVENT_UNDEF) THEN
+	                    #condIndex := 23;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[23] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCFault;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #Fault;
+	                    // Transition: Standby --> Switching OFF
+	                    // Priorität : 3
+	                ELSIF (#Bedingung[17] = #EVENT_UNDEF) THEN
+	                    #condIndex := 17;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[17] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eReqPowerOFF;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #SwitchingOFF;
+	                    // Transition: Standby --> Power ON Chiller
+	                    // Priorität : 4
+	                ELSIF (#Bedingung[6] = #EVENT_UNDEF) THEN
+	                    #condIndex := 6;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[6] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eNACCPowerOn;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerONChiller;
+	                    // Transition: Standby --> Power ON OK
+	                    // Priorität : 5
+	                ELSIF (#Bedingung[8] = #EVENT_UNDEF) THEN
+	                    #condIndex := 8;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[8] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eNACCRemModeSel;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #PowerONOK;
+	                    // Transition: Standby --> Warming Up
+	                    // Priorität : 6
+	                ELSIF (#Bedingung[10] = #EVENT_UNDEF) THEN
+	                    #condIndex := 10;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[10] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCWarmingUp;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #WarmingUp;
+	                    // Transition: Standby --> Clear
+	                    // Priorität : 7
+	                ELSIF (#Bedingung[11] = #EVENT_UNDEF) THEN
+	                    #condIndex := 11;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[11] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCClear;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #Clear;
+	                    // Transition: Standby --> Ready
+	                    // Priorität : 9
+	                ELSIF (#Bedingung[13] = #EVENT_UNDEF) THEN
+	                    #condIndex := 13;
+	                    GOTO CALC_COND;
+	                ELSIF (#Bedingung[13] = #EVENT_TRUE) THEN
+	                    #tempEvent := #eACCReady;
+	                    #isEventRecv := TRUE;
+	                    #transitionType := #TRANSITIONTYPE_NORMAL;
+	                    #stayInExecute := FALSE;
+	                    #Zustand_akt := #Ready;
+	                END_IF;
+	        END_CASE;
+	        EXIT;  // Nur hier darf ich den Verknüpfungsteil verlassen
+	        
+	    CALC_COND:
+	        CASE #condIndex OF
+	            1: // Event-Name       : TRUE
+	                // Event-Identifier : TRUE
+	                // Cond-Identifier  : InitTrue
+	                ;
+	                IF (#InitTrue = TRUE) THEN
+	                    #Bedingung[1] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[1] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            2: // Event-Name       : Req Power ON
+	                // Event-Identifier : ReqPowerON
+	                // Cond-Identifier  : ReqAccPwrOn
+	                ;
+	                IF (#ReqAccPwrOn = TRUE) THEN
+	                    #Bedingung[2] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[2] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            3: // Event-Name       : Chiller On Delay
+	                // Event-Identifier : ChillerOnDelay
+	                // Cond-Identifier  : ChillOnDly
+	                ;
+	                IF (#ChillOnDly = TRUE) THEN
+	                    #Bedingung[3] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[3] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            4: // Event-Name       : Modulator On Delay
+	                // Event-Identifier : ModulatorOnDelay
+	                // Cond-Identifier  : ModOnDly
+	                ;
+	                IF (#ModOnDly = TRUE) THEN
+	                    #Bedingung[4] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[4] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            5: // Event-Name       : ACC Power On
+	                // Event-Identifier : ACCPowerOn
+	                // Cond-Identifier  : AccPrwOn
+	                ;
+	                IF (#AccPrwOn = TRUE) THEN
+	                    #Bedingung[5] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[5] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            6: // Event-Name       : /ACC Power On
+	                // Event-Identifier : NACCPowerOn
+	                // Cond-Identifier  : NAccPrwOn
+	                ;
+	                IF (#NAccPrwOn = TRUE) THEN
+	                    #Bedingung[6] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[6] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            7: // Event-Name       : ACC Remote Mode selected
+	                // Event-Identifier : ACCRemoteModeSelected
+	                // Cond-Identifier  : AccRemMode
+	                ;
+	                IF (#AccRemMode = TRUE) THEN
+	                    #Bedingung[7] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[7] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            8: // Event-Name       : /ACC Remote Mode selected
+	                // Event-Identifier : NACCRemModeSel
+	                // Cond-Identifier  : NAccRemMode
+	                ;
+	                IF (#NAccRemMode = TRUE) THEN
+	                    #Bedingung[8] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[8] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            9: // Event-Name       : Spare
+	                // Event-Identifier : Spare
+	                // Cond-Identifier  : spare
+	                ;
+	                IF (#spare = TRUE) THEN
+	                    #Bedingung[9] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[9] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            10: // Event-Name       : ACC Warming Up
+	                // Event-Identifier : ACCWarmingUp
+	                // Cond-Identifier  : AccWarmUp
+	                ;
+	                IF (#AccWarmUp = TRUE) THEN
+	                    #Bedingung[10] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[10] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            11: // Event-Name       : ACC Clear
+	                // Event-Identifier : ACCClear
+	                // Cond-Identifier  : AccClear
+	                ;
+	                IF (#AccClear = TRUE) THEN
+	                    #Bedingung[11] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[11] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            12: // Event-Name       : ACC Standby
+	                // Event-Identifier : ACCStandby
+	                // Cond-Identifier  : AccStandby
+	                ;
+	                IF (#AccStandby = TRUE) THEN
+	                    #Bedingung[12] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[12] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            13: // Event-Name       : ACC Ready
+	                // Event-Identifier : ACCReady
+	                // Cond-Identifier  : AccReady
+	                ;
+	                IF (#AccReady = TRUE) THEN
+	                    #Bedingung[13] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[13] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            14: // Event-Name       : ACC RF On
+	                // Event-Identifier : ACCRFOn
+	                // Cond-Identifier  : AccRfOn
+	                ;
+	                IF (#AccRfOn = TRUE) THEN
+	                    #Bedingung[14] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[14] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            15: // Event-Name       : ACC X-Ray On
+	                // Event-Identifier : ACCX_RayOn
+	                // Cond-Identifier  : AccXrayOn
+	                ;
+	                IF (#AccXrayOn = TRUE) THEN
+	                    #Bedingung[15] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[15] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            16: // Event-Name       : ACC X-Ray Off
+	                // Event-Identifier : ACCX_RayOff
+	                // Cond-Identifier  : AccXrayOff
+	                ;
+	                IF (#AccXrayOff = TRUE) THEN
+	                    #Bedingung[16] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[16] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            17: // Event-Name       : Req Power OFF
+	                // Event-Identifier : ReqPowerOFF
+	                // Cond-Identifier  : ReqAccPwrOff
+	                ;
+	                IF (#ReqAccPwrOff = TRUE) THEN
+	                    #Bedingung[17] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[17] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            18: // Event-Name       : ACC NOT Clear,Ready,Warming up
+	                // Event-Identifier : ACCNOTClearReadyWarmUp
+	                // Cond-Identifier  : AccNotActive
+	                ;
+	                IF (#AccNotActive = TRUE) THEN
+	                    #Bedingung[18] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[18] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            19: // Event-Name       : X-Ray Head Off Delay
+	                // Event-Identifier : X_RayHeadOffDelay
+	                // Cond-Identifier  : XrayHeadOffDly
+	                ;
+	                IF (#XrayHeadOffDly = TRUE) THEN
+	                    #Bedingung[19] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[19] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            20: // Event-Name       : Modulator Off Delay
+	                // Event-Identifier : ModulatorOffDelay
+	                // Cond-Identifier  : ModOffDly
+	                ;
+	                IF (#ModOffDly = TRUE) THEN
+	                    #Bedingung[20] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[20] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            21: // Event-Name       : Chiller Off Delay
+	                // Event-Identifier : ChillerOffDelay
+	                // Cond-Identifier  : ChillOffDly
+	                ;
+	                IF (#ChillOffDly = TRUE) THEN
+	                    #Bedingung[21] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[21] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            22: // Event-Name       : Acc RF Off
+	                // Event-Identifier : ACC_RF_Off
+	                // Cond-Identifier  : AccRf_Off
+	                ;
+	                IF (#AccRfOff = TRUE) THEN
+	                    #Bedingung[22] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[22] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            23: // Event-Name       : ACC Fault
+	                // Event-Identifier : ACCFault
+	                // Cond-Identifier  : AccFault
+	                ;
+	                IF (#AccFault = TRUE) THEN
+	                    #Bedingung[23] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[23] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            24: // Event-Name       : ACK_Fault
+	                // Event-Identifier : ACK_Fault
+	                // Cond-Identifier  : ACK_AccFault
+	                ;
+	                IF (#ACK_AccFault = TRUE) THEN
+	                    #Bedingung[24] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[24] := #EVENT_FALSE;
+	                END_IF;
+	                
+	            25: // Event-Name       : Emergency Stop
+	                // Event-Identifier : EmergencyStop
+	                // Cond-Identifier  : EStop
+	                ;
+	                IF (#EStop = TRUE) THEN
+	                    #Bedingung[25] := #EVENT_TRUE;
+	                ELSE
+	                    #Bedingung[25] := #EVENT_FALSE;
+	                END_IF;
+	
+	        END_CASE;
+	    END_WHILE;
+	    IF ((#Zustand_akt <> #Zustand_alt) OR
+	        ((#tempEvent <> -1) AND (#respEvent <> #tempEvent))) THEN
+	        // ---- Trace ----
+	        FOR #i := 10 TO 2 BY -1 DO
+	            #trace.state[#i] := #trace.state[#i - 1];
+	            #trace.event[#i] := #trace.event[#i - 1];
+	            #trace.action[#i] := #trace.action[#i - 1];
+	        END_FOR;
+	        
+	        #trace.state[1] := #Zustand_alt;           // Bisheriger Zustand
+	        #trace.event[1] := #tempEvent;
+	        #trace.action[1] := #Aktion[#AKTION_TRANS];  // Nummer der Aktion, mit der
+	        // der Zustand verlassen wurde
+	        // ---- Ende Trace ----
+	    END_IF;
+	    #respEvent := #tempEvent;
+	    
+	    //--------------------------------------------------
+	    // AKTIONSTEIL
+	    //--------------------------------------------------
+	    FOR #i := 1 TO 3 BY 1 DO        // Fuer alle 3 Aktionstypen
+	        CASE #Aktion[#i] OF            // Aktuelle Aktion
+	            #KEINE_AKTION:
+	                ;
+	        END_CASE;
+	    END_FOR;
+	    
+	    
+	UNTIL ((#isEventRecv = FALSE) OR (#stayInExecute = FALSE))
+	END_REPEAT;
+	
+	// Текущее состояние ускорителя
+	#O_Acc_ActState := #Zustand_akt;
+	
+END_FUNCTION_BLOCK
+

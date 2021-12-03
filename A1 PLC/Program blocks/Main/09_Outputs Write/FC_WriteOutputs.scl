@@ -1,0 +1,48 @@
+﻿FUNCTION "FC_WriteOutputs" : Void
+{ S7_Optimized_Access := 'FALSE' }
+VERSION : 0.1
+
+BEGIN
+	//Копирование выходных сигналов в GDB90
+	
+	// Запись выходов байт 0 из DB
+	"O_PrDoor1Lamp" := "GDB_Outputs".O_PrDoor1Lamp;
+	"O_PrDoor2Lamp" := "GDB_Outputs".O_PrDoor2Lamp;
+	"O_Spare0_2" := "GDB_Outputs".O_Spare0_2;
+	"O_Spare0_3" := "GDB_Outputs".O_Spare0_3;
+	"O_P3AckInSAreaLamp" := "GDB_Outputs".O_P3AckInSAreaLamp;
+	"O_Spare0_5" := "GDB_Outputs".O_Spare0_5;
+	"O_Spare0_6" := "GDB_Outputs".O_Spare0_6;
+	"O_Spare0_7" := "GDB_Outputs".O_Spare0_7;
+	
+	// Запись выходов байт 1 из DB
+	"O_P1AckEmStpOutSAreaLamp" := "GDB_Outputs".O_P1AckEmStpOutSAreaLamp;
+	"O_Spare1_1" := "GDB_Outputs".O_Spare1_1;
+	"O_ChilVlvAcc1" := "GDB_Outputs".O_ChilVlvAcc1;
+	"O_ChilVlvAcc2" := "GDB_Outputs".O_ChilVlvAcc2;
+	"O_P2ConvFwd" := "GDB_Outputs".O_P2ConvFwd;
+	"O_P2ConvBwd" := "GDB_Outputs".O_P2ConvBwd;
+	"O_ModSwchAcc1" := "GDB_Outputs".O_ModSwchAcc1;
+	"O_ModSwchAcc2" := "GDB_Outputs".O_ModSwchAcc2;
+	
+	// Запись выходов байт 2 из DB
+	"O_AccReqWarmUp" := "GDB_Outputs".O_AccReqWarmUp;
+	"O_AccReqXRayOn" := "GDB_Outputs".O_AccReqXRayOn;
+	"O_AccReqXRayNotOn" := "GDB_Outputs".O_AccReqXRayNotOn;
+	"O_AccReqResetFlt" := "GDB_Outputs".O_AccReqResetFlt;
+	"O_AccReqWarmUpFull" := "GDB_Outputs".O_AccReqWarmUpFull;
+	"O_AccReqMicroWaveOn" := "GDB_Outputs".O_AccReqMicroWaveOn;
+	"O_AccReqHighDozeOn" := "GDB_Outputs".O_AccReqHighDozeOn;
+	"O_Spare2_7" := "GDB_Outputs".O_Spare2_7;
+	
+	// Запись выходов байт 3 из DB
+	"O_StateSig1RedL" := "GDB_Outputs".O_StateSig1RedL;
+	"O_StateSig1YellowL" := "GDB_Outputs".O_StateSig1YellowL;
+	"O_StateSig1GreenL" := "GDB_Outputs".O_StateSig1GreenL;
+	"O_StateSig1Horn" := "GDB_Outputs".O_StateSig1Horn;
+	"O_StateSig2WhiteL" := "GDB_Outputs".O_StateSig2WhiteL;
+	"O_Spare3_5" := "GDB_Outputs".O_Spare3_5;
+	"O_Spare3_6" := "GDB_Outputs".O_Spare3_6;
+	"O_StateSig2Horn" := "GDB_Outputs".O_StateSig2Horn;
+END_FUNCTION
+

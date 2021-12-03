@@ -1,0 +1,88 @@
+﻿FUNCTION "FC_ReadInputs" : Void
+{ S7_Optimized_Access := 'FALSE' }
+VERSION : 0.1
+
+BEGIN
+	//Копирование входных сигналов в GDB101
+	
+	// Копирование входов байт 0 в DB
+	"GDB_Inputs".I_BrLigSrvFlt := "I_BrLigSrvFlt" OR "GDB_Simulation".DI.I_BrLigSrvFlt;
+	"GDB_Inputs".I_BrModFlt := "I_BrModFlt" OR "GDB_Simulation".DI.I_BrModFlt;
+	"GDB_Inputs".I_BrChilFlt := "I_BrChilFlt" OR "GDB_Simulation".DI.I_BrChilFlt;
+	"GDB_Inputs".I_BrPow1Flt := "I_BrPow1Flt" OR "GDB_Simulation".DI.I_BrPow1Flt;
+	"GDB_Inputs".I_BrPow2Flt := "I_BrPow2Flt" OR "GDB_Simulation".DI.I_BrPow2Flt;
+	"GDB_Inputs".I_BrFrqConvFlt := "I_BrFrqConvFlt" OR "GDB_Simulation".DI.I_BrFrqConvFlt;
+	"GDB_Inputs".I_BrAccConFlt := "I_BrAccConFlt" OR "GDB_Simulation".DI.I_BrAccConFlt;
+	"GDB_Inputs".I_BrXRayUnitFlt := "I_BrXRayUnitFlt" OR "GDB_Simulation".DI.I_BrXRayUnitFlt;
+	
+	// Копирование входов байт 1 в DB
+	"GDB_Inputs".I_BrPowPlcFlt := "I_BrPowPlcFlt" OR "GDB_Simulation".DI.I_BrPowPlcFlt;
+	"GDB_Inputs".I_SitopPow1Flt := "I_SitopPow1Flt" OR "GDB_Simulation".DI.I_SitopPow1Flt;
+	"GDB_Inputs".I_SitopPow2Flt := "I_SitopPow2Flt" OR "GDB_Simulation".DI.I_SitopPow2Flt;
+	"GDB_Inputs".I_BrMod1PFlt := "I_BrMod1PFlt" OR "GDB_Simulation".DI.I_BrMod1PFlt;
+	"GDB_Inputs".I_Spare1_4 := "I_Spare1_4";
+	"GDB_Inputs".I_Spare1_5 := "I_Spare1_5";
+	"GDB_Inputs".I_Spare1_6 := "I_Spare1_6";
+	"GDB_Inputs".I_Spare1_7 := "I_Spare1_7";
+	
+	// Копирование входов байт 2 в DB
+	"GDB_Inputs".I_Spare2_0 := "I_Spare2_0";
+	"GDB_Inputs".I_Spare2_1 := "I_Spare2_1";
+	"GDB_Inputs".I_Spare2_2 := "I_Spare2_2";
+	"GDB_Inputs".I_Spare2_3 := "I_Spare2_3";
+	"GDB_Inputs".I_Spare2_4 := "I_Spare2_4";
+	"GDB_Inputs".I_Spare2_5 := "I_Spare2_5";
+	"GDB_Inputs".I_Spare2_6 := "I_Spare2_6";
+	"GDB_Inputs".I_Spare2_7 := "I_Spare2_7";
+	
+	// Копирование входов байт 3 в DB
+	"GDB_Inputs".I_P2ConvLocal := "I_P2ConvLocal" OR "GDB_Simulation".DI.I_P2ConvLocal;
+	"GDB_Inputs"."I_/P2ConvLocal" := "I_/P2ConvLocal" OR "GDB_Simulation".DI."I_/P2ConvLocal";
+	"GDB_Inputs".I_P2ConvFwd := "I_P2ConvFwd" OR "GDB_Simulation".DI.I_P2ConvFwd;
+	"GDB_Inputs".I_P2ConvBwd := "I_P2ConvBwd" OR "GDB_Simulation".DI.I_P2ConvBwd;
+	"GDB_Inputs".I_Spare3_4 := "I_Spare3_4";
+	"GDB_Inputs".I_Spare3_5 := "I_Spare3_5";
+	"GDB_Inputs".I_Spare3_6 := "I_Spare3_6";
+	"GDB_Inputs".I_Spare3_7 := "I_Spare3_7";
+	
+	// Копирование входов байт 4 в DB
+	"GDB_Inputs".I_AccStRemMode := "I_AccStRemMode" OR "GDB_Simulation".DI.I_AccStRemMode;
+	"GDB_Inputs".I_AccStPowerOn := "I_AccStPowerOn" OR "GDB_Simulation".DI.I_AccStPowerOn;
+	"GDB_Inputs".I_AccStWarmUp := "I_AccStWarmUp" OR "GDB_Simulation".DI.I_AccStWarmUp;
+	"GDB_Inputs".I_AccStClear := "I_AccStClear" OR "GDB_Simulation".DI.I_AccStClear;
+	"GDB_Inputs".I_AccStReady := "I_AccStReady" OR "GDB_Simulation".DI.I_AccStReady;
+	"GDB_Inputs".I_AccStXRayOn := "I_AccStXRayOn" OR "GDB_Simulation".DI.I_AccStXRayOn;
+	"GDB_Inputs".I_AccStFault := "I_AccStFault" OR "GDB_Simulation".DI.I_AccStFault;
+	"GDB_Inputs".I_AccStNoEmStp := "I_AccStNoEmStp" OR "GDB_Simulation".DI.I_AccStNoEmStp;
+	
+	// Копирование входов байт 5 в DB
+	"GDB_Inputs".I_PSConvStpBwd := "I_PSConvStpBwd" OR "GDB_Simulation".DI.I_PSConvStpBwd;
+	"GDB_Inputs".I_PSConvSlowBwd := "I_PSConvSlowBwd" OR "GDB_Simulation".DI.I_PSConvSlowBwd;
+	"GDB_Inputs".I_PSConvSlowFwd := "I_PSConvSlowFwd" OR "GDB_Simulation".DI.I_PSConvSlowFwd;
+	"GDB_Inputs".I_PSConvStpFwd := "I_PSConvStpFwd" OR "GDB_Simulation".DI.I_PSConvStpFwd;
+	"GDB_Inputs".I_PSConvXRayBwd := "I_PSConvXRayBwd" OR "GDB_Simulation".DI.I_PSConvXRayBwd;
+	"GDB_Inputs".I_PSConvXRayFwd := "I_PSConvXRayFwd" OR "GDB_Simulation".DI.I_PSConvXRayFwd;
+	"GDB_Inputs".I_Spare5_6 := "I_Spare5_6";
+	"GDB_Inputs".I_Spare5_7 := "I_Spare5_7";
+	
+	// Копирование входов байт 6 в DB
+	"GDB_Inputs".I_ChilVlv_Acc1_Pos := "I_ChilVlv_Acc1_Pos" OR "GDB_Simulation".DI.I_ChilVlv_Acc1_Pos;
+	"GDB_Inputs".I_ChilVlv_Acc2_Pos := "I_ChilVlv_Acc2_Pos" OR "GDB_Simulation".DI.I_ChilVlv_Acc2_Pos;
+	"GDB_Inputs".I_ModSwch_Acc1_Pos := "I_ModSwch_Acc1_Pos" OR "GDB_Simulation".DI.I_ModSwch_Acc1_Pos;
+	"GDB_Inputs".I_ModSwch_Acc2_Pos := "I_ModSwch_Acc2_Pos" OR "GDB_Simulation".DI.I_ModSwch_Acc2_Pos;
+	"GDB_Inputs".I_Spare6_4 := "I_Spare6_4";
+	"GDB_Inputs".I_Spare6_5 := "I_Spare6_5";
+	"GDB_Inputs".I_Spare6_6 := "I_Spare6_6";
+	"GDB_Inputs".I_Spare6_7 := "I_Spare6_7";
+	
+	// Копирование входов байт 7 в DB
+	"GDB_Inputs".I_AccStStandby := "I_AccStStandby" OR "GDB_Simulation".DI.I_AccStStandby;
+	"GDB_Inputs".I_AccStMicroWave := "I_AccStMicroWave" OR "GDB_Simulation".DI.I_AccStMicroWave;
+	"GDB_Inputs".I_AccStHighDoze := "I_AccStHighDoze" OR "GDB_Simulation".DI.I_AccStHighDoze;
+	"GDB_Inputs".I_AccStRemouteKey := "I_AccStRemouteKey" OR "GDB_Simulation".DI.I_AccStRemouteKey;
+	"GDB_Inputs".I_AccStEmStpPanel := "I_AccStEmStpPanel" OR "GDB_Simulation".DI.I_AccStEmStpPanel;
+	"GDB_Inputs".I_Spare7_5 := "I_Spare7_5";
+	"GDB_Inputs".I_Spare7_6 := "I_Spare7_6";
+	"GDB_Inputs".I_Spare7_7 := "I_Spare7_7";
+END_FUNCTION
+
